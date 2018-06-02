@@ -1,16 +1,21 @@
 import * as React from 'react';
+import BlockList from "../Blocks/BlockList";
+
+import '../../assets/styles/styles.css';
 
 export namespace App {
-  export interface Props {}
-  export interface State {}
+  export interface Props {
+  }
+
+  export interface State {
+  }
 }
 
 export class App extends React.Component<App.Props, App.State> {
-
   render() {
     return (
       <div>
-       Hello
+        <BlockList />
       </div>
     );
   }

@@ -51,35 +51,7 @@ module.exports = {
       // css
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              query: {
-                modules: true,
-                sourceMap: !isProduction,
-                importLoaders: 1,
-                localIdentName: '[local]__[hash:base64:5]'
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: [
-                  require('postcss-import')({ addDependencyTo: webpack }),
-                  require('postcss-url')(),
-                  require('postcss-cssnext')(),
-                  require('postcss-reporter')(),
-                  require('postcss-browser-reporter')({
-                    disabled: isProduction
-                  })
-                ]
-              }
-            }
-          ]
-        })
+        use: [ 'style-loader', 'css-loader' ]
       },
       // static assets
       { test: /\.html$/, use: 'html-loader' },
