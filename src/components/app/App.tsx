@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BlockList from "../Blocks/BlockList";
+import BlockList from "../blocks/BlockList";
 
 import '../../assets/styles/styles.css';
 
