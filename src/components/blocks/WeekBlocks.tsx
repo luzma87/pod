@@ -5,33 +5,27 @@ import Block from "./Block";
 export namespace WeekBlocks {
   export interface Props {
     weekBlocks: WeekBlock
+    targetSize: number
   }
 
   export interface State {
-    targetSize: number
-    baseBlockSize: number
-    basePath: string
   }
 }
 
 export default class WeekBlocks extends React.Component<WeekBlocks.Props, WeekBlocks.State> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      targetSize: 100,
-      baseBlockSize: 10,
-      basePath: '../../assets/images'
-    };
+
+  getBlockSize(): BlockSize {
+    const weekBlocks = this.props.weekBlocks;
+    const targetSize = this.props.targetSize;
+    const w = weekBlocks.size.width;
+    const h = weekBlocks.size.height;
+    let ratio = w / targetSize;
+    return {width: w / ratio, height: h / ratio};
   }
 
   render() {
     const weekBlocks = this.props.weekBlocks;
-    const targetSize = this.state.targetSize;
-    const baseBlockSize = this.state.baseBlockSize;
     const week = weekBlocks.week;
-    const width = targetSize * weekBlocks.size.width / baseBlockSize;
-    const height = targetSize * weekBlocks.size.height / baseBlockSize;
-    const size: BlockSize = {width, height};
     const title = weekBlocks.name;
     return (
       <>
@@ -40,7 +34,7 @@ export default class WeekBlocks extends React.Component<WeekBlocks.Props, WeekBl
             key={`block-${week}-${block.number}`}
             block={block}
             week={week}
-            size={size}
+            size={this.getBlockSize()}
             title={title}
           />
         ))}

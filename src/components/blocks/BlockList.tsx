@@ -18,6 +18,7 @@ export default class BlockList extends React.Component<BlockList.Props, BlockLis
       {blocks.weeks.map(block => <WeekBlocks
         key={`W-${block.week}`}
         weekBlocks={block}
+        targetSize={100}
       />)}
     </div>);
   }
