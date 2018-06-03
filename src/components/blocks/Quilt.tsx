@@ -15,8 +15,11 @@ export namespace Quilt {
 }
 
 const blockTarget = {
-  drop(props) {
-    console.log('dropped', props);
+  drop(props, monitor, component) {
+    return {
+      type: 'quilt'
+    }
+    // console.log('dropped', props, monitor, component);
   }
 };
 

@@ -21,12 +21,18 @@ export namespace Block {
 
 const blockSource = {
   beginDrag(props) {
+    console.log('begin', props);
     return {
       block: props.block,
       week: props.week,
       size: props.size,
       title: props.title,
     };
+  },
+  endDrag(props, monitor, component) {
+    // console.log('dropped', props, monitor, component);
+    console.log('dropped');
+    console.log(monitor.getDropResult());
   }
 };
 
@@ -53,7 +59,7 @@ class Block extends React.Component<Block.Props, Block.State> {
   render() {
     let props = this.props;
     let block = props.block;
-    const { connectDragSource} = this.props;
+    const {connectDragSource} = this.props;
     return connectDragSource(<img
       className="block"
       src={this.getFileName(props.week, block.number)}
