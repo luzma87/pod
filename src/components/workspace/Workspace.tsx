@@ -3,6 +3,7 @@ import FormControl from "@material-ui/core/FormControl/FormControl";
 import InputLabel from "@material-ui/core/InputLabel/InputLabel";
 import Select from "@material-ui/core/Select/Select";
 import MenuItem from "@material-ui/core/MenuItem/MenuItem";
+import Quilt from "../blocks/Quilt";
 
 export namespace Workspace {
   export interface Props {
@@ -121,18 +122,11 @@ export default class Workspace extends React.Component<Workspace.Props, Workspac
         {this.blockSizeSelect()}
         {this.quiltSizeSelect()}
         {this.multiplierSelect()}
-
-        <div
-          style={{
-            marginTop: 15,
-            border: "solid 1px #555",
-            width: quiltW * multiplier,
-            height: quiltH * multiplier
-          }}
-        >
-        </div>
-
-
+        <Quilt
+          width={quiltW}
+          height={quiltH}
+          multiplier={multiplier}
+        />
       </div>);
   }
 }
