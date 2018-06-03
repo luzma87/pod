@@ -1,4 +1,5 @@
 import * as React from "react";
+import {DragSource} from 'react-dnd';
 
 const _ = require('lodash');
 import {BlockSize, BlockVariation} from "../../util/types";
@@ -9,6 +10,8 @@ export namespace Block {
     week: number
     size: BlockSize
     title: string
+    isDragging: boolean
+    connectDragSource: any
   }
 
   export interface State {
@@ -16,7 +19,25 @@ export namespace Block {
   }
 }
 
-export default class Block extends React.Component<Block.Props, Block.State> {
+const blockSource = {
+  beginDrag(props) {
+    return {
+      block: props.block,
+      week: props.week,
+      size: props.size,
+      title: props.title,
+    };
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  };
+}
+
+class Block extends React.Component<Block.Props, Block.State> {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,12 +53,15 @@ export default class Block extends React.Component<Block.Props, Block.State> {
   render() {
     let props = this.props;
     let block = props.block;
-    return <img
+    const { connectDragSource} = this.props;
+    return connectDragSource(<img
       className="block"
       src={this.getFileName(props.week, block.number)}
       title={`W${props.week} - ${this.props.title} - ${block.name}`}
       width={props.size.width}
       height={props.size.height}
-    />;
+    />);
   }
 }
+
+export default DragSource('BLOCK', blockSource, collect)(Block);
