@@ -1,5 +1,6 @@
 import * as React from "react";
 import {DropTarget} from 'react-dnd';
+import {WeekBlock} from "../../util/types";
 
 export namespace Quilt {
   export interface Props {
@@ -8,6 +9,7 @@ export namespace Quilt {
     multiplier: number
     connectDropTarget: any
     isOver: boolean
+    selectedBlocks: Array<WeekBlock>
   }
 
   export interface State {
@@ -16,10 +18,10 @@ export namespace Quilt {
 
 const blockTarget = {
   drop(props, monitor, component) {
+    console.log('dropped QUILT', props, monitor, component);
     return {
       type: 'quilt'
     }
-    // console.log('dropped', props, monitor, component);
   }
 };
 
@@ -45,6 +47,8 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
           height: props.height * props.multiplier
         }}
       >
+        {this.props.selectedBlocks.map((block, index) =>
+          <div key={`qb-${index}`}>{block.name}</div>)}
       </div>
     );
   }

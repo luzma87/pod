@@ -6,6 +6,9 @@ export namespace WeekBlocks {
   export interface Props {
     weekBlocks: WeekBlock
     targetSize: number
+    onDragStart: (WeekBlock) => void
+    onDragReset: () => void
+    onDragEnd: () => void
   }
 
   export interface State {
@@ -36,6 +39,9 @@ export default class WeekBlocks extends React.Component<WeekBlocks.Props, WeekBl
             week={week}
             size={this.getBlockSize()}
             title={title}
+            onDragStart={(block) => this.props.onDragStart(block)}
+            onDragReset={() => this.props.onDragReset()}
+            onDragEnd={() => this.props.onDragEnd()}
           />
         ))}
       </>

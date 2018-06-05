@@ -4,9 +4,11 @@ import InputLabel from "@material-ui/core/InputLabel/InputLabel";
 import Select from "@material-ui/core/Select/Select";
 import MenuItem from "@material-ui/core/MenuItem/MenuItem";
 import Quilt from "../blocks/Quilt";
+import {WeekBlock} from "../../util/types";
 
 export namespace Workspace {
   export interface Props {
+    selectedBlocks: Array<WeekBlock>
   }
 
   export interface State {
@@ -126,6 +128,7 @@ export default class Workspace extends React.Component<Workspace.Props, Workspac
           width={quiltW}
           height={quiltH}
           multiplier={multiplier}
+          selectedBlocks={this.props.selectedBlocks}
         />
       </div>);
   }

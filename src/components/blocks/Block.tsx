@@ -12,6 +12,9 @@ export namespace Block {
     title: string
     isDragging: boolean
     connectDragSource: any
+    onDragStart: (WeekBlock) => void
+    onDragReset: () => void
+    onDragEnd: () => void
   }
 
   export interface State {
@@ -21,7 +24,7 @@ export namespace Block {
 
 const blockSource = {
   beginDrag(props) {
-    console.log('begin', props);
+    props.onDragStart(props.block);
     return {
       block: props.block,
       week: props.week,
@@ -31,8 +34,13 @@ const blockSource = {
   },
   endDrag(props, monitor, component) {
     // console.log('dropped', props, monitor, component);
-    console.log('dropped');
+    // console.log('dropped', props);
     console.log(monitor.getDropResult());
+    if (monitor.getDropResult() === null) {
+      props.onDragReset();
+    } else {
+      props.onDragEnd();
+    }
   }
 };
 
