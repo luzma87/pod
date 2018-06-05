@@ -36,6 +36,13 @@ const weeksBlocks: Array<WeekBlock> = [
       {number: 2, name: 'Hand of Glory', tags: ['hand of glory']},
     ],
   },
+  {
+    name: 'Books', week: 5, size: {width: 10, height: 10},
+    tags: ['books'],
+    variations: [
+      {number: 0, name: 'original', tags: ['glasses']},
+    ],
+  },
 ];
 
 const blocks = {

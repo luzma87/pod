@@ -34,6 +34,7 @@ function collect(connect, monitor) {
 
 class Quilt extends React.Component<Quilt.Props, Quilt.State> {
   render() {
+    const s = 100;
     const {connectDropTarget, isOver} = this.props;
     const background = isOver ? 'red' : 'white';
     let props = this.props;
@@ -49,6 +50,33 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
       >
         {this.props.selectedBlocks.map((block, index) =>
           <div key={`qb-${index}`}>{block.name}</div>)}
+
+        <img
+          src='../../assets/images/001-0.svg'
+          width={s}
+          height={s}
+        />
+        <img
+          src='../../assets/images/002-0.svg'
+          width={s}
+          height={s}
+        />
+        <img
+          src='../../assets/images/003-0.svg'
+          width={s}
+          height={s}
+        />
+        <img
+          src='../../assets/images/004-0.svg'
+          width={s}
+          height={s}
+        />
+        <img
+          src='../../assets/images/005-0.svg'
+          width={s}
+          height={s}
+        />
+
       </div>
     );
   }
