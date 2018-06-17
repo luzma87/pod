@@ -36,7 +36,7 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
   render() {
     const {connectDropTarget, isOver, width, height, multiplier} = this.props;
 
-    const background = isOver ? 'red' : 'whitesmoke';
+    const background = isOver ? 'thistle' : 'whitesmoke';
     return connectDropTarget && connectDropTarget(
       <div
         className="quilt"
