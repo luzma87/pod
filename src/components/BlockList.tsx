@@ -19,7 +19,10 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
         <div className="searchContainer">
           <input type="text" />
         </div>
-        {blocks.map(block => <BlockCard block={block} />)}
+        {blocks.map(block => <BlockCard
+          key={`${block.week}.${block.number}`}
+          block={block}
+        />)}
       </div>
     );
   }

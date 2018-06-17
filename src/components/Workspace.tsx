@@ -105,7 +105,12 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
           {this.quiltSizeSelect()}
           {this.multiplierSelect()}
         </div>
-        <Quilt width={quiltW} height={quiltH} multiplier={multiplier} />
+        <Quilt
+          width={quiltW}
+          height={quiltH}
+          multiplier={multiplier}
+          selectedBlocks={[]}
+        />
       </div>
     );
   }
