@@ -6,6 +6,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import '../assets/styles/styles.css';
 import {Block} from "../util/types";
 import BlockList from "./BlockList";
+import Workspace from "./Workspace";
 
 export namespace App {
   export interface Props {
@@ -32,7 +33,9 @@ class App extends React.Component<App.Props, App.State> {
         <div className="left">
           <BlockList />
         </div>
-        <div className="right"></div>
+        <div className="right">
+          <Workspace />
+        </div>
       </div>
     );
   }

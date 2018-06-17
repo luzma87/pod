@@ -53,8 +53,20 @@ body {
 
 .cardContent {
   padding: 2px 16px;
+  /*font-family: 'Indie Flower', cursive;*/
 }
 
 .card img {
   border-radius: 5px 5px 0 0;
+}
+
+.workspace {
+  padding: 16px 8px;
+}
+
+.quilt {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: whitesmoke;
+  margin: 16px 8px;
+  border-radius: 0;
 }
