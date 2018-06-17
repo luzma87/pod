@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {ConnectDropTarget, DropTarget} from 'react-dnd';
 import {doneDraggingBlock, getSelectedBlocks} from "../interactions";
+import BlockImage from "./BlockImage";
 
 export namespace Quilt {
   export interface Props {
@@ -45,12 +46,12 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
           height: height * multiplier
         }}
       >
-        {getSelectedBlocks().map((block, index) => {
-          return (
-            <div key={`${block.week}.${block.number}.${index}`}>
-              {block.name}
-            </div>)
-        })}
+        {getSelectedBlocks().map((block, index) => (
+          <BlockImage
+            block={block}
+            key={`${block.week}.${block.number}.${index}`}
+          />
+        ))}
       </div>
     );
   }
