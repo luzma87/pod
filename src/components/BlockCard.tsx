@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {DragSource, ConnectDragPreview, ConnectDragSource} from 'react-dnd';
+import {DragSource, ConnectDragSource} from 'react-dnd';
 
 import {Block} from "../util/types";
 import BlockImage from "./BlockImage";
@@ -11,7 +11,6 @@ export namespace BlockCard {
 
     isDragging?: boolean
     connectDragSource?: ConnectDragSource
-    connectDragPreview?: ConnectDragPreview
   }
 
   export interface State {
@@ -28,7 +27,6 @@ const blockSource = {
 function collect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
-    connectDragPreview: connect.dragPreview(),
     isDragging: monitor.isDragging()
   };
 }

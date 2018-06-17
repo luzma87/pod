@@ -18,11 +18,8 @@ export namespace Quilt {
 
 const blockTarget = {
   drop(props, monitor, component) {
-    console.log('dropped QUILT', props, monitor, component);
     doneDraggingBlock();
-    return {
-      type: 'quilt'
-    }
+    return {};
   }
 };
 
@@ -48,8 +45,11 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
           height: height * multiplier
         }}
       >
-        {getSelectedBlocks().map(block => {
-          return <div key={`${block.week}.${block.number}`}>{block.name}</div>
+        {getSelectedBlocks().map((block, index) => {
+          return (
+            <div key={`${block.week}.${block.number}.${index}`}>
+              {block.name}
+            </div>)
         })}
       </div>
     );

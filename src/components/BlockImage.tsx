@@ -13,7 +13,7 @@ export namespace BlockImage {
   }
 }
 
-const basePath = '../assets/images';
+const basePath = '../assets/images/blocks';
 const targetBlockSize = 100;
 
 const getFileName = (week: number, number: number): string => {
