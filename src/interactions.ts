@@ -11,18 +11,6 @@ function emitChange() {
   }
 }
 
-export function observe(o: BlockObserver) {
-  if (observer) {
-    throw new Error('Multiple observers not implemented.')
-  }
-  observer = o;
-  emitChange();
-
-  return () => {
-    observer = null;
-  }
-}
-
 export function getSelectedBlocks() {
   return selectedBlocks;
 }
