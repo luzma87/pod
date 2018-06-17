@@ -101,16 +101,18 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
 
     return (
       <div className="workspace">
-        <div>
+        <div className="quiltControlsContainer">
           {this.quiltSizeSelect()}
           {this.multiplierSelect()}
         </div>
-        <Quilt
-          width={quiltW}
-          height={quiltH}
-          multiplier={multiplier}
-          selectedBlocks={[]}
-        />
+        <div className="quiltContainer">
+          <Quilt
+            width={quiltW}
+            height={quiltH}
+            multiplier={multiplier}
+            selectedBlocks={[]}
+          />
+        </div>
       </div>
     );
   }

@@ -34,17 +34,18 @@ function collect(connect, monitor) {
 class BlockCard extends React.Component<BlockCard.Props, BlockCard.State> {
   render() {
     const {connectDragSource, isDragging, block} = this.props;
-    const title = `Week ${block.week} - ${block.name} [${block.type}]`;
     return connectDragSource && connectDragSource(
       <div
         className="card block"
-        title={title}
         style={{
           cursor: 'move',
           opacity: isDragging ? 0.5 : 1,
         }}
       >
-        <BlockImage block={block} />
+        <BlockImage
+          block={block}
+          targetWidth={100}
+        />
         <div className="cardContent">
           w.{block.week} [{block.number}]
         </div>

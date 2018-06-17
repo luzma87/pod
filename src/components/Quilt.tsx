@@ -48,6 +48,7 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
       >
         {getSelectedBlocks().map((block, index) => (
           <BlockImage
+            targetWidth={block.size.width * multiplier}
             block={block}
             key={`${block.week}.${block.number}.${index}`}
           />

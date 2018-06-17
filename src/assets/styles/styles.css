@@ -61,7 +61,20 @@ body {
 }
 
 .workspace {
+  box-sizing: border-box;
   padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+}
+
+.quiltContainer {
+  flex: 1;
+  overflow: auto;
+}
+
+.quiltControlsContainer {
 }
 
 .quilt {
