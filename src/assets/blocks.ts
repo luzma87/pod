@@ -33,20 +33,20 @@ const blocks: Array<Block> = [
   },
   {
     week: 3, number: 1,
-    name: 'Books', size: {width: 10, height: 10},
-    tags: ['books'],
+    name: 'Books with potion bottle', size: {width: 10, height: 10},
+    tags: ['books', 'potion', 'bottle'],
     type: 'original'
   },
   {
     week: 3, number: 2,
-    name: 'Books with potion bottle', size: {width: 10, height: 10},
-    tags: ['books', 'potion', 'bottle'],
+    name: 'Books with Deathly Hallows', size: {width: 10, height: 10},
+    tags: ['books', 'deathly', 'hallows'],
     type: 'variation'
   },
   {
     week: 3, number: 3,
-    name: 'Books with Deathly Hallows', size: {width: 10, height: 10},
-    tags: ['books', 'deathly', 'hallows'],
+    name: 'Books with Dark Mark', size: {width: 10, height: 10},
+    tags: ['books', 'dark', 'mark'],
     type: 'variation'
   },
   {
