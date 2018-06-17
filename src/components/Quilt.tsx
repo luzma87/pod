@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {ConnectDropTarget, DropTarget} from 'react-dnd';
-import {doneDraggingBlock, getSelectedBlocks} from "../interactions";
+import {doneDraggingBlock, getSelectedBlocks, removeBlock} from "../interactions";
 import BlockImage from "./BlockImage";
+import {Block} from "../util/types";
 
 export namespace Quilt {
   export interface Props {
@@ -14,6 +15,7 @@ export namespace Quilt {
   }
 
   export interface State {
+    selectedBlocks: Block[]
   }
 }
 
@@ -33,6 +35,19 @@ function collect(connect, monitor) {
 
 
 class Quilt extends React.Component<Quilt.Props, Quilt.State> {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedBlocks: getSelectedBlocks()
+    }
+  }
+
+  removeBlock(index) {
+    removeBlock(index);
+    this.setState({selectedBlocks: getSelectedBlocks()})
+  }
+
   render() {
     const {connectDropTarget, isOver, width, height, multiplier} = this.props;
 
@@ -46,12 +61,17 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
           height: height * multiplier
         }}
       >
-        {getSelectedBlocks().map((block, index) => (
-          <BlockImage
-            targetWidth={block.size.width * multiplier}
-            block={block}
+        {this.state.selectedBlocks.map((block, index) => (
+          <div
             key={`${block.week}.${block.number}.${index}`}
-          />
+            className="quiltBlock"
+            onClick={() => this.removeBlock(index)}
+          >
+            <BlockImage
+              targetWidth={block.size.width * multiplier}
+              block={block}
+            />
+          </div>
         ))}
       </div>
     );

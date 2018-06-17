@@ -26,3 +26,8 @@ export function doneDraggingBlock() {
     emitChange();
   }
 }
+
+export function removeBlock(index: number) {
+  selectedBlocks.splice(index, 1);
+  emitChange();
+}

@@ -82,3 +82,8 @@ body {
   margin: 16px 8px;
   border-radius: 0;
 }
+
+.quiltBlock {
+  cursor: no-drop;
+  display: inline-block;
+}
