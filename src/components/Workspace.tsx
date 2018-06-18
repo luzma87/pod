@@ -34,7 +34,7 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
     this.state = {
       blockSize: 10,
       quiltSize: 'queen',
-      multiplier: 5
+      multiplier: 8
     };
   }
 
@@ -103,7 +103,7 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
       <div className="workspace">
         <div className="quiltControlsContainer">
           {this.quiltSizeSelect()}
-          {this.multiplierSelect()}
+          {/*{this.multiplierSelect()}*/}
         </div>
         <div className="quiltContainer">
           <Quilt

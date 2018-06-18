@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {ConnectDropTarget, DropTarget} from 'react-dnd';
-import {doneDraggingBlock, getSelectedBlocks, removeBlock} from "../interactions";
-import BlockImage from "./BlockImage";
+import {doneDraggingBlock, getSelectedBlocks} from "../interactions";
 import {Block} from "../util/types";
+import BlockQuilt from "./BlockQuilt";
 
 export namespace Quilt {
   export interface Props {
@@ -21,7 +21,8 @@ export namespace Quilt {
 
 const blockTarget = {
   drop(props, monitor, component) {
-    doneDraggingBlock();
+    let clientOffset = monitor.getClientOffset();
+    doneDraggingBlock(clientOffset);
     return {};
   }
 };
@@ -43,17 +44,13 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
     }
   }
 
-  removeBlock(index) {
-    removeBlock(index);
-    this.setState({selectedBlocks: getSelectedBlocks()})
-  }
-
   render() {
     const {connectDropTarget, isOver, width, height, multiplier} = this.props;
 
     const background = isOver ? 'thistle' : 'whitesmoke';
     return connectDropTarget && connectDropTarget(
       <div
+        id="quiltDiv"
         className="quilt"
         style={{
           background,
@@ -61,18 +58,17 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
           height: height * multiplier
         }}
       >
-        {this.state.selectedBlocks.map((block, index) => (
-          <div
-            key={`${block.week}.${block.number}.${index}`}
-            className="quiltBlock"
-            onClick={() => this.removeBlock(index)}
-          >
-            <BlockImage
-              targetWidth={block.size.width * multiplier}
+        {this.state.selectedBlocks.map((block, index) => {
+          let key = `quilt_block_${block.week}.${block.number}.${index}`;
+          return (
+            <BlockQuilt
+              key={key}
               block={block}
+              index={index}
+              targetWidth={block.size.width * multiplier}
             />
-          </div>
-        ))}
+          );
+        })}
       </div>
     );
   }

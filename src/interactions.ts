@@ -1,6 +1,11 @@
-import {Block} from "./util/types";
+import snapToGrid from "./util/snapToGrid";
+
+const _ = require('lodash');
+
+import {Block, BlockPosition} from "./util/types";
 
 let selectedBlocks: Block[] = [];
+let shouldClone: boolean = true;
 let draggingBlock: Block | null = null;
 export type BlockObserver = ((blocks: Block[]) => void) | null;
 let observer: BlockObserver = null;
@@ -15,13 +20,39 @@ export function getSelectedBlocks() {
   return selectedBlocks;
 }
 
-export function beginDraggingBlock(block: Block) {
+export function beginDraggingBlock(block: Block, clones: boolean) {
   draggingBlock = block;
+  shouldClone = clones;
+  emitChange();
 }
 
-export function doneDraggingBlock() {
+export function doneDraggingBlock(position: BlockPosition) {
+  let elementById = document.getElementById('quiltDiv');
+  let referenceTop = 0;
+  let referenceLeft = 0;
+  if (elementById !== null) {
+    let rect = elementById.getBoundingClientRect();
+    referenceTop = rect.top;
+    referenceLeft = rect.left;
+  }
   if (draggingBlock !== null) {
-    selectedBlocks.push(draggingBlock);
+    let newBlock;
+    if (shouldClone) {
+      newBlock = _.cloneDeep(draggingBlock);
+    } else {
+      newBlock = draggingBlock;
+    }
+    const gs = (newBlock.size.width / 5) * 8;
+    let snapToGrid1 = snapToGrid(position.x, position.y, referenceLeft, referenceTop, gs);
+    console.log(snapToGrid1);
+    newBlock.position = {
+      x: snapToGrid1[0],
+      y: snapToGrid1[1]
+    };
+    console.log("new block", newBlock.position);
+    if (shouldClone) {
+      selectedBlocks.push(newBlock);
+    }
     draggingBlock = null;
     emitChange();
   }

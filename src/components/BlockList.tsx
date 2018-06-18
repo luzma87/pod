@@ -20,8 +20,9 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
           <input type="text" />
         </div>
         {blocks.map(block => <BlockCard
-          key={`${block.week}.${block.number}`}
+          key={`list_${block.week}.${block.number}`}
           block={block}
+          targetWidth={block.size.width * 8}
         />)}
       </div>
     );
