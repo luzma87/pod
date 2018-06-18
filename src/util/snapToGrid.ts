@@ -1,15 +1,12 @@
+function getSnappedValue(value, reference, gridSize) {
+  let corrected = value - reference;
+  let gridPosition = Math.round(corrected / gridSize);
+  return reference + (gridPosition * gridSize);
+}
+
 export default function snapToGrid(x: number, y: number, refX: number, refY: number, gridSize: number) {
+  const snappedX = getSnappedValue(x, refX, gridSize);
+  const snappedY = getSnappedValue(y, refY, gridSize);
 
-  let correctedX = x - refX;
-  let gridPositionX = Math.round(correctedX / gridSize);
-  const snappedX = refX + (gridPositionX * gridSize);
-
-  let correctedY = y - refY;
-  let gridPositionY = Math.round(correctedY / gridSize);
-  const snappedY = refY + (gridPositionY * gridSize);
-
-
-  // const snappedX = Math.round(x / 32) * 32
-  // const snappedY = Math.round(y / 32) * 32
   return [snappedX, snappedY]
 }
