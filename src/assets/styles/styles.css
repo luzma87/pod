@@ -12,7 +12,7 @@ body {
 
 .left {
   box-sizing: border-box;
-  width: 350px;
+  width: 270px;
   margin-right: 1vh;
   box-shadow: -1px 4px 8px 4px rgba(0, 0, 0, 0.2);
 }
@@ -21,6 +21,7 @@ body {
   box-sizing: border-box;
   flex: 1;
   box-shadow: -1px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  overflow: auto;
 }
 
 .blockListContainer {

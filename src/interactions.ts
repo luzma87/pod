@@ -3,6 +3,7 @@ import snapToGrid from "./util/snapToGrid";
 const _ = require('lodash');
 
 import {Block, BlockPosition} from "./util/types";
+import constants from "./util/constants";
 
 let selectedBlocks: Block[] = [];
 let shouldClone: boolean = true;
@@ -42,8 +43,8 @@ export function doneDraggingBlock(position: BlockPosition) {
     } else {
       newBlock = draggingBlock;
     }
-    const gs = (newBlock.size.width / 5) * 8;
-    let snapToGrid1 = snapToGrid(position.x, position.y, referenceLeft, referenceTop, gs);
+    const gridSize = 2.5 * constants.inchMultiplier;
+    let snapToGrid1 = snapToGrid(position.x, position.y, referenceLeft, referenceTop, gridSize);
     console.log(snapToGrid1);
     newBlock.position = {
       x: snapToGrid1[0],

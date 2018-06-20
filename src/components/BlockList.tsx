@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import blocks from '../assets/blocks';
 import BlockCard from "./BlockCard";
+import constants from "../util/constants";
 
 export namespace BlockList {
   export interface Props {
@@ -22,7 +23,7 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
         {blocks.map(block => <BlockCard
           key={`list_${block.week}.${block.number}`}
           block={block}
-          targetWidth={block.size.width * 8}
+          targetWidth={block.size.width * constants.inchMultiplier}
         />)}
       </div>
     );

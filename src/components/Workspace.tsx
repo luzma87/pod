@@ -6,6 +6,7 @@ import Select from "@material-ui/core/Select/Select";
 import MenuItem from "@material-ui/core/MenuItem/MenuItem";
 
 import Quilt from "./Quilt";
+import constants from "../util/constants";
 
 export namespace Workspace {
   export interface Props {
@@ -34,7 +35,7 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
     this.state = {
       blockSize: 10,
       quiltSize: 'queen',
-      multiplier: 8
+      multiplier: constants.inchMultiplier
     };
   }
 
