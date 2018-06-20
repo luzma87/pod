@@ -2,28 +2,42 @@ import {Block} from '../util/types';
 
 const blocks: Array<Block> = [
   {
+    week: null, number: null,
+    name: 'Brown Shelf', size: {width: 2.5, height: 2.5},
+    tags: ['border', 'shelf'],
+    type: 'original',
+    file: 'wood',
+  },
+  {
+    week: null, number: null,
+    name: 'Gray Shelf', size: {width: 2.5, height: 2.5},
+    tags: ['border', 'shelf'],
+    type: 'original',
+    file: 'stone',
+  },
+  {
     week: 1, number: 1,
     name: 'Crystal Ball', size: {width: 10, height: 10},
-    tags: ['books', 'crystal ball'],
+    tags: ['books', 'crystal', 'ball'],
     type: 'original'
   },
   {
     week: 1, number: 2,
     name: 'Crystal Ball with optional extra book', size: {width: 10, height: 10},
-    tags: ['books', 'crystal ball'],
+    tags: ['books', 'crystal', 'ball'],
     type: 'variation'
   },
   {
     week: 1, number: 3,
     name: 'Crystal Ball with alternative base', size: {width: 10, height: 10},
-    tags: ['books', 'crystal ball'],
+    tags: ['books', 'crystal', 'ball'],
     type: 'variation'
   },
   {
     week: 2, number: 1,
     name: 'Books', size: {width: 10, height: 10},
-    tags: ['books'], type:
-      'original'
+    tags: ['books'],
+    type: 'original'
   },
   {
     week: 2, number: 2,

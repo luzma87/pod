@@ -11,12 +11,13 @@ export interface BlockPosition {
 }
 
 export interface Block {
-  week: number,
-  number: number,
+  week: number | null,
+  number: number | null,
   name: string,
   size: BlockSize,
   tags: Array<string>,
   type: 'original' | 'variation' | 'supplemental',
   author?: string
   position?: BlockPosition
+  file?: string
 }

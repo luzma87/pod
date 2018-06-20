@@ -43,7 +43,7 @@ export function doneDraggingBlock(position: BlockPosition) {
     } else {
       newBlock = draggingBlock;
     }
-    const gridSize = 2.5 * constants.inchMultiplier;
+    const gridSize = constants.minBlockSize * constants.inchMultiplier;
     let snapToGrid1 = snapToGrid(position.x, position.y, referenceLeft, referenceTop, gridSize);
     console.log(snapToGrid1);
     newBlock.position = {

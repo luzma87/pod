@@ -40,9 +40,17 @@ function collect(connect, monitor) {
 
 const basePath = '../assets/images/blocks';
 
-const getFileName = (week: number, number: number): string => {
-  const weekPart = _.padStart(week, 3, '0');
-  return `${basePath}/${weekPart}-${number}.svg`;
+const getFileName = (block: Block): string => {
+  const week = block.week;
+  const number = block.number;
+  if (week !== null && number !== null) {
+    const weekPart = _.padStart(week, 3, '0');
+    return `${basePath}/${weekPart}-${number}.svg`;
+  }
+  if (block.file !== null && block.file !== undefined) {
+    return `${basePath}/${block.file}.svg`;
+  }
+  return '';
 };
 
 class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
@@ -89,7 +97,7 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
           <img
             id={id}
             title={title}
-            src={getFileName(block.week, block.number)}
+            src={getFileName(block)}
             width={blockSize.width}
             height={blockSize.height}
             onMouseEnter={() => this.setShowHandle(true)}
