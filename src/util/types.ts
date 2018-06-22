@@ -17,6 +17,7 @@ export interface Block {
   size: BlockSize,
   tags: Array<string>,
   type: 'original' | 'variation' | 'supplemental',
+  difficulty: number,
   author?: string
   position?: BlockPosition
   file?: string
