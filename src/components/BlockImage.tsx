@@ -5,6 +5,7 @@ import {beginDraggingBlock} from "../interactions";
 const _ = require('lodash');
 
 import {Block, BlockSize} from "../util/types";
+import constants from "../util/constants";
 
 export namespace BlockImage {
   export interface Props {
@@ -38,17 +39,18 @@ function collect(connect, monitor) {
   };
 }
 
-const basePath = '../assets/images/blocks';
+const basePath = constants.baseImagesPath;
 
 const getFileName = (block: Block): string => {
   const week = block.week;
   const number = block.number;
+  const blockFolder = block.type === 'original' || block.type === 'variation' ? 'weekly' : block.type;
   if (week !== null && number !== null) {
     const weekPart = _.padStart(week, 3, '0');
-    return `${basePath}/${weekPart}-${number}.svg`;
+    return `${basePath}/${blockFolder}/${weekPart}-${number}.svg`;
   }
   if (block.file !== null && block.file !== undefined) {
-    return `${basePath}/${block.file}.svg`;
+    return `${basePath}/${blockFolder}/${block.file}.svg`;
   }
   return '';
 };
@@ -74,7 +76,8 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
     const {connectDragSource, connectDragPreview, isDragging, block} = this.props;
 
     const blockSize = this.getBlockSize(block.size);
-    const title = `Week ${block.week} - ${block.name} (${block.type}) [${block.size.width}"x${block.size.height}"]`;
+    const weekTitle = block.week !== null ? `Week ${block.week} - ` : '';
+    const title = `${weekTitle}${block.name} (${block.type}) [${block.size.width}"x${block.size.height}"]`;
     const key = `block_w${block.week}_${block.number}`;
     const id = this.props.id || key;
     return connectDragPreview &&
