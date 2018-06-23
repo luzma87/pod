@@ -515,6 +515,41 @@ const blocks: Array<Block> = [
     type: 'variation',
     difficulty: 3,
   },
+  {
+    week: 20, number: 1,
+    name: 'Candle', size: {width: 10, height: 10},
+    tags: ['books', 'candle'],
+    type: 'original',
+    difficulty: 3,
+  },
+  {
+    week: 20, number: 2,
+    name: 'Bluebell Flame in a Jam Jar', size: {width: 10, height: 10},
+    tags: ['books', 'bluebell', 'flame', 'jam', 'jar'],
+    type: 'variation',
+    difficulty: 3,
+  },
+  {
+    week: 21, number: 1,
+    name: 'Sorting Hat', size: {width: 20, height: 10},
+    tags: ['books', 'sorting', 'hat'],
+    type: 'original',
+    difficulty: 3,
+  },
+  {
+    week: 21, number: 2,
+    name: 'Sorting Hat with Crookshanks', size: {width: 20, height: 10},
+    tags: ['books', 'sorting', 'hat','cat','crookshanks'],
+    type: 'variation',
+    difficulty: 3,
+  },
+  {
+    week: 21, number: 3,
+    name: 'Nagini', size: {width: 20, height: 10},
+    tags: ['books', 'nagini'],
+    type: 'variation',
+    difficulty: 3,
+  },
 ];
 
 export {blocks as default};
