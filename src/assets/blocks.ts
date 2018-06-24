@@ -2,22 +2,6 @@ import {Block} from '../util/types';
 
 const blocks: Array<Block> = [
   {
-    week: null, number: null,
-    name: 'Brown Shelf', size: {width: 2.5, height: 2.5},
-    tags: ['border', 'shelf'],
-    type: 'border',
-    file: 'wood',
-    difficulty: 1,
-  },
-  {
-    week: null, number: null,
-    name: 'Gray Shelf', size: {width: 2.5, height: 2.5},
-    tags: ['border', 'shelf'],
-    type: 'border',
-    file: 'stone',
-    difficulty: 1,
-  },
-  {
     week: 1, number: 1,
     name: 'Crystal Ball', size: {width: 10, height: 10},
     tags: ['books', 'crystal', 'ball'],

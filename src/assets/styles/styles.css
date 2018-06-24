@@ -90,6 +90,15 @@ body {
 .quiltControlsContainer {
 }
 
+.quiltTarget {
+  box-sizing: border-box;
+  border: solid 0.5px #ddd;
+}
+
+.quiltTarget:hover {
+  background-color: pink !important;
+}
+
 .quilt {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 16px 8px;
