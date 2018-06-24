@@ -20,11 +20,17 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
         <div className="searchContainer">
           <input type="text" />
         </div>
-        {blocks.map(block => <BlockCard
-          key={`list_${block.week}.${block.number}`}
-          block={block}
-          targetWidth={block.size.width * constants.inchMultiplier}
-        />)}
+        {blocks.map(block => {
+          let key = `list_${block.week}.${block.number}`;
+          if (block.week === null) {
+            key = `list_${block.name}`;
+          }
+          return (<BlockCard
+            key={key}
+            block={block}
+            targetWidth={block.size.width * constants.inchMultiplier}
+          />);
+        })}
       </div>
     );
   }

@@ -12,7 +12,7 @@ body {
 
 .left {
   box-sizing: border-box;
-  width: 270px;
+  width: 290px;
   margin-right: 1vh;
   box-shadow: -1px 4px 8px 4px rgba(0, 0, 0, 0.2);
 }
@@ -65,6 +65,7 @@ body {
 
 .cardContent {
   padding: 2px 16px;
+  font-size: 10pt;
   /*font-family: 'Indie Flower', cursive;*/
 }
 

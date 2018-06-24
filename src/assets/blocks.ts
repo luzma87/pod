@@ -656,14 +656,14 @@ const blocks: Array<Block> = [
     difficulty: 3,
   },
   {
-    week: 27, number: 2,
+    week: 27, number: 3,
     name: 'Half-Moon Spectacles', size: {width: 10, height: 10},
     tags: ['books', 'half', 'moon', 'spectacles', 'glasses'],
     type: 'variation',
     difficulty: 3,
   },
   {
-    week: 27, number: 3,
+    week: 27, number: 4,
     name: 'Chocolate Frog Box', size: {width: 10, height: 10},
     tags: ['books', 'chocolate', 'frog', 'box'],
     type: 'variation',

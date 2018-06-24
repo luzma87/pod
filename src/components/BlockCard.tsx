@@ -16,7 +16,10 @@ export namespace BlockCard {
 class BlockCard extends React.Component<BlockCard.Props, BlockCard.State> {
   render() {
     const {block, targetWidth} = this.props;
-    const title = block.week !== null ? `w.${block.week} [${block.number}]` : block.name;
+    let title = `w.${block.week} [${block.number}]`;
+    if(block.week === null) {
+      title = block.name;
+    }
     return (
       <div
         className="card block"
