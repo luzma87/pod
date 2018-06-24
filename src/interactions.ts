@@ -1,14 +1,11 @@
-import snapToGrid from "./util/snapToGrid";
-
 const _ = require('lodash');
 
-import {Block, BlockPosition} from "./util/types";
-import constants from "./util/constants";
+import {Block, BlockPosition, SelectedBlock} from "./util/types";
 
-let selectedBlocks: Block[] = [];
+let selectedBlocks: SelectedBlock[] = [];
 let shouldClone: boolean = true;
-let draggingBlock: Block | null = null;
-export type BlockObserver = ((blocks: Block[]) => void) | null;
+let draggingBlock: SelectedBlock | null = null;
+export type BlockObserver = ((blocks: SelectedBlock[]) => void) | null;
 let observer: BlockObserver = null;
 
 function emitChange() {
@@ -17,42 +14,41 @@ function emitChange() {
   }
 }
 
+export function observe(o: BlockObserver) {
+  if (observer) {
+    throw new Error('Multiple observers not implemented. :(');
+  }
+  observer = o;
+  emitChange();
+
+  return () => {
+    observer = null;
+  }
+}
+
 export function getSelectedBlocks() {
   return selectedBlocks;
 }
 
-export function beginDraggingBlock(block: Block, clones: boolean) {
-  draggingBlock = block;
+export function beginDraggingBlock(block: Block, position: BlockPosition, clones: boolean) {
+  draggingBlock = {block, position};
   shouldClone = clones;
   emitChange();
 }
 
 export function doneDraggingBlock(position: BlockPosition) {
-  let elementById = document.getElementById('quiltDiv');
-  let referenceTop = 0;
-  let referenceLeft = 0;
-  if (elementById !== null) {
-    let rect = elementById.getBoundingClientRect();
-    referenceTop = rect.top;
-    referenceLeft = rect.left;
-  }
   if (draggingBlock !== null) {
-    let newBlock;
-    if (shouldClone) {
-      newBlock = _.cloneDeep(draggingBlock);
-    } else {
-      newBlock = draggingBlock;
-    }
-    const gridSize = constants.minBlockSize * constants.inchMultiplier;
-    let snapToGrid1 = snapToGrid(position.x, position.y, referenceLeft, referenceTop, gridSize);
-    console.log(snapToGrid1);
-    newBlock.position = {
-      x: snapToGrid1[0],
-      y: snapToGrid1[1]
-    };
-    console.log("new block", newBlock.position);
+    let newBlock = _.cloneDeep(draggingBlock);
+    newBlock.position = position;
     if (shouldClone) {
       selectedBlocks.push(newBlock);
+    } else {
+      for (let i = 0; i < selectedBlocks.length; i++) {
+        const b = selectedBlocks[i];
+        if (b.position.x === draggingBlock.position.x && b.position.y === draggingBlock.position.y) {
+          b.position = position;
+        }
+      }
     }
     draggingBlock = null;
     emitChange();

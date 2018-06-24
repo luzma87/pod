@@ -5,8 +5,8 @@ import InputLabel from "@material-ui/core/InputLabel/InputLabel";
 import Select from "@material-ui/core/Select/Select";
 import MenuItem from "@material-ui/core/MenuItem/MenuItem";
 
-import Quilt from "./Quilt";
 import constants from "../util/constants";
+import Quilt from "./Quilt";
 
 export namespace Workspace {
   export interface Props {
@@ -111,7 +111,6 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
             width={quiltW}
             height={quiltH}
             multiplier={multiplier}
-            selectedBlocks={[]}
           />
         </div>
       </div>

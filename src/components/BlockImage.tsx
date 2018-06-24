@@ -9,10 +9,11 @@ import constants from "../util/constants";
 
 export namespace BlockImage {
   export interface Props {
-    id?: string
     block: Block
     targetWidth: number
     shouldClone: boolean
+    x?: number
+    y?: number
 
     isDragging?: boolean
     connectDragSource?: ConnectDragSource
@@ -26,7 +27,7 @@ export namespace BlockImage {
 
 const blockSource = {
   beginDrag(props) {
-    beginDraggingBlock(props.block, props.shouldClone);
+    beginDraggingBlock(props.block, {x: props.x, y: props.y}, props.shouldClone);
     return {};
   }
 };
@@ -79,7 +80,6 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
     const weekTitle = block.week !== null ? `Week ${block.week} - ` : '';
     const title = `${weekTitle}${block.name} (${block.type}) [${block.size.width}"x${block.size.height}"]`;
     const key = `block_w${block.week}_${block.number}`;
-    const id = this.props.id || key;
     return connectDragPreview &&
       connectDragSource &&
       connectDragPreview(
@@ -98,7 +98,7 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
             onMouseLeave={() => this.setShowHandle(false)}
           />)}
           <img
-            id={id}
+            id={key}
             title={title}
             src={getFileName(block)}
             width={blockSize.width}

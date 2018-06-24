@@ -5,9 +5,7 @@ export interface BlockSize {
 
 export interface BlockPosition {
   x: number,
-  y: number,
-  w: number,
-  h: number
+  y: number
 }
 
 export interface Block {
@@ -19,6 +17,10 @@ export interface Block {
   type: 'original' | 'variation' | 'supplemental' | 'border',
   difficulty: number,
   author?: string
-  position?: BlockPosition
   file?: string
+}
+
+export interface SelectedBlock {
+  block: Block,
+  position: BlockPosition
 }
