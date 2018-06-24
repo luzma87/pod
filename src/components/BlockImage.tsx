@@ -74,12 +74,13 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
   }
 
   render() {
-    const {connectDragSource, connectDragPreview, isDragging, block} = this.props;
+    const {connectDragSource, connectDragPreview, isDragging, shouldClone, block} = this.props;
 
     const blockSize = this.getBlockSize(block.size);
     const weekTitle = block.week !== null ? `Week ${block.week} - ` : '';
     const title = `${weekTitle}${block.name} (${block.type}) [${block.size.width}"x${block.size.height}"]`;
     const key = `block_w${block.week}_${block.number}`;
+    let isVisible = isDragging && shouldClone || !isDragging;
     return connectDragPreview &&
       connectDragSource &&
       connectDragPreview(
@@ -97,7 +98,7 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
             onMouseEnter={() => this.setShowHandle(true)}
             onMouseLeave={() => this.setShowHandle(false)}
           />)}
-          <img
+          {isVisible ? (<img
             id={key}
             title={title}
             src={getFileName(block)}
@@ -105,7 +106,7 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
             height={blockSize.height}
             onMouseEnter={() => this.setShowHandle(true)}
             onMouseLeave={() => this.setShowHandle(false)}
-          />
+          />) : null}
         </div>
       );
   }
