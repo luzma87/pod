@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {SelectedBlock} from "../util/types";
-import BlockImage from "./BlockImage";
-import {removeBlock} from "../interactions";
+import { SelectedBlock } from '../util/types';
+import BlockImage from './BlockImage';
+import { removeBlock } from '../interactions';
 
 export namespace BlockQuilt {
   export interface Props {
@@ -15,9 +15,51 @@ export namespace BlockQuilt {
 }
 
 class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
+
+  getContent() {
+    const { block, targetWidth } = this.props;
+    let x, y;
+    if (block !== null) {
+      x = block.position.x;
+      y = block.position.y;
+    }
+
+    if (block !== null) {
+      if (block.block !== null && block.block !== undefined) {
+        return (
+          <BlockImage
+            shouldClone={false}
+            targetWidth={targetWidth}
+            block={block.block}
+            x={x}
+            y={y}
+          />
+        );
+      }
+      if (block.color !== null && block.color !== undefined) {
+        const size = targetWidth;
+        return (
+          <div
+            style={{
+              width: size,
+              height: size,
+              backgroundColor: block.color
+            }}
+          />
+        );
+      }
+    }
+    return null;
+  }
+
   render() {
-    const {block, targetWidth} = this.props;
-    const {x, y} = block.position;
+    const { block } = this.props;
+    let x, y;
+    if (block !== null) {
+      x = block.position.x;
+      y = block.position.y;
+    }
+
     return (
       <div
         className="quiltBlock"
@@ -29,16 +71,10 @@ class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
         }}
         onClick={(e) => {
           e.stopPropagation();
-          removeBlock({x, y})
+          removeBlock({ x, y });
         }}
       >
-        {block.block !== null && block.block !== undefined ? (<BlockImage
-          shouldClone={false}
-          targetWidth={targetWidth}
-          block={block.block}
-          x={x}
-          y={y}
-        />) : "C"}
+        {this.getContent()}
       </div>
     );
   }

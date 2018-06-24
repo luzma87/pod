@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {BlockPosition, SelectedBlock} from "../util/types";
-import constants from "../util/constants";
-import QuiltTarget from "./QuiltTarget";
-import {getSelectedBlocks, paintBlock} from "../interactions";
-import {observe} from "../interactions";
-import ColorPicker from "./colorPicker/ColorPicker";
+import { BlockPosition, SelectedBlock } from '../util/types';
+import constants from '../util/constants';
+import QuiltTarget from './QuiltTarget';
+import { getSelectedBlocks, paintBlock } from '../interactions';
+import { observe } from '../interactions';
+import ColorPicker from './colorPicker/ColorPicker';
 
 export namespace Quilt {
   export interface Props {
@@ -29,7 +29,7 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
       selectedBlocks: getSelectedBlocks(),
       colorPickerOpen: false,
       clickedTarget: null
-    }
+    };
   }
 
   unobserve() {
@@ -41,32 +41,32 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
   }
 
   handleChange(selectedBlocks: SelectedBlock[]) {
-    const nextState = {selectedBlocks};
+    const nextState = { selectedBlocks };
     if (this.state) {
       this.setState(nextState);
     } else {
-      this.state = {...nextState, ...{colorPickerOpen: false, clickedTarget: null}};
+      this.state = { ...nextState, ...{ colorPickerOpen: false, clickedTarget: null } };
     }
   }
 
   handleTargetClick(position: BlockPosition) {
-    this.setState({colorPickerOpen: true, clickedTarget: position})
+    this.setState({ colorPickerOpen: true, clickedTarget: position });
   }
 
   handleClosePicker() {
-    this.setState({colorPickerOpen: false, clickedTarget: null})
+    this.setState({ colorPickerOpen: false, clickedTarget: null });
   }
 
   handleColorSelect(color: string) {
-    console.log(color);
-    if (this.state.clickedTarget !== null) {
-      paintBlock(this.state.clickedTarget, color);
+    let clickedTarget = this.state.clickedTarget;
+    if (clickedTarget !== null) {
+      paintBlock(clickedTarget, color);
     }
     this.handleClosePicker();
   }
 
   matrix(w, h) {
-    const {multiplier} = this.props;
+    const { multiplier } = this.props;
 
     let elems: Object[] = [];
     let selectedBlocks = this.state.selectedBlocks;
@@ -80,20 +80,20 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
           }
         }
         elems.push(<QuiltTarget
-          onClick={() => this.handleTargetClick({x, y})}
+          onClick={() => this.handleTargetClick({ x, y })}
           key={`${x}.${y}`}
           size={constants.minBlockSize * multiplier}
           block={block}
           x={x}
           y={y}
-        />)
+        />);
       }
     }
     return <>{elems}</>;
   }
 
   render() {
-    const {width, height, multiplier} = this.props;
+    const { width, height, multiplier } = this.props;
     const minBlockSize = constants.minBlockSize;
     let horizontalAmountOfBlocks = Math.ceil(width / minBlockSize);
     let verticalAmountOfBlocks = Math.ceil(height / minBlockSize);

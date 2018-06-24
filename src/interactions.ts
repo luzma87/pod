@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-import {Block, BlockPosition, SelectedBlock} from "./util/types";
+import { Block, BlockPosition, SelectedBlock } from './util/types';
 
 let selectedBlocks: SelectedBlock[] = [];
 let shouldClone: boolean = true;
@@ -23,7 +23,7 @@ export function observe(o: BlockObserver) {
 
   return () => {
     observer = null;
-  }
+  };
 }
 
 export function getSelectedBlocks() {
@@ -31,7 +31,7 @@ export function getSelectedBlocks() {
 }
 
 export function beginDraggingBlock(block: Block, position: BlockPosition, clones: boolean) {
-  draggingBlock = {block, position};
+  draggingBlock = { block, position };
   shouldClone = clones;
   emitChange();
 }

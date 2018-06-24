@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import {ConnectDropTarget, DropTarget} from 'react-dnd';
+import { ConnectDropTarget, DropTarget } from 'react-dnd';
 
-import {SelectedBlock} from "../util/types";
-import {doneDraggingBlock} from "../interactions";
-import BlockQuilt from "./BlockQuilt";
+import { SelectedBlock } from '../util/types';
+import { doneDraggingBlock } from '../interactions';
+import BlockQuilt from './BlockQuilt';
+import constants from '../util/constants';
 
 export namespace QuiltTarget {
   export interface Props {
@@ -25,7 +26,7 @@ export namespace QuiltTarget {
 
 const blockTarget = {
   drop(props, monitor, component) {
-    doneDraggingBlock({x: props.x, y: props.y});
+    doneDraggingBlock({ x: props.x, y: props.y });
     return {};
   }
 };
@@ -40,11 +41,15 @@ function collect(connect, monitor) {
 class QuiltTarget extends React.Component<QuiltTarget.Props, QuiltTarget.State> {
 
   render() {
-    const {connectDropTarget, isOver, size, block, onClick} = this.props;
+    const { connectDropTarget, isOver, size, block, onClick } = this.props;
     const color = isOver ? '#D8BFD8' : '#F5F5F5';
     const borderColor = isOver ? '#8C6AD8' : '#ddd';
     const borderWidth = isOver ? 2 : 0.5;
 
+    let targetWidth = constants.minBlockSize * 8;
+    if (block !== null && block.block !== null && block.block !== undefined) {
+      targetWidth = block.block.size.width * 8;
+    }
     return connectDropTarget && connectDropTarget(
       <div
         className="quiltTarget"
@@ -58,12 +63,10 @@ class QuiltTarget extends React.Component<QuiltTarget.Props, QuiltTarget.State> 
         }}
         onClick={() => onClick()}
       >
-        {block !== null && block.block !== null && block.block !== undefined ? (
-          <BlockQuilt
-            block={block}
-            targetWidth={block.block.size.width * 8}
-          />
-        ) : null}
+        <BlockQuilt
+          block={block}
+          targetWidth={targetWidth}
+        />
       </div>
     );
   }
