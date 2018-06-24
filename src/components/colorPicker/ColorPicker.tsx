@@ -5,6 +5,8 @@ import {SketchPicker} from 'react-color';
 import DialogActions from "@material-ui/core/DialogActions/DialogActions";
 import Button from "@material-ui/core/Button/Button";
 
+import materialPalette from './colors';
+
 export namespace ColorPicker {
   export interface Props {
     open: boolean
@@ -35,7 +37,9 @@ class ColorPicker extends React.Component<ColorPicker.Props, ColorPicker.State> 
     return (
       <Dialog {...other}>
         <SketchPicker
+          disableAlpha
           color={this.state.selectedColor}
+          presetColors={materialPalette}
           onChangeComplete={(color) => this.handleChangeComplete(color)}
         />
         <DialogActions>

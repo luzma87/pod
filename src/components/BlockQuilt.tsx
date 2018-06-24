@@ -1,14 +1,12 @@
 import * as React from 'react';
 
-import {Block} from "../util/types";
+import {SelectedBlock} from "../util/types";
 import BlockImage from "./BlockImage";
 import {removeBlock} from "../interactions";
 
 export namespace BlockQuilt {
   export interface Props {
-    block: Block
-    x: number
-    y: number
+    block: SelectedBlock
     targetWidth: number
   }
 
@@ -18,22 +16,29 @@ export namespace BlockQuilt {
 
 class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
   render() {
-    const {block, x, y, targetWidth} = this.props;
+    const {block, targetWidth} = this.props;
+    const {x, y} = block.position;
     return (
       <div
         className="quiltBlock"
         style={{
           position: 'absolute',
+          top: 0,
+          left: 0,
+          zIndex: 5
         }}
-        onClick={() => removeBlock({x, y})}
+        onClick={(e) => {
+          e.stopPropagation();
+          removeBlock({x, y})
+        }}
       >
-        <BlockImage
+        {block.block !== null && block.block !== undefined ? (<BlockImage
           shouldClone={false}
           targetWidth={targetWidth}
-          block={block}
+          block={block.block}
           x={x}
           y={y}
-        />
+        />) : "C"}
       </div>
     );
   }

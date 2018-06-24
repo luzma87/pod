@@ -58,6 +58,9 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
             name: 'block-size',
             id: 'block-size',
           }}
+          style={{
+            zIndex: 10
+          }}
         >
           {Object.keys(quiltSizes).map(key => {
             const size = quiltSizes[key];

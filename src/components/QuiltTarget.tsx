@@ -40,7 +40,7 @@ function collect(connect, monitor) {
 class QuiltTarget extends React.Component<QuiltTarget.Props, QuiltTarget.State> {
 
   render() {
-    const {connectDropTarget, isOver, size, x, y, block, onClick} = this.props;
+    const {connectDropTarget, isOver, size, block, onClick} = this.props;
     const color = isOver ? '#D8BFD8' : '#F5F5F5';
     const borderColor = isOver ? '#8C6AD8' : '#ddd';
     const borderWidth = isOver ? 2 : 0.5;
@@ -58,11 +58,9 @@ class QuiltTarget extends React.Component<QuiltTarget.Props, QuiltTarget.State> 
         }}
         onClick={() => onClick()}
       >
-        {block !== null ? (
+        {block !== null && block.block !== null && block.block !== undefined ? (
           <BlockQuilt
-            block={block.block}
-            x={x}
-            y={y}
+            block={block}
             targetWidth={block.block.size.width * 8}
           />
         ) : null}

@@ -55,6 +55,15 @@ export function doneDraggingBlock(position: BlockPosition) {
   }
 }
 
+export function paintBlock(position: BlockPosition, color: string) {
+  let newSelectedBlock: SelectedBlock = {
+    color: color,
+    position
+  };
+  selectedBlocks.push(newSelectedBlock);
+  emitChange();
+}
+
 export function removeBlock(position: BlockPosition) {
   let indexToRemove: number | null = null;
   for (let i = 0; i < selectedBlocks.length; i++) {

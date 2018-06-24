@@ -91,6 +91,8 @@ body {
 }
 
 .quiltTarget {
+  position: relative;
+  overflow: visible;
   box-sizing: border-box;
   border: solid 0.5px #ddd;
 }

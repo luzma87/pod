@@ -2,9 +2,9 @@ import * as React from 'react';
 import {BlockPosition, SelectedBlock} from "../util/types";
 import constants from "../util/constants";
 import QuiltTarget from "./QuiltTarget";
-import {getSelectedBlocks} from "../interactions";
+import {getSelectedBlocks, paintBlock} from "../interactions";
 import {observe} from "../interactions";
-import ColorPicker from "./ColorPicker";
+import ColorPicker from "./colorPicker/ColorPicker";
 
 export namespace Quilt {
   export interface Props {
@@ -58,7 +58,10 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
   }
 
   handleColorSelect(color: string) {
-    console.log('selected', color);
+    console.log(color);
+    if (this.state.clickedTarget !== null) {
+      paintBlock(this.state.clickedTarget, color);
+    }
     this.handleClosePicker();
   }
 

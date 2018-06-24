@@ -21,6 +21,7 @@ export interface Block {
 }
 
 export interface SelectedBlock {
-  block: Block,
   position: BlockPosition
+  block?: Block,
+  color?: string
 }
