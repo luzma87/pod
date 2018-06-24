@@ -2,17 +2,17 @@ import * as React from 'react';
 
 import {ConnectDropTarget, DropTarget} from 'react-dnd';
 
-import '../assets/styles/styles.css';
-import {Block} from "../util/types";
+import {SelectedBlock} from "../util/types";
 import {doneDraggingBlock} from "../interactions";
 import BlockQuilt from "./BlockQuilt";
 
 export namespace QuiltTarget {
   export interface Props {
     size: number
-    block: Block
+    block: SelectedBlock
     x: number
     y: number
+    onClick: () => void
 
     connectDropTarget?: ConnectDropTarget
     isOver?: boolean
@@ -40,8 +40,8 @@ function collect(connect, monitor) {
 class QuiltTarget extends React.Component<QuiltTarget.Props, QuiltTarget.State> {
 
   render() {
-    const {connectDropTarget, isOver, size, x, y, block} = this.props;
-    const color = isOver ? '#D8BFD8' : 'transparent';
+    const {connectDropTarget, isOver, size, x, y, block, onClick} = this.props;
+    const color = isOver ? '#D8BFD8' : '#F5F5F5';
     const borderColor = isOver ? '#8C6AD8' : '#ddd';
     const borderWidth = isOver ? 2 : 0.5;
 
@@ -56,13 +56,14 @@ class QuiltTarget extends React.Component<QuiltTarget.Props, QuiltTarget.State> 
           borderColor,
           borderWidth
         }}
+        onClick={() => onClick()}
       >
         {block !== null ? (
           <BlockQuilt
-            block={block}
+            block={block.block}
             x={x}
             y={y}
-            targetWidth={block.size.width * 8}
+            targetWidth={block.block.size.width * 8}
           />
         ) : null}
       </div>
