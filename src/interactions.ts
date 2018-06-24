@@ -55,7 +55,16 @@ export function doneDraggingBlock(position: BlockPosition) {
   }
 }
 
-export function removeBlock(index: number) {
-  selectedBlocks.splice(index, 1);
-  emitChange();
+export function removeBlock(position: BlockPosition) {
+  let indexToRemove: number | null = null;
+  for (let i = 0; i < selectedBlocks.length; i++) {
+    const b = selectedBlocks[i];
+    if (b.position.x === position.x && b.position.y === position.y) {
+      indexToRemove = i;
+    }
+  }
+  if (indexToRemove !== null) {
+    selectedBlocks.splice(indexToRemove, 1);
+    emitChange();
+  }
 }

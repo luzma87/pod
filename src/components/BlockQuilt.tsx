@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {Block} from "../util/types";
 import BlockImage from "./BlockImage";
+import {removeBlock} from "../interactions";
 
 export namespace BlockQuilt {
   export interface Props {
@@ -16,11 +17,6 @@ export namespace BlockQuilt {
 }
 
 class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
-  removeBlock(x, y) {
-    // removeBlock(index);
-    // this.setState({selectedBlocks: getSelectedBlocks()})
-  }
-
   render() {
     const {block, x, y, targetWidth} = this.props;
     return (
@@ -29,7 +25,7 @@ class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
         style={{
           position: 'absolute',
         }}
-        onClick={() => this.removeBlock(x, y)}
+        onClick={() => removeBlock({x, y})}
       >
         <BlockImage
           shouldClone={false}
