@@ -5,6 +5,7 @@ const getCursor = (file) => {
 const cursors = {
   bucket: getCursor('bucket'),
   paint: getCursor('paint'),
+  paintIt: getCursor('paintIt'),
   spray: getCursor('spray')
 };
 
