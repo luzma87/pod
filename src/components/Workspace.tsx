@@ -7,7 +7,9 @@ import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 
 import constants from '../util/constants';
 import Quilt from './Quilt';
-import Typography from '@material-ui/core/Typography/Typography';
+import Info from '@material-ui/icons/Info';
+import Button from '@material-ui/core/Button/Button';
+import InfoDialog from './InfoDialog';
 
 export namespace Workspace {
   export interface Props {
@@ -17,17 +19,9 @@ export namespace Workspace {
     blockSize: number
     quiltSize: string
     multiplier: number
+    showInfo: boolean
   }
 }
-
-const quiltSizes = {
-  baby: { name: 'Baby', size: { w: 36, h: 54 } },
-  lap: { name: 'Lap', size: { w: 54, h: 72 } },
-  twin: { name: 'Twin', size: { w: 54, h: 90 } },
-  double: { name: 'Double', size: { w: 72, h: 90 } },
-  queen: { name: 'Queen', size: { w: 90, h: 108 } },
-  king: { name: 'King', size: { w: 108, h: 108 } }
-};
 
 class Workspace extends React.Component<Workspace.Props, Workspace.State> {
 
@@ -36,7 +30,8 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
     this.state = {
       blockSize: 10,
       quiltSize: 'queen',
-      multiplier: constants.inchMultiplier
+      multiplier: constants.inchMultiplier,
+      showInfo: true
     };
   }
 
@@ -49,6 +44,7 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
   };
 
   quiltSizeSelect() {
+    const quiltSizes = constants.quiltSizes;
     return (
       <FormControl style={{ marginLeft: 20, width: 160 }}>
         <InputLabel htmlFor="block-size">Quilt Size</InputLabel>
@@ -100,22 +96,19 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
   }
 
   render() {
-    const quiltW = quiltSizes[this.state.quiltSize].size.w;
-    const quiltH = quiltSizes[this.state.quiltSize].size.h;
-    const multiplier = this.state.multiplier;
+    const quiltSizes = constants.quiltSizes;
+    const { quiltSize, showInfo, multiplier } = this.state;
+    const quiltW = quiltSizes[quiltSize].size.w;
+    const quiltH = quiltSizes[quiltSize].size.h;
 
     return (
       <div className="workspace">
         <div className="quiltControlsContainer">
           {this.quiltSizeSelect()}
           {/*{this.multiplierSelect()}*/}
-          <Typography style={{ marginLeft: 15 }}>
-            Each square in the Quilt grid measures 2.5".<br />
-            You can drag blocks from the left and drop them in the Quilt.<br />
-            You can drag and drop the blocks in the Quilt to rearrange them.<br />
-            Clicking a block on the quilt will remove it.<br />
-            Clicking a square in the Quilt grid will show a color picker to paint it.
-          </Typography>
+          <Button onClick={() => this.setState({ showInfo: true })}>
+            <Info />
+          </Button>
         </div>
         <div className="quiltContainer">
           <Quilt
@@ -124,6 +117,10 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
             multiplier={multiplier}
           />
         </div>
+        <InfoDialog
+          open={showInfo}
+          onClose={() => this.setState({ showInfo: false })}
+        />
       </div>
     );
   }

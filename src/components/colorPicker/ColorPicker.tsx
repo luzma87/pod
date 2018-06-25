@@ -11,8 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 
 import ArrowForward from '@material-ui/icons/ArrowForward';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
-
-import materialPalette from './colors';
+import constants from '../../util/constants';
 
 export namespace ColorPicker {
   export interface Props {
@@ -81,7 +80,7 @@ class ColorPicker extends React.Component<ColorPicker.Props, ColorPicker.State> 
         <SketchPicker
           disableAlpha
           color={this.state.selectedColor}
-          presetColors={materialPalette}
+          presetColors={constants.materialPalette}
           onChangeComplete={(color) => this.handleChangeComplete(color)}
         />
         <div style={{ padding: 15 }}>
