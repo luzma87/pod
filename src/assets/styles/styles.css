@@ -88,6 +88,8 @@ body {
 }
 
 .quiltControlsContainer {
+  display: flex;
+  align-items: center;
 }
 
 .quiltTarget {

@@ -1,12 +1,13 @@
 import * as React from 'react';
 
-import FormControl from "@material-ui/core/FormControl/FormControl";
-import InputLabel from "@material-ui/core/InputLabel/InputLabel";
-import Select from "@material-ui/core/Select/Select";
-import MenuItem from "@material-ui/core/MenuItem/MenuItem";
+import FormControl from '@material-ui/core/FormControl/FormControl';
+import InputLabel from '@material-ui/core/InputLabel/InputLabel';
+import Select from '@material-ui/core/Select/Select';
+import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 
-import constants from "../util/constants";
-import Quilt from "./Quilt";
+import constants from '../util/constants';
+import Quilt from './Quilt';
+import Typography from '@material-ui/core/Typography/Typography';
 
 export namespace Workspace {
   export interface Props {
@@ -20,12 +21,12 @@ export namespace Workspace {
 }
 
 const quiltSizes = {
-  baby: {name: "Baby", size: {w: 36, h: 54}},
-  lap: {name: "Lap", size: {w: 54, h: 72}},
-  twin: {name: "Twin", size: {w: 54, h: 90}},
-  double: {name: "Double", size: {w: 72, h: 90}},
-  queen: {name: "Queen", size: {w: 90, h: 108}},
-  king: {name: "King", size: {w: 108, h: 108}},
+  baby: { name: 'Baby', size: { w: 36, h: 54 } },
+  lap: { name: 'Lap', size: { w: 54, h: 72 } },
+  twin: { name: 'Twin', size: { w: 54, h: 90 } },
+  double: { name: 'Double', size: { w: 72, h: 90 } },
+  queen: { name: 'Queen', size: { w: 90, h: 108 } },
+  king: { name: 'King', size: { w: 108, h: 108 } }
 };
 
 class Workspace extends React.Component<Workspace.Props, Workspace.State> {
@@ -40,23 +41,23 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
   }
 
   handleQuiltSizeChange = event => {
-    this.setState({quiltSize: event.target.value});
+    this.setState({ quiltSize: event.target.value });
   };
 
   handleMultiplierChange = event => {
-    this.setState({multiplier: event.target.value});
+    this.setState({ multiplier: event.target.value });
   };
 
   quiltSizeSelect() {
     return (
-      <FormControl style={{marginLeft: 20, width: 160}}>
+      <FormControl style={{ marginLeft: 20, width: 160 }}>
         <InputLabel htmlFor="block-size">Quilt Size</InputLabel>
         <Select
           value={this.state.quiltSize}
           onChange={(event) => this.handleQuiltSizeChange(event)}
           inputProps={{
             name: 'block-size',
-            id: 'block-size',
+            id: 'block-size'
           }}
           style={{
             zIndex: 10
@@ -67,7 +68,7 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
             return <MenuItem
               key={`qs-${key}`}
               value={key}
-            >{size.name} [{size.size.w}"x{size.size.h}"]</MenuItem>
+            >{size.name} [{size.size.w}"x{size.size.h}"]</MenuItem>;
           })}
         </Select>
       </FormControl>
@@ -77,21 +78,21 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
   multiplierSelect() {
     const a = [2, 3, 5, 6, 7, 8, 9, 10];
     return (
-      <FormControl style={{marginLeft: 20, width: 160}}>
+      <FormControl style={{ marginLeft: 20, width: 160 }}>
         <InputLabel htmlFor="block-size">Multiplier</InputLabel>
         <Select
           value={this.state.multiplier}
           onChange={(event) => this.handleMultiplierChange(event)}
           inputProps={{
             name: 'multiplier',
-            id: 'multiplier',
+            id: 'multiplier'
           }}
         >
           {a.map(value => {
             return <MenuItem
               key={`m-${value}`}
               value={value}
-            >{value}</MenuItem>
+            >{value}</MenuItem>;
           })}
         </Select>
       </FormControl>
@@ -108,6 +109,13 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
         <div className="quiltControlsContainer">
           {this.quiltSizeSelect()}
           {/*{this.multiplierSelect()}*/}
+          <Typography style={{ marginLeft: 15 }}>
+            Each square in the Quilt grid measures 2.5".<br />
+            You can drag blocks from the left and drop them in the Quilt.<br />
+            You can drag and drop the blocks in the Quilt to rearrange them.<br />
+            Clicking a block on the quilt will remove it.<br />
+            Clicking a square in the Quilt grid will show a color picker to paint it.
+          </Typography>
         </div>
         <div className="quiltContainer">
           <Quilt
@@ -121,4 +129,4 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
   }
 }
 
-export default Workspace
+export default Workspace;
