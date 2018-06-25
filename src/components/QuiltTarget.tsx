@@ -6,6 +6,7 @@ import { SelectedBlock } from '../util/types';
 import { doneDraggingBlock } from '../interactions';
 import BlockQuilt from './BlockQuilt';
 import constants from '../util/constants';
+import cursors from '../assets/cursors/cursors';
 
 export namespace QuiltTarget {
   export interface Props {
@@ -57,7 +58,7 @@ class QuiltTarget extends React.Component<QuiltTarget.Props, QuiltTarget.State> 
           width: size,
           height: size,
           backgroundColor: color,
-          cursor: 'url(../assets/paint.cur),copy',
+          cursor: cursors.bucket,
           borderColor,
           borderWidth
         }}

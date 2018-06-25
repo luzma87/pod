@@ -15,7 +15,6 @@ export namespace BlockQuilt {
 }
 
 class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
-
   getContent() {
     const { block, targetWidth } = this.props;
     let x, y;
@@ -52,14 +51,18 @@ class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
     return null;
   }
 
-  render() {
+  handleRemoveBlock(e) {
     const { block } = this.props;
     let x, y;
     if (block !== null) {
       x = block.position.x;
       y = block.position.y;
     }
+    e.stopPropagation();
+    removeBlock({ x, y });
+  }
 
+  render() {
     return (
       <div
         className="quiltBlock"
@@ -69,10 +72,7 @@ class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
           left: 0,
           zIndex: 5
         }}
-        onClick={(e) => {
-          e.stopPropagation();
-          removeBlock({ x, y });
-        }}
+        onClick={(e) => this.handleRemoveBlock(e)}
       >
         {this.getContent()}
       </div>
