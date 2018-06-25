@@ -55,12 +55,27 @@ export function doneDraggingBlock(position: BlockPosition) {
   }
 }
 
-export function paintBlock(position: BlockPosition, color: string) {
+function paintBlock(position: BlockPosition, color: string) {
   let newSelectedBlock: SelectedBlock = {
     color: color,
     position
   };
   selectedBlocks.push(newSelectedBlock);
+}
+
+export function paintMany(position: BlockPosition, color: string, right: number, down: number) {
+  const posX = position.x;
+  const posY = position.y;
+
+  for (let i = 0; i < down; i++) {
+    const newPosition: BlockPosition = { x: posX + i, y: posY };
+    paintBlock(newPosition, color);
+  }
+
+  for (let i = 0; i < right; i++) {
+    const newPosition: BlockPosition = { x: posX, y: posY + i };
+    paintBlock(newPosition, color);
+  }
   emitChange();
 }
 

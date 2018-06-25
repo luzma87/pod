@@ -2,7 +2,7 @@ import * as React from 'react';
 import { BlockPosition, SelectedBlock } from '../util/types';
 import constants from '../util/constants';
 import QuiltTarget from './QuiltTarget';
-import { getSelectedBlocks, paintBlock } from '../interactions';
+import { getSelectedBlocks, paintMany } from '../interactions';
 import { observe } from '../interactions';
 import ColorPicker from './colorPicker/ColorPicker';
 
@@ -57,10 +57,10 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
     this.setState({ colorPickerOpen: false, clickedTarget: null });
   }
 
-  handleColorSelect(color: string) {
+  handleColorSelect(color: string, right: number, down: number) {
     let clickedTarget = this.state.clickedTarget;
     if (clickedTarget !== null) {
-      paintBlock(clickedTarget, color);
+      paintMany(clickedTarget, color, right, down);
     }
     this.handleClosePicker();
   }
@@ -121,7 +121,7 @@ class Quilt extends React.Component<Quilt.Props, Quilt.State> {
         <ColorPicker
           open={this.state.colorPickerOpen}
           onClose={() => this.handleClosePicker()}
-          onSelect={(color) => this.handleColorSelect(color)}
+          onSelect={(color, right, down) => this.handleColorSelect(color, right, down)}
         />
       </div>
     );
