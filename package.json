@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --hot --progress --color --port 3030 --open",
+    "start": "webpack-dev-server --mode development --hot --progress --color --open",
+    "startLocal": "webpack-dev-server --mode development --hot --progress --color --port 3030 --open",
     "build": "webpack -p --progress --colors",
     "check": "nsp check",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\""

@@ -76,6 +76,11 @@ function task_check_sec {
   npm run check
 }
 
+function task_heroku_logs {
+  echo "${start_fg}Retrieving heroku logs${normal_fg}"
+  heroku logs --app project-of-doom --tail
+}
+
 function task_help {
   help_message="usage: ./go"
   help_message+=" ${misc_fg}colors${normal_fg}"
@@ -84,7 +89,9 @@ function task_help {
   help_message+=" | ${checks_fg}check_dep${normal_fg}"
   help_message+=" | ${checks_fg}check_sec${normal_fg}"
 
+  help_message+=" | ${start_fg}clean${normal_fg}"
   help_message+=" | ${start_fg}start${normal_fg}"
+  help_message+=" | ${start_fg}heroku-logs${normal_fg}"
   echo "${help_message}"
 }
 
@@ -100,6 +107,7 @@ function execute_task {
 
     clean) task_clean ;;
     start) task_start ;;
+    heroku-logs) task_heroku_logs ;;
     *) task_help ;;
   esac
 }
