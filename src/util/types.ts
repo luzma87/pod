@@ -14,7 +14,7 @@ export interface Block {
   name: string,
   size: BlockSize,
   tags: Array<string>,
-  type: 'original' | 'variation' | 'supplemental' | 'border',
+  type: 'original' | 'variation' | 'supplemental' | 'castle',
   difficulty: number,
   author?: string
   file?: string
@@ -24,4 +24,12 @@ export interface SelectedBlock {
   position: BlockPosition
   block?: Block,
   color?: string
+}
+
+export type Color = 'inherit' | 'primary' | 'textSecondary' | 'secondary' | 'error' | 'default'
+
+export interface InfoContent {
+  text: string | object
+  color?: Color
+  divider?: boolean
 }
