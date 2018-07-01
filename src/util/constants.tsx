@@ -93,6 +93,7 @@ const infoContents: InfoContent[] = [
   { text: '', divider: true },
   { text: 'Each square in the Quilt grid measures 2.5"' },
   { text: 'You can drag blocks from the left and drop them in the Quilt' },
+  {text:"To drag a block grab it by the little white square on the top left corner"},
   { text: 'You can drag and drop the blocks in the Quilt to rearrange them' },
   { text: 'Clicking a block on the quilt will remove it' },
   {
