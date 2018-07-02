@@ -16,7 +16,7 @@ export interface Block {
   tags: Array<string>,
   type: 'original' | 'variation' | 'supplemental' | 'castle',
   difficulty: number,
-  author?: string
+  designer?: string
   file?: string
 }
 

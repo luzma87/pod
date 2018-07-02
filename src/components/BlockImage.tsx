@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {DragSource, ConnectDragSource, ConnectDragPreview} from 'react-dnd';
-import {beginDraggingBlock} from "../interactions";
+import { DragSource, ConnectDragSource, ConnectDragPreview } from 'react-dnd';
+import { beginDraggingBlock } from '../interactions';
 
 const _ = require('lodash');
 
-import {Block, BlockSize} from "../util/types";
-import constants from "../util/constants";
+import { Block, BlockSize } from '../util/types';
+import constants from '../util/constants';
 
 export namespace BlockImage {
   export interface Props {
@@ -27,7 +27,7 @@ export namespace BlockImage {
 
 const blockSource = {
   beginDrag(props) {
-    beginDraggingBlock(props.block, {x: props.x, y: props.y}, props.shouldClone);
+    beginDraggingBlock(props.block, { x: props.x, y: props.y }, props.shouldClone);
     return {};
   }
 };
@@ -61,24 +61,27 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
     super(props);
     this.state = {
       showHandle: false
-    }
+    };
   }
 
   getBlockSize(size: BlockSize): BlockSize {
     let ratio = size.width / this.props.targetWidth;
-    return {width: size.width / ratio, height: size.height / ratio};
+    return { width: size.width / ratio, height: size.height / ratio };
   };
 
   setShowHandle(value: boolean) {
-    this.setState({showHandle: value});
+    this.setState({ showHandle: value });
   }
 
   render() {
-    const {connectDragSource, connectDragPreview, isDragging, shouldClone, block} = this.props;
+    const { connectDragSource, connectDragPreview, isDragging, shouldClone, block } = this.props;
 
     const blockSize = this.getBlockSize(block.size);
     const weekTitle = block.week !== null ? `Week ${block.week} - ` : '';
-    const title = `${weekTitle}${block.name} (${block.type}) [${block.size.width}"x${block.size.height}"]`;
+    const title =
+      `${weekTitle}${block.name} (${block.type}) 
+          [${block.size.width}"x${block.size.height}"] 
+          ${block.designer!==undefined ? `by ${block.designer}` : ''}`;
     const key = `block_w${block.week}_${block.number}`;
     let isVisible = isDragging && shouldClone || !isDragging;
     return connectDragPreview &&
@@ -87,7 +90,7 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
         <div
           style={{
             position: 'relative',
-            opacity: isDragging ? 0.5 : 1,
+            opacity: isDragging ? 0.5 : 1
           }}
         >
           {connectDragSource(<div
