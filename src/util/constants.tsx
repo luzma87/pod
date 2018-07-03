@@ -50,7 +50,8 @@ const quiltSizes = {
 };
 
 const infoContents: InfoContent[] = [
-  { text: 'These awesome blocks were designed by Jennifer Ofenstein' },
+  { text: 'These awesome blocks were designed by Jennifer Ofenstein and other Fandom in Stitches Designers ' +
+    '(each block has its designer\'s name on hover)' },
   {
     text: <>
       <Button

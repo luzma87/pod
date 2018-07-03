@@ -46,7 +46,7 @@ const getFileName = (block: Block): string => {
   const week = block.week;
   const number = block.number;
   const blockFolder = block.type === 'original' || block.type === 'variation' ? 'weekly' : block.type;
-  if (week !== null && number !== null) {
+  if (week !== null && week !== undefined && number !== null && number !== undefined) {
     const weekPart = _.padStart(week, 3, '0');
     return `${basePath}/${blockFolder}/${weekPart}-${number}.svg`;
   }
@@ -54,6 +54,15 @@ const getFileName = (block: Block): string => {
     return `${basePath}/${blockFolder}/${block.file}.svg`;
   }
   return '';
+};
+
+const getTitle = (block: Block): string => {
+  const weekTitle = block.week === null || block.week === undefined
+    ? ''
+    : `Week ${block.week} - `;
+  return `${weekTitle}${block.name} (${block.type}) 
+          [${block.size.width}"x${block.size.height}"] 
+          ${block.designer !== undefined ? `by ${block.designer}` : ''}`;
 };
 
 class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
@@ -77,11 +86,6 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
     const { connectDragSource, connectDragPreview, isDragging, shouldClone, block } = this.props;
 
     const blockSize = this.getBlockSize(block.size);
-    const weekTitle = block.week !== null ? `Week ${block.week} - ` : '';
-    const title =
-      `${weekTitle}${block.name} (${block.type}) 
-          [${block.size.width}"x${block.size.height}"] 
-          ${block.designer!==undefined ? `by ${block.designer}` : ''}`;
     const key = `block_w${block.week}_${block.number}`;
     let isVisible = isDragging && shouldClone || !isDragging;
     return connectDragPreview &&
@@ -103,7 +107,7 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
           />)}
           {isVisible ? (<img
             id={key}
-            title={title}
+            title={getTitle(block)}
             src={getFileName(block)}
             width={blockSize.width}
             height={blockSize.height}

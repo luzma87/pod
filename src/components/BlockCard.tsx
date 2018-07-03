@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {Block} from "../util/types";
-import BlockImage from "./BlockImage";
+import { Block } from '../util/types';
+import BlockImage from './BlockImage';
 
 export namespace BlockCard {
   export interface Props {
@@ -15,9 +15,9 @@ export namespace BlockCard {
 
 class BlockCard extends React.Component<BlockCard.Props, BlockCard.State> {
   render() {
-    const {block, targetWidth} = this.props;
+    const { block, targetWidth } = this.props;
     let title = `w.${block.week} [${block.number}]`;
-    if(block.week === null) {
+    if (block.week === null || block.week === undefined) {
       title = block.name;
     }
     return (

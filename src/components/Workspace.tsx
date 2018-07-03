@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 import constants from '../util/constants';
 import Quilt from './Quilt';
 import Info from '@material-ui/icons/Info';
+import Email from '@material-ui/icons/Email';
 import Button from '@material-ui/core/Button/Button';
 import InfoDialog from './InfoDialog';
 
@@ -109,6 +110,10 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
           <Button onClick={() => this.setState({ showInfo: true })}>
             <Info />
           </Button>
+          <a
+            href="mailto:project-of-doom@luzma.click"
+            target="_top"
+          ><Email /></a>
         </div>
         <div className="quiltContainer">
           <Quilt

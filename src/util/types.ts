@@ -9,8 +9,8 @@ export interface BlockPosition {
 }
 
 export interface Block {
-  week: number | null,
-  number: number | null,
+  week?: number,
+  number?: number,
   name: string,
   size: BlockSize,
   tags: Array<string>,
@@ -18,6 +18,7 @@ export interface Block {
   difficulty: number,
   designer?: string
   file?: string
+  hasEmbroidery?: boolean
 }
 
 export interface SelectedBlock {

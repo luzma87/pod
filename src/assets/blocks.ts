@@ -6,21 +6,21 @@ const blocks: Array<Block> = [
     name: 'Castle corner', size: { width: 10, height: 10 },
     tags: ['castle', 'corner'],
     type: 'castle',
-    difficulty: 1,
+    difficulty: 1
   },
   {
     week: 0, number: 2,
     name: 'Castle crenelation', size: { width: 10, height: 10 },
     tags: ['castle', 'crenelation'],
     type: 'castle',
-    difficulty: 1,
+    difficulty: 1
   },
   {
     week: 0, number: 3,
     name: 'Castle block', size: { width: 10, height: 10 },
     tags: ['castle'],
     type: 'castle',
-    difficulty: 1,
+    difficulty: 1
   },
   {
     week: 1, number: 1,
@@ -854,7 +854,127 @@ const blocks: Array<Block> = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein'
-  }
+  },
+  {
+    name: 'Colin\'s Camera', size: { width: 10, height: 10 },
+    tags: ['colin', 'camera', 'book'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Wendi Riggens-Miller',
+    file: '001-colin'
+  },
+  {
+    name: 'Dre Shrunken Head', size: { width: 10, height: 10 },
+    tags: ['dre', 'shrunken', 'head'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Daphne Seymour',
+    file: '002-dre'
+  },
+  {
+    name: 'Ear Muffs', size: { width: 10, height: 10 },
+    tags: ['ear', 'muffs'],
+    type: 'supplemental',
+    difficulty: 1,
+    designer: 'Michelle Thompson',
+    file: '003-ear-muffs'
+  },
+  {
+    name: 'Grim Block', size: { width: 10, height: 10 },
+    tags: ['ear', 'muffs'],
+    type: 'supplemental',
+    difficulty: 1,
+    designer: 'Tianna Homer',
+    file: '004-grim'
+  },
+  {
+    name: 'He Who Must Not Be Named @ King\'s Cross', size: { width: 10, height: 10 },
+    tags: ['voldemort', 'books', 'king', 'cross'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Vanda Chittenden',
+    file: '005-voldemort'
+  },
+  {
+    name: 'Honeydukes Jar & Books', size: { width: 10, height: 10 },
+    tags: ['honeydukes', 'books', 'jar'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Wendi Riggens-Miller',
+    file: '006-honeydukes-books'
+  },
+  {
+    name: 'Honeydukes Jar & Boxes', size: { width: 10, height: 10 },
+    tags: ['honeydukes', 'box', 'boxes', 'jar'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Wendi Riggens-Miller',
+    file: '007-honeydukes-books'
+  },
+  {
+    name: 'Honeydukes Sherbet Lemons', size: { width: 10, height: 10 },
+    tags: ['honeydukes', 'jar', 'sherbet', 'lemon'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Wendi Riggens-Miller',
+    file: '008-honeydukes'
+  },
+  {
+    name: 'House Scarf - Griffindor', size: { width: 10, height: 10 },
+    tags: ['books', 'griffindor', 'scarf'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Wendi Riggens-Miller',
+    file: '009-scarf-griffindor'
+  },
+  {
+    name: 'House Scarf - Hufflepuff', size: { width: 10, height: 10 },
+    tags: ['books', 'hufflepuff', 'scarf'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Wendi Riggens-Miller',
+    file: '009-scarf-hufflepuff'
+  },
+  {
+    name: 'House Scarf - Ravenclaw', size: { width: 10, height: 10 },
+    tags: ['books', 'ravenclaw', 'scarf'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Wendi Riggens-Miller',
+    file: '009-scarf-ravenclaw'
+  },
+  {
+    name: 'House Scarf - Slytherin', size: { width: 10, height: 10 },
+    tags: ['books', 'slytherin', 'scarf'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Wendi Riggens-Miller',
+    file: '009-scarf-slytherin'
+  },
+  {
+    name: 'Lantern', size: { width: 10, height: 10 },
+    tags: ['books', 'lantern'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Wendi Riggens-Miller',
+    file: '010-lantern'
+  },
+  {
+    name: 'Lovegood ', size: { width: 10, height: 10 },
+    tags: ['magazine', 'lovegood', 'spectrespecs'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Megan Ruth Stay',
+    file: '011-lovegood'
+  },
+  {
+    name: 'Luna’s Lion Hat ', size: { width: 10, height: 10 },
+    tags: ['luna', 'lovegood', 'lion', 'hat'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Michelle Thompson',
+    file: '012-luna-hat'
+  },
 ];
 
 export { blocks as default };
