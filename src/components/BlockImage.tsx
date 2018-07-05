@@ -57,12 +57,13 @@ const getFileName = (block: Block): string => {
 };
 
 const getTitle = (block: Block): string => {
+  const spacing = '    ';
   const weekTitle = block.week === null || block.week === undefined
     ? ''
     : `Week ${block.week} - `;
-  return `${weekTitle}${block.name} (${block.type}) 
-          [${block.size.width}"x${block.size.height}"] 
-          ${block.designer !== undefined ? `by ${block.designer}` : ''}`;
+  const designer = block.designer !== undefined ? `\n${spacing}by ${block.designer}` : '';
+  const embroidery = block.hasEmbroidery === true ? `\n${spacing}[has embroidery]` : '';
+  return `${weekTitle}${block.name} (${block.type})\n${spacing}[${block.size.width}"x${block.size.height}"]${embroidery}${designer}`;
 };
 
 class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {

@@ -21,22 +21,26 @@ export namespace InfoDialog {
   }
 }
 
-const makeParagraph = (key: string, content: InfoContent) => {
+const makeParagraph = (content: InfoContent) => {
+  const { key, color, text } = content;
   if (content.divider) {
-    return <Divider style={{ marginBottom: 20 }} />;
+    return <Divider
+      key={key}
+      style={{ marginBottom: 20 }}
+    />;
   }
-  let color: Color = 'default';
-  if (content.color !== undefined) {
-    color = content.color;
+  let newColor: Color = 'default';
+  if (color !== undefined) {
+    newColor = color;
   }
   return (
     <Typography
       key={key}
       gutterBottom
       paragraph
-      color={color}
+      color={newColor}
     >
-      {content.text}
+      {text}
     </Typography>);
 };
 
@@ -58,8 +62,8 @@ class InfoDialog extends React.Component<InfoDialog.Props, InfoDialog.State> {
           </div>
         </DialogTitle>
         <DialogContent>
-          {constants.infoContents.map((string, i) => (
-            makeParagraph(`info_${i}`, string)
+          {constants.infoContents.map((paragraph) => (
+            makeParagraph(paragraph)
           ))}
         </DialogContent>
         <DialogActions>

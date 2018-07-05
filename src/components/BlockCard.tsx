@@ -16,10 +16,8 @@ export namespace BlockCard {
 class BlockCard extends React.Component<BlockCard.Props, BlockCard.State> {
   render() {
     const { block, targetWidth } = this.props;
-    let title = `w.${block.week} [${block.number}]`;
-    if (block.week === null || block.week === undefined) {
-      title = block.name;
-    }
+    let title = block.week === null || block.week === undefined ? '' : `w.${block.week} [${block.number}] `;
+    title += block.name;
     return (
       <div
         className="card block"

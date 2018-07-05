@@ -50,9 +50,13 @@ const quiltSizes = {
 };
 
 const infoContents: InfoContent[] = [
-  { text: 'These awesome blocks were designed by Jennifer Ofenstein and other Fandom in Stitches Designers ' +
-    '(each block has its designer\'s name on hover)' },
   {
+    key: 't0',
+    text: 'These awesome blocks were designed by Jennifer Ofenstein and other Fandom in Stitches Designers ' +
+    '(each block has its designer\'s name on hover)'
+  },
+  {
+    key: 't1',
     text: <>
       <Button
         size="small"
@@ -74,12 +78,14 @@ const infoContents: InfoContent[] = [
     </>
   },
   {
+    key: 't2',
     text: 'These patterns are free for personal and NON-profit use only.\n' +
     'Not to be used for manufacture or distribution.\n' +
     'Sale of the patterns or quilts made from them is prohibited.',
     color: 'secondary'
   },
   {
+    key: 't3',
     text: <>You can find the patterns in the&nbsp;
       <Button
         size="small"
@@ -91,13 +97,26 @@ const infoContents: InfoContent[] = [
       </Button>
       &nbsp;site</>
   },
-  { text: '', divider: true },
-  { text: 'Each square in the Quilt grid measures 2.5"' },
-  { text: 'You can drag blocks from the left and drop them in the Quilt' },
-  {text:"To drag a block grab it by the little white square on the top left corner"},
-  { text: 'You can drag and drop the blocks in the Quilt to rearrange them' },
-  { text: 'Clicking a block on the quilt will remove it' },
   {
+    key: 't4', text: '', divider: true
+  },
+  {
+    key: 't5', text: 'Each square in the Quilt grid measures 2.5"'
+  },
+  {
+    key: 't6', text: 'You can drag blocks from the left and drop them in the Quilt'
+  },
+  {
+    key: 't7', text: 'To drag a block grab it by the little white square on the top left corner'
+  },
+  {
+    key: 't8', text: 'You can drag and drop the blocks in the Quilt to rearrange them'
+  },
+  {
+    key: 't9',text: 'Clicking a block on the quilt will remove it' },
+  {
+
+    key: 't10',
     text: 'Clicking a square in the Quilt grid will show a color picker to paint one or more squares',
     color: 'default'
   }

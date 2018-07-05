@@ -18,7 +18,7 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
     return (
       <div className="blockListContainer">
         {blocks.map(block => {
-          let key = `list_${block.week}.${block.number}`;
+          let key = `list.${block.type}.${block.week}.${block.number}.${block.name}`;
           if (block.week === null) {
             key = `list_${block.name}`;
           }

@@ -30,6 +30,7 @@ export interface SelectedBlock {
 export type Color = 'inherit' | 'primary' | 'textSecondary' | 'secondary' | 'error' | 'default'
 
 export interface InfoContent {
+  key: string
   text: string | object
   color?: Color
   divider?: boolean
