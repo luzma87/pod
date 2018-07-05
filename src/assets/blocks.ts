@@ -96,7 +96,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 4, number: 1,
-    name: 'Harry\'s Glasses', size: { width: 10, height: 10 },
+    name: 'Harry’s Glasses', size: { width: 10, height: 10 },
     tags: ['books', 'glasses'],
     type: 'original',
     difficulty: 3,
@@ -104,7 +104,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 4, number: 2,
-    name: 'Harry\'s Glasses', size: { width: 10, height: 10 },
+    name: 'Harry’s Glasses', size: { width: 10, height: 10 },
     tags: ['books', 'glasses'],
     type: 'variation',
     difficulty: 3,
@@ -112,7 +112,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 4, number: 3,
-    name: 'Harry\'s Glasses', size: { width: 10, height: 10 },
+    name: 'Harry’s Glasses', size: { width: 10, height: 10 },
     tags: ['books'],
     type: 'variation',
     difficulty: 3,
@@ -160,7 +160,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 6, number: 4,
-    name: 'Slytherin\'s Locket', size: { width: 10, height: 10 },
+    name: 'Slytherin’s Locket', size: { width: 10, height: 10 },
     tags: ['hand', 'slytherin', 'locket'],
     type: 'variation',
     difficulty: 2,
@@ -320,7 +320,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 13, number: 2,
-    name: 'Quirrell\'s Turban', size: { width: 10, height: 10 },
+    name: 'Quirrell’s Turban', size: { width: 10, height: 10 },
     tags: ['books', 'quirrell', 'turban'],
     type: 'variation',
     difficulty: 4,
@@ -336,7 +336,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 14, number: 2,
-    name: 'Harry\'s Wand', size: { width: 10, height: 10 },
+    name: 'Harry’s Wand', size: { width: 10, height: 10 },
     tags: ['books', 'harry', 'wand'],
     type: 'variation',
     difficulty: 2,
@@ -352,7 +352,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 14, number: 4,
-    name: 'Voldemort\'s Wand', size: { width: 10, height: 10 },
+    name: 'Voldemort’s Wand', size: { width: 10, height: 10 },
     tags: ['books', 'voldemort', 'wand'],
     type: 'variation',
     difficulty: 2,
@@ -360,7 +360,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 15, number: 1,
-    name: 'Tom Riddle\'s Destroyed Diary', size: { width: 10, height: 10 },
+    name: 'Tom Riddle’s Destroyed Diary', size: { width: 10, height: 10 },
     tags: ['books', 'tom', 'riddle', 'diary'],
     type: 'original',
     difficulty: 4,
@@ -368,7 +368,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 15, number: 2,
-    name: 'Tom Riddle\'s Intact Diary', size: { width: 10, height: 10 },
+    name: 'Tom Riddle’s Intact Diary', size: { width: 10, height: 10 },
     tags: ['books', 'tom', 'riddle', 'diary'],
     type: 'variation',
     difficulty: 4,
@@ -384,7 +384,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 15, number: 4,
-    name: 'Lockhart\'s Peacock Feather Quill & Ink', size: { width: 10, height: 10 },
+    name: 'Lockhart’s Peacock Feather Quill & Ink', size: { width: 10, height: 10 },
     tags: ['books', 'lockhart', 'peacock', 'feather', 'quill', 'ink'],
     type: 'variation',
     difficulty: 4,
@@ -416,7 +416,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 17, number: 1,
-    name: 'Weasley\'s Wizard Wheezes Bag', size: { width: 10, height: 10 },
+    name: 'Weasley’s Wizard Wheezes Bag', size: { width: 10, height: 10 },
     tags: ['books', 'weasley', 'wizard', 'wheezes', 'bag'],
     type: 'original',
     difficulty: 3,
@@ -673,7 +673,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 23, number: 2,
-    name: 'Umbridge\'s Quill', size: { width: 10, height: 10 },
+    name: 'Umbridge’s Quill', size: { width: 10, height: 10 },
     tags: ['books', 'umbridge', 'quill'],
     type: 'variation',
     difficulty: 3,
@@ -706,7 +706,7 @@ const blocks: Array<Block> = [
   {
     week: 25, number: 2,
     name: 'Quaffle', size: { width: 10, height: 10 },
-    tags: ['book', 'quaffle'],
+    tags: ['book', 'quaffle', 'quidditch'],
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein'
@@ -817,7 +817,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 28, number: 7,
-    name: 'Aberforth\'s Eye in Sirius\' Mirror', size: { width: 10, height: 10 },
+    name: 'Aberforth’s Eye in Sirius’ Mirror', size: { width: 10, height: 10 },
     tags: ['books', 'aberforth', 'eye', 'mirror'],
     type: 'variation',
     difficulty: 4,
@@ -841,7 +841,7 @@ const blocks: Array<Block> = [
   },
   {
     week: 30, number: 1,
-    name: 'Bertie Bott\'s Every Flavour Beans', size: { width: 10, height: 10 },
+    name: 'Bertie Bott’s Every Flavour Beans', size: { width: 10, height: 10 },
     tags: ['books', 'bertie', 'bott', 'every', 'flavor', 'beans'],
     type: 'original',
     difficulty: 3,
@@ -856,7 +856,7 @@ const blocks: Array<Block> = [
     designer: 'Jennifer Ofenstein'
   },
   {
-    name: 'Colin\'s Camera', size: { width: 10, height: 10 },
+    name: 'Colin’s Camera', size: { width: 10, height: 10 },
     tags: ['colin', 'camera', 'book'],
     type: 'supplemental',
     difficulty: 2,
@@ -888,7 +888,7 @@ const blocks: Array<Block> = [
     file: '004-grim'
   },
   {
-    name: 'He Who Must Not Be Named @ King\'s Cross', size: { width: 10, height: 10 },
+    name: 'He Who Must Not Be Named @ King’s Cross', size: { width: 10, height: 10 },
     tags: ['voldemort', 'books', 'king', 'cross'],
     type: 'supplemental',
     difficulty: 4,
@@ -909,7 +909,7 @@ const blocks: Array<Block> = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
-    file: '007-honeydukes-books'
+    file: '007-honeydukes-boxes'
   },
   {
     name: 'Honeydukes Sherbet Lemons', size: { width: 10, height: 10 },
@@ -968,13 +968,98 @@ const blocks: Array<Block> = [
     file: '011-lovegood'
   },
   {
-    name: 'Luna’s Lion Hat ', size: { width: 10, height: 10 },
+    name: 'Luna’s Lion Hat', size: { width: 10, height: 10 },
     tags: ['luna', 'lovegood', 'lion', 'hat'],
     type: 'supplemental',
     difficulty: 4,
     designer: 'Michelle Thompson',
     file: '012-luna-hat'
   },
+  {
+    name: 'Luna’s Lion Hat [embroidered]', size: { width: 10, height: 10 },
+    tags: ['luna', 'lovegood', 'lion', 'hat'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Michelle Thompson',
+    hasEmbroidery: true,
+    file: '012-luna-hat2'
+  },
+  {
+    name: 'Luna’s Spectrespecs', size: { width: 10, height: 10 },
+    tags: ['luna', 'lovegood', 'spectrespecs', 'books'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Michelle Thompson',
+    file: '013-luna-spectrespecs'
+  },
+  {
+    name: 'Mafalda’s Letter', size: { width: 10, height: 10 },
+    tags: ['mafalda', 'letter'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Michelle Thompson',
+    hasEmbroidery: true,
+    file: '014-mafalda'
+  },
+  {
+    name: 'Omnioculars', size: { width: 10, height: 10 },
+    tags: ['omnioculars'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Michelle Thompson',
+    hasEmbroidery: true,
+    file: '015-omnioculars'
+  },
+  {
+    name: 'Pygmy Puff', size: { width: 10, height: 10 },
+    tags: ['pygmy', 'puff', 'cage'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Wendi Riggens-Miller',
+    file: '016-pygmy'
+  },
+  {
+    name: 'Quidditch Goggles', size: { width: 10, height: 10 },
+    tags: ['quidditch', 'goggles', 'books'],
+    type: 'supplemental',
+    difficulty: 3,
+    hasEmbroidery: true,
+    designer: 'Michelle Thompson',
+    file: '017-quidditch'
+  },
+  {
+    name: 'Rememberall', size: { width: 10, height: 10 },
+    tags: ['rememberall', 'books'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Michelle Thompson',
+    file: '018-rememberall'
+  },
+  {
+    name: 'Ripped Book', size: { width: 10, height: 10 },
+    tags: ['ripped', 'book'],
+    type: 'supplemental',
+    difficulty: 1,
+    designer: 'Tereza Kulovaná',
+    file: '019-ripped'
+  },
+  {
+    name: 'Rita Skeeter', size: { width: 10, height: 10 },
+    tags: ['rita', 'skeeter', 'book'],
+    type: 'supplemental',
+    difficulty: 2,
+    hasEmbroidery: true,
+    designer: 'Daphne Seymour',
+    file: '020-rita'
+  },
+  {
+    name: 'Student Hat', size: { width: 10, height: 10 },
+    tags: ['student', 'hat', 'book'],
+    type: 'supplemental',
+    difficulty: 1,
+    designer: 'Wendi Riggens-Miller',
+    file: '021-hat'
+  }
 ];
 
 export { blocks as default };

@@ -32,7 +32,7 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
       blockSize: 10,
       quiltSize: 'queen',
       multiplier: constants.inchMultiplier,
-      showInfo: false
+      showInfo: true
     };
   }
 
