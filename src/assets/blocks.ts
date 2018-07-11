@@ -1059,6 +1059,24 @@ const blocks: Array<Block> = [
     difficulty: 1,
     designer: 'Wendi Riggens-Miller',
     file: '021-hat'
+  },
+  {
+    name: 'Wizard Chess Bookends – The Bishop - dark', size: { width: 10, height: 10 },
+    tags: ['wizard', 'chess', 'bookend', 'bishop'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Michelle Thompson',
+    file: '023-bishop-dark',
+    hasEmbroidery: true
+  },
+  {
+    name: 'Wizard Chess Bookends – The Bishop - light', size: { width: 10, height: 10 },
+    tags: ['wizard', 'chess', 'bookend', 'bishop'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Michelle Thompson',
+    file: '023-bishop-light',
+    hasEmbroidery: true
   }
 ];
 

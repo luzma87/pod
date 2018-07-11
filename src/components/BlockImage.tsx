@@ -22,6 +22,7 @@ export namespace BlockImage {
 
   export interface State {
     showHandle: boolean
+    isFlipped: boolean
   }
 }
 
@@ -70,7 +71,8 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
   constructor(props) {
     super(props);
     this.state = {
-      showHandle: false
+      showHandle: false,
+      isFlipped: false
     };
   }
 
@@ -106,15 +108,34 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
             onMouseEnter={() => this.setShowHandle(true)}
             onMouseLeave={() => this.setShowHandle(false)}
           />)}
-          {isVisible ? (<img
-            id={key}
-            title={getTitle(block)}
-            src={getFileName(block)}
-            width={blockSize.width}
-            height={blockSize.height}
-            onMouseEnter={() => this.setShowHandle(true)}
-            onMouseLeave={() => this.setShowHandle(false)}
-          />) : null}
+          {isVisible ? (
+            <>
+              <div
+                onClick={() => {
+                  this.setState({ isFlipped: true });
+                }}
+                style={{
+                  transform: this.state.isFlipped ? 'scaleX(-1)' : 'scaleX(1)',
+                  // opacity: this.state.showHandle ? 1 : 0,
+                  position: 'absolute',
+                  right: 0,
+                  width: 20,
+                  height: 20,
+                  // backgroundColor: 'red',
+                  cursor: 'ew-resize'
+                }}
+              />
+              <img
+                id={key}
+                title={getTitle(block)}
+                src={getFileName(block)}
+                width={blockSize.width}
+                height={blockSize.height}
+                onMouseEnter={() => this.setShowHandle(true)}
+                onMouseLeave={() => this.setShowHandle(false)}
+              />
+            </>
+          ) : null}
         </div>
       );
   }
