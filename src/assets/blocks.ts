@@ -1061,6 +1061,15 @@ const blocks: Array<Block> = [
     file: '021-hat'
   },
   {
+    name: 'Skelegro', size: { width: 10, height: 10 },
+    tags: ['skelegro', 'potion', 'books'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Michelle Thompson',
+    file: '022-skelegro',
+    hasEmbroidery: true
+  },
+  {
     name: 'Wizard Chess Bookends – The Bishop - dark', size: { width: 10, height: 10 },
     tags: ['wizard', 'chess', 'bookend', 'bishop'],
     type: 'supplemental',
