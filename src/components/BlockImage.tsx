@@ -22,6 +22,7 @@ export namespace BlockImage {
 
   export interface State {
     showHandle: boolean
+    showFlipHandle: boolean
     isFlipped: boolean
   }
 }
@@ -72,6 +73,7 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
     super(props);
     this.state = {
       showHandle: false,
+      showFlipHandle: false,
       isFlipped: false
     };
   }
@@ -85,12 +87,20 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
     this.setState({ showHandle: value });
   }
 
+  setShowFlipHandle(value: boolean) {
+    this.setState({ showFlipHandle: value });
+  }
+
   render() {
     const { connectDragSource, connectDragPreview, isDragging, shouldClone, block } = this.props;
-
+    const { isFlipped, showHandle, showFlipHandle } = this.state;
     const blockSize = this.getBlockSize(block.size);
     const key = `block_w${block.week}_${block.number}`;
     let isVisible = isDragging && shouldClone || !isDragging;
+    const flippedStyle = isFlipped ? {
+      transform: 'scaleX(-1)',
+      filter: 'FlipH'
+    } : {};
     return connectDragPreview &&
       connectDragSource &&
       connectDragPreview(
@@ -103,7 +113,7 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
           {connectDragSource(<div
             className="blockHandle"
             style={{
-              opacity: this.state.showHandle ? 1 : 0
+              opacity: showHandle ? 1 : 0
             }}
             onMouseEnter={() => this.setShowHandle(true)}
             onMouseLeave={() => this.setShowHandle(false)}
@@ -111,28 +121,35 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
           {isVisible ? (
             <>
               <div
-                onClick={() => {
-                  this.setState({ isFlipped: true });
-                }}
+                className="blockFlipHandle"
                 style={{
-                  transform: this.state.isFlipped ? 'scaleX(-1)' : 'scaleX(1)',
-                  // opacity: this.state.showHandle ? 1 : 0,
-                  position: 'absolute',
-                  right: 0,
-                  width: 20,
-                  height: 20,
-                  // backgroundColor: 'red',
-                  cursor: 'ew-resize'
+                  opacity: showFlipHandle ? 1 : 0
                 }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  this.setState({ isFlipped: !isFlipped });
+                }}
+                onMouseEnter={() => this.setShowFlipHandle(true)}
+                onMouseLeave={() => this.setShowFlipHandle(false)}
               />
               <img
+                style={{
+                  zIndex: 1,
+                  ...flippedStyle
+                }}
                 id={key}
                 title={getTitle(block)}
                 src={getFileName(block)}
                 width={blockSize.width}
                 height={blockSize.height}
-                onMouseEnter={() => this.setShowHandle(true)}
-                onMouseLeave={() => this.setShowHandle(false)}
+                onMouseEnter={() => {
+                  this.setShowHandle(true);
+                  this.setShowFlipHandle(true);
+                }}
+                onMouseLeave={() => {
+                  this.setShowHandle(false);
+                  this.setShowFlipHandle(false);
+                }}
               />
             </>
           ) : null}

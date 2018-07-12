@@ -47,6 +47,19 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 9;
+}
+
+.blockFlipHandle {
+  background-color: red;
+  border: solid 1px black;
+  width: 10px;
+  height: 10px;
+  cursor: ew-resize;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9;
 }
 
 .searchContainer {
