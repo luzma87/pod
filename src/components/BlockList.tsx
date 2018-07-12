@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import blocks from '../assets/blocks';
+import weeklyBlocks from '../assets/weeklyBlocks';
+import supplementalBlocks from '../assets/supplementalBlocks';
 import BlockCard from './BlockCard';
 import constants from '../util/constants';
 
@@ -15,6 +16,10 @@ export namespace BlockList {
 class BlockList extends React.Component<BlockList.Props, BlockList.State> {
 
   render() {
+    const blocks = [
+      ...weeklyBlocks,
+      ...supplementalBlocks
+    ];
     return (
       <div className="blockListContainer">
         {blocks.map(block => {
