@@ -268,6 +268,39 @@ const supplementalBlocks: Array<Block> = [
     designer: 'Michelle Thompson',
     file: '025-knight-light',
     hasEmbroidery: true
+  },
+  {
+    name: 'Bottle with Mortar & Pestle', size: { width: 10, height: 10 },
+    tags: ['bottle', 'potion', 'mortar', 'pestle', 'book'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Tereza Kulovaná',
+    file: '026-mortar'
+  },
+  {
+    name: 'Deluminator', size: { width: 10, height: 10 },
+    tags: ['deluminator', 'books'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Tereza Kulovaná',
+    file: '027-deluminator',
+    hasEmbroidery: true
+  },
+  {
+    name: 'Ravenclaw Diadem with Box', size: { width: 10, height: 10 },
+    tags: ['diadem', 'box', 'books'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Jessica Lee Blacknall',
+    file: '030-diadem'
+  },
+  {
+    name: 'Fleur’s Hat', size: { width: 10, height: 10 },
+    tags: ['fleur', 'hat', 'books', 'butterfly'],
+    type: 'supplemental',
+    difficulty: 1,
+    designer: 'Daphne Seymour',
+    file: '031-fleur'
   }
 ];
 
