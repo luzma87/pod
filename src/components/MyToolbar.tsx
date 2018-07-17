@@ -4,7 +4,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 
-import MenuIcon from '@material-ui/icons/Menu';
 import Email from '@material-ui/icons/Email';
 import Info from '@material-ui/icons/Info';
 
@@ -20,17 +19,17 @@ export namespace MyToolbar {
 
 class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
   render() {
-    const { onInfoClick, onMenuClick } = this.props;
+    const { onInfoClick } = this.props;
     return (
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="Menu"
-            onClick={() => onMenuClick()}
-          >
-            <MenuIcon />
-          </IconButton>
+          {/*<IconButton*/}
+            {/*color="inherit"*/}
+            {/*aria-label="Menu"*/}
+            {/*onClick={() => onMenuClick()}*/}
+          {/*>*/}
+            {/*<MenuIcon />*/}
+          {/*</IconButton>*/}
           <Typography
             variant="title"
             color="inherit"
