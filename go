@@ -50,6 +50,13 @@ function task_start {
   npm run startLocal
 }
 
+function task_build {
+  check_for_tool "node" "nvm install node"
+
+  echo "${start_fg}Building app for static release${normal_fg}"
+  npm run build
+}
+
 function task_clean {
   echo "${start_fg}Cleaning app${normal_fg}"
   echo -e "${start_fg}\tDeleting node modules${normal_fg}"
@@ -91,6 +98,7 @@ function task_help {
 
   help_message+=" | ${start_fg}clean${normal_fg}"
   help_message+=" | ${start_fg}start${normal_fg}"
+  help_message+=" | ${start_fg}build${normal_fg}"
   help_message+=" | ${start_fg}heroku-logs${normal_fg}"
   echo "${help_message}"
 }
@@ -107,6 +115,7 @@ function execute_task {
 
     clean) task_clean ;;
     start) task_start ;;
+    build) task_build ;;
     heroku-logs) task_heroku_logs ;;
     *) task_help ;;
   esac
