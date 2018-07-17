@@ -132,7 +132,6 @@ body {
 }
 
 .quiltBlock {
-  cursor: no-drop;
   display: inline-block;
   /*position: absolute;*/
 }

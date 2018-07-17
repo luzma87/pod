@@ -1,3 +1,5 @@
+import cursors from './assets/cursors/cursors';
+
 const _ = require('lodash');
 
 import { Block, BlockPosition, SelectedBlock } from './util/types';
@@ -8,9 +10,25 @@ let draggingBlock: SelectedBlock | null = null;
 export type BlockObserver = ((blocks: SelectedBlock[]) => void) | null;
 let observer: BlockObserver = null;
 
+type actionType = null | 'flip' | 'delete';
+
+let action: actionType;
+
+document.body.style.cursor = cursors.bucket;
+
 function emitChange() {
   if (observer) {
     observer(selectedBlocks);
+  }
+}
+
+export function setBlockAction(newAction: actionType) {
+  action = newAction;
+  console.log({ newAction });
+  if (action === null) {
+    document.body.style.cursor = cursors.bucket;
+  } else {
+    document.body.style.cursor = cursors.wand;
   }
 }
 
@@ -77,6 +95,14 @@ export function paintMany(position: BlockPosition, color: string, right: number,
     paintBlock(newPosition, color);
   }
   emitChange();
+}
+
+export function clickBlock(position: BlockPosition) {
+  console.log('click', action, position);
+  if (action === 'delete') {
+    removeBlock(position);
+    setBlockAction(null);
+  }
 }
 
 export function removeBlock(position: BlockPosition) {

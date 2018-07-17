@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { SelectedBlock } from '../util/types';
 import BlockImage from './BlockImage';
-import { removeBlock } from '../interactions';
+import { clickBlock } from '../interactions';
 
 export namespace BlockQuilt {
   export interface Props {
@@ -51,7 +51,7 @@ class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
     return null;
   }
 
-  handleRemoveBlock(e) {
+  handleClickBlock(e) {
     const { block } = this.props;
     let x, y;
     if (block !== null) {
@@ -59,7 +59,7 @@ class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
       y = block.position.y;
     }
     e.stopPropagation();
-    removeBlock({ x, y });
+    clickBlock({ x, y });
   }
 
   render() {
@@ -72,7 +72,7 @@ class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
           left: 0,
           zIndex: 5
         }}
-        onClick={(e) => this.handleRemoveBlock(e)}
+        onClick={(e) => this.handleClickBlock(e)}
       >
         {this.getContent()}
       </div>

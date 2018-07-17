@@ -3,9 +3,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import Email from '@material-ui/icons/Email';
 import Info from '@material-ui/icons/Info';
+import Flip from '@material-ui/icons/Flip';
+import Delete from '@material-ui/icons/Delete';
+
+import { setBlockAction } from '../interactions';
 
 export namespace MyToolbar {
   export interface Props {
@@ -24,11 +29,11 @@ class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
       <AppBar position="static">
         <Toolbar>
           {/*<IconButton*/}
-            {/*color="inherit"*/}
-            {/*aria-label="Menu"*/}
-            {/*onClick={() => onMenuClick()}*/}
+          {/*color="inherit"*/}
+          {/*aria-label="Menu"*/}
+          {/*onClick={() => onMenuClick()}*/}
           {/*>*/}
-            {/*<MenuIcon />*/}
+          {/*<MenuIcon />*/}
           {/*</IconButton>*/}
           <Typography
             variant="title"
@@ -37,6 +42,18 @@ class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
           >
             Design helper
           </Typography>
+
+          <Tooltip title="Flipendo!">
+            <IconButton onClick={() => setBlockAction('flip')}>
+              <Flip />
+            </IconButton>
+          </Tooltip>
+
+          <Tooltip title="Flipendo!">
+            <IconButton onClick={() => setBlockAction('delete')}>
+              <Delete />
+            </IconButton>
+          </Tooltip>
 
           <IconButton onClick={() => onInfoClick()}>
             <Info color="secondary" />
