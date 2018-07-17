@@ -7,10 +7,6 @@ import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 
 import constants from '../util/constants';
 import Quilt from './Quilt';
-import Info from '@material-ui/icons/Info';
-import Email from '@material-ui/icons/Email';
-import Button from '@material-ui/core/Button/Button';
-import InfoDialog from './InfoDialog';
 
 export namespace Workspace {
   export interface Props {
@@ -20,7 +16,6 @@ export namespace Workspace {
     blockSize: number
     quiltSize: string
     multiplier: number
-    showInfo: boolean
   }
 }
 
@@ -32,7 +27,6 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
       blockSize: 10,
       quiltSize: 'queen',
       multiplier: constants.inchMultiplier,
-      showInfo: true
     };
   }
 
@@ -98,7 +92,7 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
 
   render() {
     const quiltSizes = constants.quiltSizes;
-    const { quiltSize, showInfo, multiplier } = this.state;
+    const { quiltSize, multiplier } = this.state;
     const quiltW = quiltSizes[quiltSize].size.w;
     const quiltH = quiltSizes[quiltSize].size.h;
 
@@ -107,13 +101,6 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
         <div className="quiltControlsContainer">
           {this.quiltSizeSelect()}
           {/*{this.multiplierSelect()}*/}
-          <Button onClick={() => this.setState({ showInfo: true })}>
-            <Info />
-          </Button>
-          <a
-            href="mailto:project-of-doom@luzma.click"
-            target="_top"
-          ><Email /></a>
         </div>
         <div className="quiltContainer">
           <Quilt
@@ -122,10 +109,6 @@ class Workspace extends React.Component<Workspace.Props, Workspace.State> {
             multiplier={multiplier}
           />
         </div>
-        <InfoDialog
-          open={showInfo}
-          onClose={() => this.setState({ showInfo: false })}
-        />
       </div>
     );
   }
