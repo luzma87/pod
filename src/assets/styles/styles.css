@@ -3,6 +3,10 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+.flex1 {
+  flex: 1;
+}
+
 .container {
   box-sizing: border-box;
   margin: 1vh;
