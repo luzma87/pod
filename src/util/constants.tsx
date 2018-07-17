@@ -113,12 +113,12 @@ const infoContents: InfoContent[] = [
     key: 't8', text: 'You can drag and drop the blocks in the Quilt to rearrange them'
   },
   {
-    key: 't9',text: 'Clicking a block on the quilt will remove it' },
+    key: 't9',
+    text: 'Clicking a square in the Quilt grid will show a color picker to paint one or more squares'
+  },
   {
-
     key: 't10',
-    text: 'Clicking a square in the Quilt grid will show a color picker to paint one or more squares',
-    color: 'default'
+    text: 'You can modify blocks by clicking the icons on the toolbar. Each one will tell you what it does'
   }
 ];
 

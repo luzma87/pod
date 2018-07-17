@@ -40,9 +40,9 @@ class App extends React.Component<App.Props, App.State> {
     this.state = {
       draggingBlock: null,
       selectedBlocks: [],
-      showInfo: false,
+      showInfo: true,
       showSnackbar: false,
-      showDrawer: true
+      showDrawer: false
     };
   }
 
