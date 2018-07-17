@@ -301,6 +301,22 @@ const supplementalBlocks: Array<Block> = [
     difficulty: 1,
     designer: 'Daphne Seymour',
     file: '031-fleur'
+  },
+  {
+    name: 'Ron’s Broken Wand', size: { width: 10, height: 10 },
+    tags: ['ron', 'wand', 'broken', 'books'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Patty Fresonke',
+    file: '032-ron'
+  },
+  {
+    name: 'Round Eyed Monster Book of Monsters', size: { width: 10, height: 10 },
+    tags: ['eye', 'monster', 'book'],
+    type: 'supplemental',
+    difficulty: 5,
+    designer: 'Esther Wheat',
+    file: '033-monster-book'
   }
 ];
 
