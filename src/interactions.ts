@@ -103,9 +103,22 @@ export function clickBlock(position: BlockPosition) {
     removeBlock(position);
     setBlockAction(null);
   }
+  if (action === 'flip') {
+    flipBlock(position);
+  }
 }
 
-export function removeBlock(position: BlockPosition) {
+function flipBlock(position: BlockPosition) {
+  for (let i = 0; i < selectedBlocks.length; i++) {
+    const b = selectedBlocks[i];
+    if (b.position.x === position.x && b.position.y === position.y) {
+      b.flipped = true;
+    }
+  }
+  emitChange();
+}
+
+function removeBlock(position: BlockPosition) {
   let indexToRemove: number | null = null;
   for (let i = 0; i < selectedBlocks.length; i++) {
     const b = selectedBlocks[i];

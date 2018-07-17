@@ -23,6 +23,7 @@ export interface Block {
 
 export interface SelectedBlock {
   position: BlockPosition
+  flipped?: boolean
   block?: Block,
   color?: string
 }

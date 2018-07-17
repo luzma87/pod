@@ -49,7 +49,7 @@ class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
             </IconButton>
           </Tooltip>
 
-          <Tooltip title="Flipendo!">
+          <Tooltip title="Deletrius!">
             <IconButton onClick={() => setBlockAction('delete')}>
               <Delete />
             </IconButton>
