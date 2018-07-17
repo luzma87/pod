@@ -14,6 +14,7 @@ export namespace BlockImage {
     shouldClone: boolean
     x?: number
     y?: number
+    isFlipped?: boolean
 
     isDragging?: boolean
     connectDragSource?: ConnectDragSource
@@ -23,7 +24,6 @@ export namespace BlockImage {
   export interface State {
     showHandle: boolean
     showFlipHandle: boolean
-    isFlipped: boolean
   }
 }
 
@@ -73,8 +73,7 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
     super(props);
     this.state = {
       showHandle: false,
-      showFlipHandle: false,
-      isFlipped: false
+      showFlipHandle: false
     };
   }
 
@@ -92,8 +91,8 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
   }
 
   render() {
-    const { connectDragSource, connectDragPreview, isDragging, shouldClone, block } = this.props;
-    const { isFlipped, showHandle, showFlipHandle } = this.state;
+    const { connectDragSource, connectDragPreview, isDragging, shouldClone, block, isFlipped } = this.props;
+    const { showHandle } = this.state;
     const blockSize = this.getBlockSize(block.size);
     const key = `block_w${block.week}_${block.number}`;
     let isVisible = isDragging && shouldClone || !isDragging;
@@ -119,39 +118,25 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
             onMouseLeave={() => this.setShowHandle(false)}
           />)}
           {isVisible ? (
-            <>
-              <div
-                className="blockFlipHandle"
-                style={{
-                  opacity: showFlipHandle ? 1 : 0
-                }}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  this.setState({ isFlipped: !isFlipped });
-                }}
-                onMouseEnter={() => this.setShowFlipHandle(true)}
-                onMouseLeave={() => this.setShowFlipHandle(false)}
-              />
-              <img
-                style={{
-                  zIndex: 1,
-                  ...flippedStyle
-                }}
-                id={key}
-                title={getTitle(block)}
-                src={getFileName(block)}
-                width={blockSize.width}
-                height={blockSize.height}
-                onMouseEnter={() => {
-                  this.setShowHandle(true);
-                  this.setShowFlipHandle(true);
-                }}
-                onMouseLeave={() => {
-                  this.setShowHandle(false);
-                  this.setShowFlipHandle(false);
-                }}
-              />
-            </>
+            <img
+              style={{
+                zIndex: 1,
+                ...flippedStyle
+              }}
+              id={key}
+              title={getTitle(block)}
+              src={getFileName(block)}
+              width={blockSize.width}
+              height={blockSize.height}
+              onMouseEnter={() => {
+                this.setShowHandle(true);
+                this.setShowFlipHandle(true);
+              }}
+              onMouseLeave={() => {
+                this.setShowHandle(false);
+                this.setShowFlipHandle(false);
+              }}
+            />
           ) : null}
         </div>
       );

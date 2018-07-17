@@ -3,6 +3,7 @@ import * as React from 'react';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
+import Snackbar from '@material-ui/core/Snackbar';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -13,7 +14,7 @@ import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 
 import '../assets/styles/styles.css';
-import { Block } from '../util/types';
+import { Block, Spell } from '../util/types';
 import BlockList from './BlockList';
 import Workspace from './Workspace';
 import InfoDialog from './InfoDialog';
@@ -27,7 +28,9 @@ export namespace App {
     draggingBlock: Block | null
     selectedBlocks: Array<Block>
     showInfo: boolean
+    showSnackbar: boolean
     showDrawer: boolean
+    snackbarSpell?: Spell
   }
 }
 
@@ -38,6 +41,7 @@ class App extends React.Component<App.Props, App.State> {
       draggingBlock: null,
       selectedBlocks: [],
       showInfo: false,
+      showSnackbar: false,
       showDrawer: true
     };
   }
@@ -92,13 +96,19 @@ class App extends React.Component<App.Props, App.State> {
     );
   }
 
+  handleSnackbar(spell: Spell) {
+    this.setState({ snackbarSpell: spell, showSnackbar: true });
+    setTimeout(() => this.setState({ showSnackbar: false }), 5000);
+  }
+
   render() {
-    const { showInfo } = this.state;
+    const { showInfo, showSnackbar, snackbarSpell } = this.state;
     return (
       <div className="flex1">
         <MyToolbar
           onInfoClick={() => this.setState({ showInfo: true })}
           onMenuClick={() => this.setState({ showDrawer: true })}
+          onSpellClick={(spell) => this.handleSnackbar(spell)}
         />
         {/*{this.renderDrawer()}*/}
         <div className="container">
@@ -112,6 +122,18 @@ class App extends React.Component<App.Props, App.State> {
         <InfoDialog
           open={showInfo}
           onClose={() => this.setState({ showInfo: false })}
+        />
+        <Snackbar
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+          open={showSnackbar}
+          onClose={() => this.setState({ showSnackbar: false })}
+          ContentProps={{
+            'aria-describedby': 'message-id'
+          }}
+          message={(<div id="message-id">
+            {snackbarSpell ? `${snackbarSpell.name}!
+            Click on a block to ${snackbarSpell.action} it` : ''}
+          </div>)}
         />
       </div>
     );

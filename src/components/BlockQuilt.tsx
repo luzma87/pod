@@ -30,6 +30,7 @@ class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
             shouldClone={false}
             targetWidth={targetWidth}
             block={block.block}
+            isFlipped={block.flipped}
             x={x}
             y={y}
           />

@@ -19,7 +19,20 @@ const cursors = {
   wand8: getCursor('wand8'),
   wand9: getCursor('wand9'),
   wand10: getCursor('wand10'),
-  wand11: getCursor('wand11')
+  wand11: getCursor('wand11'),
+  wands: [
+    getCursor('wand'),
+    getCursor('wand2'),
+    getCursor('wand3'),
+    getCursor('wand4'),
+    getCursor('wand5'),
+    getCursor('wand6'),
+    getCursor('wand7'),
+    getCursor('wand8'),
+    getCursor('wand9'),
+    getCursor('wand10'),
+    getCursor('wand11')
+  ]
 };
 
 export default cursors;

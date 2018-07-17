@@ -7,15 +7,17 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 import Email from '@material-ui/icons/Email';
 import Info from '@material-ui/icons/Info';
-import Flip from '@material-ui/icons/Flip';
-import Delete from '@material-ui/icons/Delete';
 
 import { setBlockAction } from '../interactions';
+import spells from '../spells';
+import { Spell } from '../util/types';
 
 export namespace MyToolbar {
   export interface Props {
     onInfoClick: () => void
     onMenuClick: () => void
+
+    onSpellClick: (spell: Spell) => void
   }
 
   export interface State {
@@ -24,7 +26,7 @@ export namespace MyToolbar {
 
 class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
   render() {
-    const { onInfoClick } = this.props;
+    const { onInfoClick, onSpellClick } = this.props;
     return (
       <AppBar position="static">
         <Toolbar>
@@ -42,28 +44,35 @@ class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
           >
             Design helper
           </Typography>
-
-          <Tooltip title="Flipendo!">
-            <IconButton onClick={() => setBlockAction('flip')}>
-              <Flip />
+          {spells.map(spell => (
+              <Tooltip
+                title={spell.name}
+                key={spell.action as string}
+              >
+                <IconButton
+                  onClick={() => {
+                    onSpellClick(spell);
+                    setBlockAction(spell.action);
+                  }}
+                >
+                  {spell.icon}
+                </IconButton>
+              </Tooltip>
+            )
+          )}
+          <Tooltip title="Show info">
+            <IconButton onClick={() => onInfoClick()}>
+              <Info color="secondary" />
             </IconButton>
           </Tooltip>
-
-          <Tooltip title="Deletrius!">
-            <IconButton onClick={() => setBlockAction('delete')}>
-              <Delete />
+          <Tooltip title="Email me">
+            <IconButton
+              color="inherit"
+              onClick={() => window.location.href = 'mailto:project-of-doom@luzma.click'}
+            >
+              <Email />
             </IconButton>
           </Tooltip>
-
-          <IconButton onClick={() => onInfoClick()}>
-            <Info color="secondary" />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            onClick={() => window.location.href = 'mailto:project-of-doom@luzma.click'}
-          >
-            <Email />
-          </IconButton>
         </Toolbar>
       </AppBar>
     );

@@ -2,7 +2,7 @@ import cursors from './assets/cursors/cursors';
 
 const _ = require('lodash');
 
-import { Block, BlockPosition, SelectedBlock } from './util/types';
+import { Block, BlockPosition, SelectedBlock, spellType } from './util/types';
 
 let selectedBlocks: SelectedBlock[] = [];
 let shouldClone: boolean = true;
@@ -10,11 +10,17 @@ let draggingBlock: SelectedBlock | null = null;
 export type BlockObserver = ((blocks: SelectedBlock[]) => void) | null;
 let observer: BlockObserver = null;
 
-type actionType = null | 'flip' | 'delete';
-
-let action: actionType;
+let action: spellType;
 
 document.body.style.cursor = cursors.bucket;
+
+function randomWand() {
+  const min = 0;
+  let wands = cursors.wands;
+  const max = wands.length;
+  const wandIndex = Math.floor(Math.random() * (max - min) + min);
+  return wands[wandIndex];
+}
 
 function emitChange() {
   if (observer) {
@@ -22,13 +28,12 @@ function emitChange() {
   }
 }
 
-export function setBlockAction(newAction: actionType) {
+export function setBlockAction(newAction: spellType) {
   action = newAction;
-  console.log({ newAction });
   if (action === null) {
     document.body.style.cursor = cursors.bucket;
   } else {
-    document.body.style.cursor = cursors.wand;
+    document.body.style.cursor = randomWand();
   }
 }
 
@@ -112,9 +117,11 @@ function flipBlock(position: BlockPosition) {
   for (let i = 0; i < selectedBlocks.length; i++) {
     const b = selectedBlocks[i];
     if (b.position.x === position.x && b.position.y === position.y) {
-      b.flipped = true;
+      b.flipped = !b.flipped;
+      break;
     }
   }
+  setBlockAction(null);
   emitChange();
 }
 

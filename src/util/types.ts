@@ -21,6 +21,14 @@ export interface Block {
   hasEmbroidery?: boolean
 }
 
+export type spellType = null | 'flip' | 'delete';
+
+export interface Spell {
+  name: string
+  action: spellType
+  icon: any
+}
+
 export interface SelectedBlock {
   position: BlockPosition
   flipped?: boolean
