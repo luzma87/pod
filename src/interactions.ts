@@ -8,7 +8,6 @@ let selectedBlocks: SelectedBlock[] = [];
 let shouldClone: boolean = true;
 let draggingBlock: SelectedBlock | null = null;
 export type BlockObserver = ((blocks: SelectedBlock[]) => void) | null;
-// let observer: BlockObserver = null;
 
 let observers: Array<BlockObserver> | null = null;
 
@@ -34,6 +33,41 @@ const emitChange = () => {
     }
   }
 };
+
+const paintBlock = (position: BlockPosition, color: string) => {
+  let newSelectedBlock: SelectedBlock = {
+    color: color,
+    position
+  };
+  selectedBlocks.push(newSelectedBlock);
+};
+
+const flipBlock = (position: BlockPosition) => {
+  for (let i = 0; i < selectedBlocks.length; i++) {
+    const b = selectedBlocks[i];
+    if (b.position.x === position.x && b.position.y === position.y) {
+      b.flipped = !b.flipped;
+      break;
+    }
+  }
+  setBlockAction(null);
+  emitChange();
+};
+
+const removeBlock = (position: BlockPosition) => {
+  let indexToRemove: number | null = null;
+  for (let i = 0; i < selectedBlocks.length; i++) {
+    const b = selectedBlocks[i];
+    if (b.position.x === position.x && b.position.y === position.y) {
+      indexToRemove = i;
+    }
+  }
+  if (indexToRemove !== null) {
+    selectedBlocks.splice(indexToRemove, 1);
+    emitChange();
+  }
+};
+
 
 export const setBlockAction = (newAction: spellType) => {
   action = newAction;
@@ -85,14 +119,6 @@ export const doneDraggingBlock = (position: BlockPosition) => {
   }
 };
 
-const paintBlock = (position: BlockPosition, color: string) => {
-  let newSelectedBlock: SelectedBlock = {
-    color: color,
-    position
-  };
-  selectedBlocks.push(newSelectedBlock);
-};
-
 export const paintMany = (position: BlockPosition, color: string, right: number, down: number) => {
   const posX = position.x;
   const posY = position.y;
@@ -117,31 +143,5 @@ export const clickBlock = (position: BlockPosition) => {
   }
   if (action === 'flip') {
     flipBlock(position);
-  }
-};
-
-const flipBlock = (position: BlockPosition) => {
-  for (let i = 0; i < selectedBlocks.length; i++) {
-    const b = selectedBlocks[i];
-    if (b.position.x === position.x && b.position.y === position.y) {
-      b.flipped = !b.flipped;
-      break;
-    }
-  }
-  setBlockAction(null);
-  emitChange();
-};
-
-const removeBlock = (position: BlockPosition) => {
-  let indexToRemove: number | null = null;
-  for (let i = 0; i < selectedBlocks.length; i++) {
-    const b = selectedBlocks[i];
-    if (b.position.x === position.x && b.position.y === position.y) {
-      indexToRemove = i;
-    }
-  }
-  if (indexToRemove !== null) {
-    selectedBlocks.splice(indexToRemove, 1);
-    emitChange();
   }
 };
