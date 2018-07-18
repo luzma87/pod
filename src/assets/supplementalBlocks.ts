@@ -317,6 +317,30 @@ const supplementalBlocks: Array<Block> = [
     difficulty: 5,
     designer: 'Esther Wheat',
     file: '033-monster-book'
+  },
+  {
+    name: 'Advanced Potion Making', size: { width: 10, height: 10 },
+    tags: ['books', 'cauldron'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Daphne Seymour',
+    file: '034-advanced'
+  },
+  {
+    name: 'Dolores Umbridge’s Cat Plate', size: { width: 10, height: 10 },
+    tags: ['umbridge', 'cat', 'picture'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Loretta Nardi',
+    file: '035-umbridge'
+  },
+  {
+    name: 'Draco as a Ferret & Mad Eye’s Wand', size: { width: 20, height: 10 },
+    tags: ['draco', 'mad', 'eye', 'ferret', 'wand'],
+    type: 'supplemental',
+    difficulty: 5,
+    designer: 'Daphne Seymour',
+    file: '036-ferret'
   }
 ];
 
