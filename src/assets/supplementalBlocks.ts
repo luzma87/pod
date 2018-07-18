@@ -341,6 +341,30 @@ const supplementalBlocks: Array<Block> = [
     difficulty: 5,
     designer: 'Daphne Seymour',
     file: '036-ferret'
+  },
+  {
+    name: 'Bella’s Wand & Books', size: { width: 10, height: 10 },
+    tags: ['bellatrix', 'wand', 'books'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Daphne Seymour',
+    file: '037-bella'
+  },
+  {
+    name: 'Raven', size: { width: 10, height: 10 },
+    tags: ['raven', 'book'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Heidi Hansen',
+    file: '038-raven'
+  },
+  {
+    name: 'House Points', size: { width: 10, height: 10 },
+    tags: ['raven', 'book'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Tanya Searle',
+    file: '039-house-points'
   }
 ];
 
