@@ -15,15 +15,6 @@ let action: spellType;
 
 document.body.style.cursor = cursors.bucket;
 
-export const setBlockAction = (newAction: spellType) => {
-  action = newAction;
-  if (action === null) {
-    document.body.style.cursor = cursors.bucket;
-  } else {
-    document.body.style.cursor = randomWand();
-  }
-};
-
 export const observe = (o: BlockObserver) => {
   if (observers === null) {
     observers = [];
@@ -36,8 +27,13 @@ export const observe = (o: BlockObserver) => {
   };
 };
 
-export const getSelectedBlocks = () => {
-  return selectedBlocks;
+export const setBlockAction = (newAction: spellType) => {
+  action = newAction;
+  if (action === null) {
+    document.body.style.cursor = cursors.bucket;
+  } else {
+    document.body.style.cursor = randomWand();
+  }
 };
 
 export const beginDraggingBlock = (block: Block, position: BlockPosition, clones: boolean) => {
@@ -65,6 +61,21 @@ export const doneDraggingBlock = (position: BlockPosition) => {
   }
 };
 
+export const getSelectedBlocks = () => {
+  return selectedBlocks;
+};
+
+export const clickBlock = (position: BlockPosition) => {
+  console.log('click', action, position);
+  if (action === 'delete') {
+    removeBlock(position);
+    setBlockAction(null);
+  }
+  if (action === 'flip') {
+    flipBlock(position);
+  }
+};
+
 export const paintMany = (position: BlockPosition, color: string, right: number, down: number) => {
   const posX = position.x;
   const posY = position.y;
@@ -81,25 +92,6 @@ export const paintMany = (position: BlockPosition, color: string, right: number,
   emitChange();
 };
 
-export const clickBlock = (position: BlockPosition) => {
-  console.log('click', action, position);
-  if (action === 'delete') {
-    removeBlock(position);
-    setBlockAction(null);
-  }
-  if (action === 'flip') {
-    flipBlock(position);
-  }
-};
-
-
-const randomWand = () => {
-  const min = 0;
-  let wands = cursors.wands;
-  const max = wands.length;
-  const wandIndex = Math.floor(Math.random() * (max - min) + min);
-  return wands[wandIndex];
-};
 
 const emitChange = () => {
   if (observers) {
@@ -110,14 +102,6 @@ const emitChange = () => {
       }
     }
   }
-};
-
-const paintBlock = (position: BlockPosition, color: string) => {
-  let newSelectedBlock: SelectedBlock = {
-    color: color,
-    position
-  };
-  selectedBlocks.push(newSelectedBlock);
 };
 
 const flipBlock = (position: BlockPosition) => {
@@ -144,4 +128,20 @@ const removeBlock = (position: BlockPosition) => {
     selectedBlocks.splice(indexToRemove, 1);
     emitChange();
   }
+};
+
+const paintBlock = (position: BlockPosition, color: string) => {
+  let newSelectedBlock: SelectedBlock = {
+    color: color,
+    position
+  };
+  selectedBlocks.push(newSelectedBlock);
+};
+
+const randomWand = () => {
+  const min = 0;
+  let wands = cursors.wands;
+  const max = wands.length;
+  const wandIndex = Math.floor(Math.random() * (max - min) + min);
+  return wands[wandIndex];
 };
