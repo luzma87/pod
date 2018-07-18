@@ -57,7 +57,6 @@ class QuiltTarget extends React.Component<QuiltTarget.Props, QuiltTarget.State> 
           width: size,
           height: size,
           backgroundColor: color,
-          // cursor: cursors.bucket,
           borderColor,
           borderWidth
         }}

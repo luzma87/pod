@@ -11,6 +11,7 @@ import BlockList from './BlockList';
 import Workspace from './Workspace';
 import InfoDialog from './InfoDialog';
 import MyToolbar from './MyToolbar';
+import SelectedBlocksList from './SelectedBlocksList';
 
 export namespace App {
   export interface Props {
@@ -59,6 +60,7 @@ class App extends React.Component<App.Props, App.State> {
           </div>
           <div className="right">
             <Workspace />
+            <SelectedBlocksList />
           </div>
         </div>
         <InfoDialog

@@ -4,6 +4,7 @@ import weeklyBlocks from '../assets/weeklyBlocks';
 import supplementalBlocks from '../assets/supplementalBlocks';
 import BlockCard from './BlockCard';
 import constants from '../util/constants';
+import { getBlockKey } from '../util/blockUtils';
 
 export namespace BlockList {
   export interface Props {
@@ -23,12 +24,8 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
     return (
       <div className="blockListContainer">
         {blocks.map(block => {
-          let key = `list.${block.type}.${block.week}.${block.number}.${block.name}`;
-          if (block.week === null) {
-            key = `list_${block.name}`;
-          }
           return (<BlockCard
-            key={key}
+            key={getBlockKey(block, 'list')}
             block={block}
             targetWidth={block.size.width * constants.inchMultiplier}
           />);

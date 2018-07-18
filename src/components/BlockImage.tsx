@@ -2,10 +2,8 @@ import * as React from 'react';
 import { DragSource, ConnectDragSource, ConnectDragPreview } from 'react-dnd';
 import { beginDraggingBlock } from '../interactions';
 
-const _ = require('lodash');
-
 import { Block, BlockSize } from '../util/types';
-import constants from '../util/constants';
+import { getFileName, getImageTitle } from '../util/blockUtils';
 
 export namespace BlockImage {
   export interface Props {
@@ -41,32 +39,6 @@ function collect(connect, monitor) {
     isDragging: monitor.isDragging()
   };
 }
-
-const basePath = constants.baseImagesPath;
-
-const getFileName = (block: Block): string => {
-  const week = block.week;
-  const number = block.number;
-  const blockFolder = block.type === 'original' || block.type === 'variation' ? 'weekly' : block.type;
-  if (week !== null && week !== undefined && number !== null && number !== undefined) {
-    const weekPart = _.padStart(week, 3, '0');
-    return `${basePath}/${blockFolder}/${weekPart}-${number}.svg`;
-  }
-  if (block.file !== null && block.file !== undefined) {
-    return `${basePath}/${blockFolder}/${block.file}.svg`;
-  }
-  return '';
-};
-
-const getTitle = (block: Block): string => {
-  const spacing = '    ';
-  const weekTitle = block.week === null || block.week === undefined
-    ? ''
-    : `Week ${block.week} - `;
-  const designer = block.designer !== undefined ? `\n${spacing}by ${block.designer}` : '';
-  const embroidery = block.hasEmbroidery === true ? `\n${spacing}[has embroidery]` : '';
-  return `${weekTitle}${block.name} (${block.type})\n${spacing}[${block.size.width}"x${block.size.height}"]${embroidery}${designer}`;
-};
 
 class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
   constructor(props) {
@@ -124,7 +96,7 @@ class BlockImage extends React.Component<BlockImage.Props, BlockImage.State> {
                 ...flippedStyle
               }}
               id={key}
-              title={getTitle(block)}
+              title={getImageTitle(block)}
               src={getFileName(block)}
               width={blockSize.width}
               height={blockSize.height}

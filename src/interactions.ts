@@ -8,7 +8,9 @@ let selectedBlocks: SelectedBlock[] = [];
 let shouldClone: boolean = true;
 let draggingBlock: SelectedBlock | null = null;
 export type BlockObserver = ((blocks: SelectedBlock[]) => void) | null;
-let observer: BlockObserver = null;
+// let observer: BlockObserver = null;
+
+let observers: Array<BlockObserver> | null = null;
 
 let action: spellType;
 
@@ -23,8 +25,13 @@ function randomWand() {
 }
 
 function emitChange() {
-  if (observer) {
-    observer(selectedBlocks);
+  if (observers) {
+    for (let i = 0; i < observers.length; i++) {
+      const observer = observers[i];
+      if (observer) {
+        observer(selectedBlocks);
+      }
+    }
   }
 }
 
@@ -38,14 +45,14 @@ export function setBlockAction(newAction: spellType) {
 }
 
 export function observe(o: BlockObserver) {
-  if (observer) {
-    throw new Error('Multiple observers not implemented. :(');
+  if (observers === null) {
+    observers = [];
   }
-  observer = o;
+  observers.push(o);
   emitChange();
 
   return () => {
-    observer = null;
+    observers = null;
   };
 }
 
