@@ -16,15 +16,15 @@ let action: spellType;
 
 document.body.style.cursor = cursors.bucket;
 
-function randomWand() {
+const randomWand = () => {
   const min = 0;
   let wands = cursors.wands;
   const max = wands.length;
   const wandIndex = Math.floor(Math.random() * (max - min) + min);
   return wands[wandIndex];
-}
+};
 
-function emitChange() {
+const emitChange = () => {
   if (observers) {
     for (let i = 0; i < observers.length; i++) {
       const observer = observers[i];
@@ -33,18 +33,18 @@ function emitChange() {
       }
     }
   }
-}
+};
 
-export function setBlockAction(newAction: spellType) {
+export const setBlockAction = (newAction: spellType) => {
   action = newAction;
   if (action === null) {
     document.body.style.cursor = cursors.bucket;
   } else {
     document.body.style.cursor = randomWand();
   }
-}
+};
 
-export function observe(o: BlockObserver) {
+export const observe = (o: BlockObserver) => {
   if (observers === null) {
     observers = [];
   }
@@ -54,19 +54,19 @@ export function observe(o: BlockObserver) {
   return () => {
     observers = null;
   };
-}
+};
 
-export function getSelectedBlocks() {
+export const getSelectedBlocks = () => {
   return selectedBlocks;
-}
+};
 
-export function beginDraggingBlock(block: Block, position: BlockPosition, clones: boolean) {
+export const beginDraggingBlock = (block: Block, position: BlockPosition, clones: boolean) => {
   draggingBlock = { block, position };
   shouldClone = clones;
   emitChange();
-}
+};
 
-export function doneDraggingBlock(position: BlockPosition) {
+export const doneDraggingBlock = (position: BlockPosition) => {
   if (draggingBlock !== null) {
     let newBlock = _.cloneDeep(draggingBlock);
     newBlock.position = position;
@@ -83,17 +83,17 @@ export function doneDraggingBlock(position: BlockPosition) {
     draggingBlock = null;
     emitChange();
   }
-}
+};
 
-function paintBlock(position: BlockPosition, color: string) {
+const paintBlock = (position: BlockPosition, color: string) => {
   let newSelectedBlock: SelectedBlock = {
     color: color,
     position
   };
   selectedBlocks.push(newSelectedBlock);
-}
+};
 
-export function paintMany(position: BlockPosition, color: string, right: number, down: number) {
+export const paintMany = (position: BlockPosition, color: string, right: number, down: number) => {
   const posX = position.x;
   const posY = position.y;
 
@@ -107,9 +107,9 @@ export function paintMany(position: BlockPosition, color: string, right: number,
     paintBlock(newPosition, color);
   }
   emitChange();
-}
+};
 
-export function clickBlock(position: BlockPosition) {
+export const clickBlock = (position: BlockPosition) => {
   console.log('click', action, position);
   if (action === 'delete') {
     removeBlock(position);
@@ -118,9 +118,9 @@ export function clickBlock(position: BlockPosition) {
   if (action === 'flip') {
     flipBlock(position);
   }
-}
+};
 
-function flipBlock(position: BlockPosition) {
+const flipBlock = (position: BlockPosition) => {
   for (let i = 0; i < selectedBlocks.length; i++) {
     const b = selectedBlocks[i];
     if (b.position.x === position.x && b.position.y === position.y) {
@@ -130,9 +130,9 @@ function flipBlock(position: BlockPosition) {
   }
   setBlockAction(null);
   emitChange();
-}
+};
 
-function removeBlock(position: BlockPosition) {
+const removeBlock = (position: BlockPosition) => {
   let indexToRemove: number | null = null;
   for (let i = 0; i < selectedBlocks.length; i++) {
     const b = selectedBlocks[i];
@@ -144,4 +144,4 @@ function removeBlock(position: BlockPosition) {
     selectedBlocks.splice(indexToRemove, 1);
     emitChange();
   }
-}
+};
