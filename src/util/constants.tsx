@@ -123,8 +123,8 @@ const infoContents: InfoContent[] = [
 ];
 
 const constants = {
-  inchMultiplier: 8,
-  minBlockSize: 2.5,
+  inchMultiplier: 10,
+  minBlockSize: 2,
   baseImagesPath: '../assets/images/blocks',
   materialPalette,
   quiltSizes,

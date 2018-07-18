@@ -3,7 +3,6 @@ import * as React from 'react';
 import weeklyBlocks from '../assets/weeklyBlocks';
 import supplementalBlocks from '../assets/supplementalBlocks';
 import BlockCard from './BlockCard';
-import constants from '../util/constants';
 import { getBlockKey } from '../util/blockUtils';
 
 export namespace BlockList {
@@ -27,7 +26,7 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
           return (<BlockCard
             key={getBlockKey(block, 'list')}
             block={block}
-            targetWidth={block.size.width * constants.inchMultiplier}
+            targetWidth={block.size.width * 8}
           />);
         })}
       </div>

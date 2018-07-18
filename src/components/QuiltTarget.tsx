@@ -46,9 +46,9 @@ class QuiltTarget extends React.Component<QuiltTarget.Props, QuiltTarget.State> 
     const borderColor = isOver ? '#8C6AD8' : '#ddd';
     const borderWidth = isOver ? 2 : 0.5;
 
-    let targetWidth = constants.minBlockSize * 8;
+    let targetWidth = constants.minBlockSize * constants.inchMultiplier;
     if (block !== null && block.block !== null && block.block !== undefined) {
-      targetWidth = block.block.size.width * 8;
+      targetWidth = block.block.size.width * constants.inchMultiplier;
     }
     return connectDropTarget && connectDropTarget(
       <div

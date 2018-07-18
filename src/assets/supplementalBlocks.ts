@@ -287,6 +287,15 @@ const supplementalBlocks: Array<Block> = [
     hasEmbroidery: true
   },
   {
+    name: 'Stained Glass Mermaid', size: { width: 3, height: 10 },
+    tags: ['mermaid', 'stained','glass'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Gretchen Kohlhaas',
+    file: '028-mermaid',
+    hasEmbroidery: true
+  },
+  {
     name: 'Ravenclaw Diadem with Box', size: { width: 10, height: 10 },
     tags: ['diadem', 'box', 'books'],
     type: 'supplemental',
