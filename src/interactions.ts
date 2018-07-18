@@ -15,60 +15,6 @@ let action: spellType;
 
 document.body.style.cursor = cursors.bucket;
 
-const randomWand = () => {
-  const min = 0;
-  let wands = cursors.wands;
-  const max = wands.length;
-  const wandIndex = Math.floor(Math.random() * (max - min) + min);
-  return wands[wandIndex];
-};
-
-const emitChange = () => {
-  if (observers) {
-    for (let i = 0; i < observers.length; i++) {
-      const observer = observers[i];
-      if (observer) {
-        observer(selectedBlocks);
-      }
-    }
-  }
-};
-
-const paintBlock = (position: BlockPosition, color: string) => {
-  let newSelectedBlock: SelectedBlock = {
-    color: color,
-    position
-  };
-  selectedBlocks.push(newSelectedBlock);
-};
-
-const flipBlock = (position: BlockPosition) => {
-  for (let i = 0; i < selectedBlocks.length; i++) {
-    const b = selectedBlocks[i];
-    if (b.position.x === position.x && b.position.y === position.y) {
-      b.flipped = !b.flipped;
-      break;
-    }
-  }
-  setBlockAction(null);
-  emitChange();
-};
-
-const removeBlock = (position: BlockPosition) => {
-  let indexToRemove: number | null = null;
-  for (let i = 0; i < selectedBlocks.length; i++) {
-    const b = selectedBlocks[i];
-    if (b.position.x === position.x && b.position.y === position.y) {
-      indexToRemove = i;
-    }
-  }
-  if (indexToRemove !== null) {
-    selectedBlocks.splice(indexToRemove, 1);
-    emitChange();
-  }
-};
-
-
 export const setBlockAction = (newAction: spellType) => {
   action = newAction;
   if (action === null) {
@@ -143,5 +89,59 @@ export const clickBlock = (position: BlockPosition) => {
   }
   if (action === 'flip') {
     flipBlock(position);
+  }
+};
+
+
+const randomWand = () => {
+  const min = 0;
+  let wands = cursors.wands;
+  const max = wands.length;
+  const wandIndex = Math.floor(Math.random() * (max - min) + min);
+  return wands[wandIndex];
+};
+
+const emitChange = () => {
+  if (observers) {
+    for (let i = 0; i < observers.length; i++) {
+      const observer = observers[i];
+      if (observer) {
+        observer(selectedBlocks);
+      }
+    }
+  }
+};
+
+const paintBlock = (position: BlockPosition, color: string) => {
+  let newSelectedBlock: SelectedBlock = {
+    color: color,
+    position
+  };
+  selectedBlocks.push(newSelectedBlock);
+};
+
+const flipBlock = (position: BlockPosition) => {
+  for (let i = 0; i < selectedBlocks.length; i++) {
+    const b = selectedBlocks[i];
+    if (b.position.x === position.x && b.position.y === position.y) {
+      b.flipped = !b.flipped;
+      break;
+    }
+  }
+  setBlockAction(null);
+  emitChange();
+};
+
+const removeBlock = (position: BlockPosition) => {
+  let indexToRemove: number | null = null;
+  for (let i = 0; i < selectedBlocks.length; i++) {
+    const b = selectedBlocks[i];
+    if (b.position.x === position.x && b.position.y === position.y) {
+      indexToRemove = i;
+    }
+  }
+  if (indexToRemove !== null) {
+    selectedBlocks.splice(indexToRemove, 1);
+    emitChange();
   }
 };
