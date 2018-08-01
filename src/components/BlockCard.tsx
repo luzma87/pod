@@ -18,9 +18,7 @@ class BlockCard extends React.Component<BlockCard.Props, BlockCard.State> {
   render() {
     const { block, targetWidth } = this.props;
     return (
-      <div
-        className="card block"
-      >
+      <div className="card block">
         <BlockImage
           shouldClone
           block={block}

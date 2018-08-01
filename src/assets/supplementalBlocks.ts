@@ -288,7 +288,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Stained Glass Mermaid', size: { width: 3, height: 10 },
-    tags: ['mermaid', 'stained','glass'],
+    tags: ['mermaid', 'stained', 'glass'],
     type: 'supplemental',
     difficulty: 3,
     designer: 'Gretchen Kohlhaas',
@@ -374,6 +374,14 @@ const supplementalBlocks: Array<Block> = [
     difficulty: 2,
     designer: 'Tanya Searle',
     file: '039-house-points'
+  },
+  {
+    name: 'Lucius Malfoy’s Death Eater Mask', size: { width: 10, height: 10 },
+    tags: ['lucius', 'malfoy', 'mask', 'death', 'eater', 'wand', 'book'],
+    type: 'supplemental',
+    difficulty: 5,
+    designer: 'Daphne Seymour',
+    file: '040-lucius'
   }
 ];
 
