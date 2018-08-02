@@ -139,9 +139,10 @@ const paintBlock = (position: BlockPosition, color: string) => {
 };
 
 const randomWand = () => {
-  const min = 0;
+  // const min = 0;
   let wands = cursors.wands;
-  const max = wands.length;
-  const wandIndex = Math.floor(Math.random() * (max - min) + min);
+  // const max = wands.length;
+  // const wandIndex = Math.floor(Math.random() * (max - min) + min);
+  const wandIndex=0;
   return wands[wandIndex];
 };

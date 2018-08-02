@@ -76,7 +76,7 @@ class App extends React.Component<App.Props, App.State> {
           }}
           message={(<div id="message-id">
             {snackbarSpell ? `${snackbarSpell.name}!
-            Click on a block to ${snackbarSpell.action} it` : ''}
+            Click on a quilt block to ${snackbarSpell.action} it` : ''}
           </div>)}
         />
       </div>
