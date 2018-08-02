@@ -3,7 +3,7 @@ import { Block } from '../util/types';
 const supplementalBlocks: Array<Block> = [
   {
     name: 'Colin’s Camera', size: { width: 10, height: 10 },
-    tags: ['colin', 'camera', 'book'],
+    tags: ['colin', 'camera', 'book', 'books'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
@@ -35,7 +35,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'He Who Must Not Be Named @ King’s Cross', size: { width: 10, height: 10 },
-    tags: ['voldemort', 'books', 'king', 'cross'],
+    tags: ['voldemort', 'books', 'book', 'king', 'cross'],
     type: 'supplemental',
     difficulty: 4,
     designer: 'Vanda Chittenden',
@@ -43,7 +43,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Honeydukes Jar & Books', size: { width: 10, height: 10 },
-    tags: ['honeydukes', 'books', 'jar'],
+    tags: ['honeydukes', 'books', 'book', 'jar'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
@@ -66,16 +66,16 @@ const supplementalBlocks: Array<Block> = [
     file: '008-honeydukes'
   },
   {
-    name: 'House Scarf - Griffindor', size: { width: 10, height: 10 },
-    tags: ['books', 'griffindor', 'scarf'],
+    name: 'House Scarf - Gryffindor', size: { width: 10, height: 10 },
+    tags: ['books', 'book', 'gryffindor', 'scarf'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
-    file: '009-scarf-griffindor'
+    file: '009-scarf-gryffindor'
   },
   {
     name: 'House Scarf - Hufflepuff', size: { width: 10, height: 10 },
-    tags: ['books', 'hufflepuff', 'scarf'],
+    tags: ['books', 'book', 'hufflepuff', 'scarf'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
@@ -83,7 +83,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'House Scarf - Ravenclaw', size: { width: 10, height: 10 },
-    tags: ['books', 'ravenclaw', 'scarf'],
+    tags: ['books', 'book', 'ravenclaw', 'scarf'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
@@ -91,7 +91,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'House Scarf - Slytherin', size: { width: 10, height: 10 },
-    tags: ['books', 'slytherin', 'scarf'],
+    tags: ['books', 'book', 'slytherin', 'scarf'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
@@ -99,7 +99,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Lantern', size: { width: 10, height: 10 },
-    tags: ['books', 'lantern'],
+    tags: ['books', 'book', 'lantern'],
     type: 'supplemental',
     difficulty: 4,
     designer: 'Wendi Riggens-Miller',
@@ -132,7 +132,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Luna’s Spectrespecs', size: { width: 10, height: 10 },
-    tags: ['luna', 'lovegood', 'spectrespecs', 'books'],
+    tags: ['luna', 'lovegood', 'spectrespecs', 'books', 'book'],
     type: 'supplemental',
     difficulty: 3,
     designer: 'Michelle Thompson',
@@ -166,7 +166,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Quidditch Goggles', size: { width: 10, height: 10 },
-    tags: ['quidditch', 'goggles', 'books'],
+    tags: ['quidditch', 'goggles', 'books', 'book'],
     type: 'supplemental',
     difficulty: 3,
     hasEmbroidery: true,
@@ -175,7 +175,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Rememberall', size: { width: 10, height: 10 },
-    tags: ['rememberall', 'books'],
+    tags: ['rememberall', 'books', 'book'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Michelle Thompson',
@@ -183,7 +183,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Ripped Book', size: { width: 10, height: 10 },
-    tags: ['ripped', 'book'],
+    tags: ['ripped', 'book', 'books'],
     type: 'supplemental',
     difficulty: 1,
     designer: 'Tereza Kulovaná',
@@ -191,7 +191,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Rita Skeeter', size: { width: 10, height: 10 },
-    tags: ['rita', 'skeeter', 'book'],
+    tags: ['rita', 'skeeter', 'book', 'books'],
     type: 'supplemental',
     difficulty: 2,
     hasEmbroidery: true,
@@ -200,7 +200,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Student Hat', size: { width: 10, height: 10 },
-    tags: ['student', 'hat', 'book'],
+    tags: ['student', 'hat', 'book', 'books'],
     type: 'supplemental',
     difficulty: 1,
     designer: 'Wendi Riggens-Miller',
@@ -208,7 +208,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Skelegro', size: { width: 10, height: 10 },
-    tags: ['skelegro', 'potion', 'books'],
+    tags: ['skelegro', 'potion', 'books', 'book'],
     type: 'supplemental',
     difficulty: 3,
     designer: 'Michelle Thompson',
@@ -271,7 +271,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Bottle with Mortar & Pestle', size: { width: 10, height: 10 },
-    tags: ['bottle', 'potion', 'mortar', 'pestle', 'book'],
+    tags: ['bottle', 'potion', 'mortar', 'pestle', 'book', 'books'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Tereza Kulovaná',
@@ -279,7 +279,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Deluminator', size: { width: 10, height: 10 },
-    tags: ['deluminator', 'books'],
+    tags: ['deluminator', 'books', 'book'],
     type: 'supplemental',
     difficulty: 3,
     designer: 'Tereza Kulovaná',
@@ -297,7 +297,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Ravenclaw Diadem with Box', size: { width: 10, height: 10 },
-    tags: ['diadem', 'box', 'books'],
+    tags: ['diadem', 'box', 'books', 'book'],
     type: 'supplemental',
     difficulty: 3,
     designer: 'Jessica Lee Blacknall',
@@ -305,7 +305,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Fleur’s Hat', size: { width: 10, height: 10 },
-    tags: ['fleur', 'hat', 'books', 'butterfly'],
+    tags: ['fleur', 'hat', 'books', 'book', 'butterfly'],
     type: 'supplemental',
     difficulty: 1,
     designer: 'Daphne Seymour',
@@ -313,7 +313,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Ron’s Broken Wand', size: { width: 10, height: 10 },
-    tags: ['ron', 'wand', 'broken', 'books'],
+    tags: ['ron', 'wand', 'broken', 'books', 'book'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Patty Fresonke',
@@ -321,7 +321,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Round Eyed Monster Book of Monsters', size: { width: 10, height: 10 },
-    tags: ['eye', 'monster', 'book'],
+    tags: ['eye', 'monster', 'book', 'books'],
     type: 'supplemental',
     difficulty: 5,
     designer: 'Esther Wheat',
@@ -329,7 +329,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Advanced Potion Making', size: { width: 10, height: 10 },
-    tags: ['books', 'cauldron'],
+    tags: ['books', 'book', 'cauldron'],
     type: 'supplemental',
     difficulty: 3,
     designer: 'Daphne Seymour',
@@ -353,7 +353,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Bella’s Wand & Books', size: { width: 10, height: 10 },
-    tags: ['bellatrix', 'wand', 'books'],
+    tags: ['bellatrix', 'wand', 'books', 'book'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Daphne Seymour',
@@ -361,7 +361,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Raven', size: { width: 10, height: 10 },
-    tags: ['raven', 'book'],
+    tags: ['raven', 'book', 'books'],
     type: 'supplemental',
     difficulty: 3,
     designer: 'Heidi Hansen',
@@ -369,7 +369,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'House Points', size: { width: 10, height: 10 },
-    tags: ['raven', 'book'],
+    tags: ['house', 'points', 'gryffindor', 'ravenclaw', 'slytherin', 'hufflepuff'],
     type: 'supplemental',
     difficulty: 2,
     designer: 'Tanya Searle',
@@ -377,7 +377,7 @@ const supplementalBlocks: Array<Block> = [
   },
   {
     name: 'Lucius Malfoy’s Death Eater Mask', size: { width: 10, height: 10 },
-    tags: ['lucius', 'malfoy', 'mask', 'death', 'eater', 'wand', 'book'],
+    tags: ['lucius', 'malfoy', 'mask', 'death', 'eater', 'wand', 'book', 'books'],
     type: 'supplemental',
     difficulty: 5,
     designer: 'Daphne Seymour',

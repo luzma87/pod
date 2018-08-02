@@ -28,7 +28,7 @@ class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
   render() {
     const { onInfoClick, onSpellClick } = this.props;
     return (
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           {/*<IconButton*/}
           {/*color="inherit"*/}
