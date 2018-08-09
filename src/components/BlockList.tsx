@@ -1,10 +1,10 @@
 import * as React from 'react';
-import ChipInput from 'material-ui-chip-input';
 import weeklyBlocks from '../assets/weeklyBlocks';
 import supplementalBlocks from '../assets/supplementalBlocks';
 import BlockCard from './BlockCard';
 import { getBlockKey } from '../util/blockUtils';
 import { Block } from '../util/types';
+import ChippedAutosuggest from './ChippedAutosuggest';
 
 const _ = require('lodash');
 
@@ -79,13 +79,10 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', padding: 8 }}>
-          <ChipInput
-            fullWidth
-            blurBehavior="ignore"
-            label="Search"
-            value={chips}
-            onAdd={(chip) => this.handleAddChip(chip)}
-            onDelete={(chip, index) => this.handleDeleteChip(chip, index)}
+          <ChippedAutosuggest
+            chips={chips}
+            handleAddChip={(chip) => this.handleAddChip(chip)}
+            handleDeleteChip={(chip, index) => this.handleDeleteChip(chip, index)}
           />
         </div>
         <div className="blockListContainer">
