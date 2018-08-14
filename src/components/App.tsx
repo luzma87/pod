@@ -36,7 +36,7 @@ class App extends React.Component<App.Props, App.State> {
       showSnackbar: false,
       showDrawer: false,
 
-      showInfo: true
+      showInfo: false
     };
   }
 

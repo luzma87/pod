@@ -1,28 +1,58 @@
 import * as React from 'react';
 import ChipInput from 'material-ui-chip-input';
-import { Tag } from '../util/types';
 import Autosuggest from 'react-autosuggest';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
 
-export namespace ChippedAutosuggest {
+export namespace OtherChippedAutosuggest {
   export interface Props {
-    chips: any
-    textfieldInput: any
-    handleAddChip: (String) => void
-    handleDeleteChip: (String, number) => void
-    handleSuggestionsFetchRequested: (any) => void
-    handleSuggestionsClearRequested: () => void
-    handleTextFieldInputChange: any
-    tags: Array<Tag>
   }
 
   export interface State {
+    value: any,
+    suggestions: any,
     textFieldInput: any
   }
 }
+
+const suggestions = [
+  { name: 'Afghanistan' },
+  { name: 'Aland Islands' },
+  { name: 'Albania' },
+  { name: 'Algeria' },
+  { name: 'American Samoa' },
+  { name: 'Andorra' },
+  { name: 'Angola' },
+  { name: 'Anguilla' },
+  { name: 'Antarctica' },
+  { name: 'Antigua and Barbuda' },
+  { name: 'Argentina' },
+  { name: 'Armenia' },
+  { name: 'Aruba' },
+  { name: 'Australia' },
+  { name: 'Austria' },
+  { name: 'Azerbaijan' },
+  { name: 'Bahamas' },
+  { name: 'Bahrain' },
+  { name: 'Bangladesh' },
+  { name: 'Barbados' },
+  { name: 'Belarus' },
+  { name: 'Belgium' },
+  { name: 'Belize' },
+  { name: 'Benin' },
+  { name: 'Bermuda' },
+  { name: 'Bhutan' },
+  { name: 'Bolivia, Plurinational State of' },
+  { name: 'Bonaire, Sint Eustatius and Saba' },
+  { name: 'Bosnia and Herzegovina' },
+  { name: 'Botswana' },
+  { name: 'Bouvet Island' },
+  { name: 'Brazil' },
+  { name: 'British Indian Ocean Territory' },
+  { name: 'Brunei Darussalam' }
+];
 
 const renderInput = (inputProps) => {
   const { classes, autoFocus, value, onChange, onAdd, onDelete, chips, ref, ...other } = inputProps;
@@ -86,18 +116,68 @@ const getSuggestionValue = (suggestion) => {
   return suggestion.name;
 };
 
-class ChippedAutosuggest extends React.Component<ChippedAutosuggest.Props, ChippedAutosuggest.State> {
+const getSuggestions = (value) => {
+  const inputValue = value.trim().toLowerCase();
+  const inputLength = inputValue.length;
+  let count = 0;
+
+  return inputLength === 0
+    ? []
+    : suggestions.filter(suggestion => {
+      const keep =
+        count < 5 && suggestion.name.toLowerCase().slice(0, inputLength) === inputValue;
+
+      if (keep) {
+        count += 1;
+      }
+
+      return keep;
+    });
+};
+
+class OtherChippedAutosuggest extends React.Component<OtherChippedAutosuggest.Props, OtherChippedAutosuggest.State> {
 
   constructor(props) {
     super(props);
     this.state = {
+      suggestions: [],
+      value: [],
       textFieldInput: ''
     };
   }
 
-  render() {
-    const { chips, tags, textfieldInput, handleAddChip, handleDeleteChip, handleSuggestionsFetchRequested, handleSuggestionsClearRequested, handleTextFieldInputChange } = this.props;
+  handleSuggestionsFetchRequested = ({ value }) => {
+    this.setState({
+      suggestions: getSuggestions(value)
+    });
+  };
 
+  handleSuggestionsClearRequested = () => {
+    this.setState({
+      suggestions: []
+    });
+  };
+
+  handleTextFieldInputChange = (event, { newValue }) => {
+    this.setState({
+      textFieldInput: newValue
+    });
+  };
+
+  handleAddChip(chip) {
+    this.setState({
+      value: [...this.state.value, chip],
+      textFieldInput: ''
+    });
+  }
+
+  handleDeleteChip(chip, index) {
+    let temp = this.state.value;
+    temp.splice(index, 1);
+    this.setState({ value: temp });
+  }
+
+  render() {
     const styles = {
       container: {
         flexGrow: 1,
@@ -134,23 +214,23 @@ class ChippedAutosuggest extends React.Component<ChippedAutosuggest.Props, Chipp
           suggestion: styles.suggestion
         }}
         renderInputComponent={renderInput}
-        suggestions={tags}
-        onSuggestionsFetchRequested={handleSuggestionsFetchRequested}
-        onSuggestionsClearRequested={handleSuggestionsClearRequested}
+        suggestions={this.state.suggestions}
+        onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
+        onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
         renderSuggestionsContainer={renderSuggestionsContainer}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         onSuggestionSelected={(e, { suggestionValue }) => {
-          handleAddChip(suggestionValue);
+          this.handleAddChip(suggestionValue);
           e.preventDefault();
         }}
         focusInputOnSuggestionClick={false}
         inputProps={{
-          chips: chips,
-          onChange: handleTextFieldInputChange,
-          value: textfieldInput,
-          onAdd: (chip) => handleAddChip(chip),
-          onDelete: (chip, index) => handleDeleteChip(chip, index)
+          chips: this.state.value,
+          onChange: this.handleTextFieldInputChange,
+          value: this.state.textFieldInput,
+          onAdd: (chip) => this.handleAddChip(chip),
+          onDelete: (chip, index) => this.handleDeleteChip(chip, index)
         }}
       />
     );
@@ -158,4 +238,4 @@ class ChippedAutosuggest extends React.Component<ChippedAutosuggest.Props, Chipp
 
 }
 
-export default ChippedAutosuggest;
+export default OtherChippedAutosuggest;

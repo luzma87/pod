@@ -44,3 +44,8 @@ export interface InfoContent {
   color?: Color
   divider?: boolean
 }
+
+
+export interface Tag {
+  name: String
+}
