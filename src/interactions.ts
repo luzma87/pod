@@ -74,6 +74,9 @@ export const clickBlock = (position: BlockPosition) => {
   if (action === 'flip') {
     flipBlock(position);
   }
+  if (action === 'enlarge') {
+    enlargeBlock(position);
+  }
 };
 
 export const paintMany = (position: BlockPosition, color: string, right: number, down: number) => {
@@ -116,6 +119,21 @@ const flipBlock = (position: BlockPosition) => {
   emitChange();
 };
 
+const enlargeBlock = (position: BlockPosition) => {
+  for (let i = 0; i < selectedBlocks.length; i++) {
+    const b = selectedBlocks[i];
+    if (b.position.x === position.x && b.position.y === position.y) {
+      if (b.block) {
+        b.block.size.width = 10;
+        b.block.size.height = 10;
+      }
+      break;
+    }
+  }
+  setBlockAction(null);
+  emitChange();
+};
+
 const removeBlock = (position: BlockPosition) => {
   let indexToRemove: number | null = null;
   for (let i = 0; i < selectedBlocks.length; i++) {
@@ -143,6 +161,6 @@ const randomWand = () => {
   let wands = cursors.wands;
   // const max = wands.length;
   // const wandIndex = Math.floor(Math.random() * (max - min) + min);
-  const wandIndex=0;
+  const wandIndex = 0;
   return wands[wandIndex];
 };
