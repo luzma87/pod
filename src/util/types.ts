@@ -8,20 +8,23 @@ export interface BlockPosition {
   y: number
 }
 
+export type blockType = 'original' | 'variation' | 'supplemental'
+  | 'castle' | 'others' | 'disney' | 'custom';
+
 export interface Block {
   week?: number,
   number?: number,
   name: string,
   size: BlockSize,
   tags: Array<string>,
-  type: 'original' | 'variation' | 'supplemental' | 'castle',
+  type: blockType,
   difficulty: number,
   designer?: string
   file?: string
   hasEmbroidery?: boolean
 }
 
-export type spellType = null | 'flip' | 'delete';
+export type spellType = null | 'flip' | 'delete' | 'enlarge';
 
 export interface Spell {
   name: string
