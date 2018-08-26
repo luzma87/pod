@@ -18,6 +18,14 @@ const topSidesBlocks: Array<Block> = [
     file: '01-apothecary-out'
   },
   {
+    name: 'Dobby', size: { width: 6.5, height: 23 },
+    tags: ['dobby', 'house', 'elf'],
+    type: 'top-sides',
+    difficulty: 3,
+    designer: 'Wendi Riggens-Miller',
+    file: '02-dobby'
+  },
+  {
     name: 'Hidden Sword for the top corner of your bookcase', size: { width: 16.5, height: 5.5 },
     tags: ['hidden', 'sword'],
     type: 'top-sides',
@@ -48,6 +56,14 @@ const topSidesBlocks: Array<Block> = [
     difficulty: 3,
     designer: 'Wendi Riggens-Miller',
     file: '05-kneazle-out'
+  },
+  {
+    name: 'Kreacher', size: { width: 10, height: 20 },
+    tags: ['kreacher', 'house', 'elf'],
+    type: 'top-sides',
+    difficulty: 3,
+    designer: 'Wendi Riggens-Miller',
+    file: '06-kreacher'
   },
   {
     name: 'Sleeping Dragon', size: { width: 20, height: 8 },
@@ -106,6 +122,22 @@ const topSidesBlocks: Array<Block> = [
     file: '09-feet2'
   },
   {
+    name: 'Hungarian Horntail', size: { width: 20, height: 10 },
+    tags: ['book', 'books', 'hungarian', 'horntail', 'dragon'],
+    type: 'top-sides',
+    difficulty: 5,
+    designer: 'Jen Rose',
+    file: '10-horntail-in'
+  },
+  {
+    name: 'Hungarian Horntail', size: { width: 20, height: 10 },
+    tags: ['book', 'books', 'hungarian', 'horntail', 'dragon'],
+    type: 'top-sides',
+    difficulty: 5,
+    designer: 'Jen Rose',
+    file: '10-horntail-out'
+  },
+  {
     name: 'Nimbus 2000', size: { width: 11.5, height: 30 },
     tags: ['nimbus', 'broom', 'broomstick'],
     type: 'top-sides',
@@ -130,6 +162,14 @@ const topSidesBlocks: Array<Block> = [
     file: '13-gryffindor_sword'
   },
   {
+    name: 'Bookcase Dobby', size: { width: 20, height: 40 },
+    tags: ['dobby', 'house', 'elf'],
+    type: 'top-sides',
+    difficulty: 2,
+    designer: 'Michelle Thompson',
+    file: '14-dobby'
+  },
+  {
     name: 'Fawkes on a Perch', size: { width: 10, height: 36 },
     tags: ['fawkes', 'perch'],
     type: 'top-sides',
@@ -146,12 +186,20 @@ const topSidesBlocks: Array<Block> = [
     file: '16-pixie'
   },
   {
+    name: 'Dobby the House Elf', size: { width: 20, height: 35 },
+    tags: ['dobby', 'house', 'elf'],
+    type: 'top-sides',
+    difficulty: 3,
+    designer: 'Esther Wheat',
+    file: '17-dobby'
+  },
+  {
     name: 'Bookcase Feet - Paws', size: { width: 6, height: 6 },
     tags: ['bookcase', 'feet', 'paws'],
     type: 'top-sides',
     difficulty: 2,
     designer: 'Daphne Seymour',
-    file: '17-feet'
+    file: '18-feet'
   },
   {
     name: 'Bookcase Feet - Witch Feet', size: { width: 8, height: 8 },
@@ -159,7 +207,7 @@ const topSidesBlocks: Array<Block> = [
     type: 'top-sides',
     difficulty: 2,
     designer: 'Daphne Seymour',
-    file: '18-feet'
+    file: '19-feet'
   },
   {
     name: 'Left Foot & Right Foot', size: { width: 7.5, height: 6 },
@@ -167,7 +215,7 @@ const topSidesBlocks: Array<Block> = [
     type: 'top-sides',
     difficulty: 2,
     designer: 'Gretchen Kohlhaas',
-    file: '19-feet'
+    file: '20-feet'
   },
   {
     name: 'Rounded Bookcase Feet', size: { width: 4, height: 6 },
@@ -175,7 +223,7 @@ const topSidesBlocks: Array<Block> = [
     type: 'top-sides',
     difficulty: 2,
     designer: 'Gretchen Kohlhaas',
-    file: '20-feet'
+    file: '21-feet'
   },
   {
     name: 'Bookcase Owl Ears Topper', size: { width: 20, height: 10 },
@@ -183,7 +231,7 @@ const topSidesBlocks: Array<Block> = [
     type: 'top-sides',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    file: '21-owl_ears'
+    file: '22-owl_ears'
   },
   {
     name: 'Hagrid’s Flowery Pink Umbrella', size: { width: 10, height: 25 },
@@ -191,7 +239,7 @@ const topSidesBlocks: Array<Block> = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    file: '22-hagrid'
+    file: '23-hagrid'
   },
   {
     name: 'Gryffindor Scarf Pattern', size: { width: 10, height: 20 },
@@ -199,7 +247,7 @@ const topSidesBlocks: Array<Block> = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: '23-scarf-gryffindor'
+    file: '24-scarf-gryffindor'
   },
   {
     name: 'Hufflepuff Scarf Pattern', size: { width: 10, height: 20 },
@@ -207,7 +255,7 @@ const topSidesBlocks: Array<Block> = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: '23-scarf-hufflepuff'
+    file: '24-scarf-hufflepuff'
   },
   {
     name: 'Ravenclaw Scarf Pattern', size: { width: 10, height: 20 },
@@ -215,7 +263,7 @@ const topSidesBlocks: Array<Block> = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: '23-scarf-ravenclaw'
+    file: '24-scarf-ravenclaw'
   },
   {
     name: 'Slytherin Scarf Pattern', size: { width: 10, height: 20 },
@@ -223,7 +271,15 @@ const topSidesBlocks: Array<Block> = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: '23-scarf-slytherin'
+    file: '24-scarf-slytherin'
+  },
+  {
+    name: 'Dementor', size: { width: 12, height: 24 },
+    tags: ['dementor'],
+    type: 'top-sides',
+    difficulty: 3,
+    designer: 'Daphne Seymour',
+    file: '26-dementor'
   }
 ];
 
