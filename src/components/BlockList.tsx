@@ -1,6 +1,7 @@
 import * as React from 'react';
 import weeklyBlocks from '../assets/weeklyBlocks';
 import supplementalBlocks from '../assets/supplementalBlocks';
+import topSidesBlocks from '../assets/topSidesBlocks';
 import otherBlocks from '../assets/otherBlocks';
 import disneyBlocks from '../assets/disneyBlocks';
 import customBlocks from '../assets/customBlocks';
@@ -34,6 +35,7 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
     let blocks = [
       ...weeklyBlocks,
       ...supplementalBlocks,
+      ...topSidesBlocks,
       ...otherBlocks,
       ...disneyBlocks,
       ...customBlocks
