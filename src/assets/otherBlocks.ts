@@ -24,6 +24,22 @@ const otherBlocks: Array<Block> = [
     difficulty: 1,
     designer: 'Michelle Thompson',
     file: '003-molly'
+  },
+  {
+    name: 'Marauders map', size: { width: 10, height: 10 },
+    tags: ['marauders', 'map', 'book', 'books'],
+    type: 'others',
+    difficulty: 5,
+    designer: 'Becky Wilson (PoD FB group)',
+    file: '004-marauders'
+  },
+  {
+    name: 'Rita’s Scroll', size: { width: 10, height: 10 },
+    tags: ['rita','scroll'],
+    type: 'others',
+    difficulty: 3,
+    designer: 'Kristi Lehane',
+    file: '005-rita'
   }
 ];
 

@@ -9,7 +9,7 @@ export interface BlockPosition {
 }
 
 export type blockType = 'original' | 'variation' | 'supplemental'
-  | 'castle' | 'others' | 'disney' | 'custom' | 'top-sides';
+  | 'castle' | 'others' | 'disney' | 'custom' | 'top-sides' | 'beasts';
 
 export interface Block {
   week?: number,

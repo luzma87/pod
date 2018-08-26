@@ -3,6 +3,7 @@ import weeklyBlocks from '../assets/weeklyBlocks';
 import supplementalBlocks from '../assets/supplementalBlocks';
 import topSidesBlocks from '../assets/topSidesBlocks';
 import otherBlocks from '../assets/otherBlocks';
+import beastsBlocks from '../assets/beastsBlocks';
 import disneyBlocks from '../assets/disneyBlocks';
 import customBlocks from '../assets/customBlocks';
 import BlockCard from './BlockCard';
@@ -37,6 +38,7 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
       ...supplementalBlocks,
       ...topSidesBlocks,
       ...otherBlocks,
+      ...beastsBlocks,
       ...disneyBlocks,
       ...customBlocks
     ];
