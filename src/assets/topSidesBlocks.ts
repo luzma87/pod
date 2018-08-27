@@ -122,6 +122,14 @@ const topSidesBlocks: Array<Block> = [
     file: '09-feet2'
   },
   {
+    name: 'Bookcase Feet', size: { width: 10, height: 6 },
+    tags: ['bookcase', 'feet', 'books', 'book'],
+    type: 'top-sides',
+    difficulty: 2,
+    designer: 'Tereza Kulovaná',
+    file: '09-feet3'
+  },
+  {
     name: 'Hungarian Horntail', size: { width: 20, height: 10 },
     tags: ['book', 'books', 'hungarian', 'horntail', 'dragon'],
     type: 'top-sides',
