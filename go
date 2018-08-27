@@ -53,6 +53,9 @@ function task_start {
 function task_build {
   check_for_tool "node" "nvm install node"
 
+  echo "${start_fg}Cleaning first${normal_fg}"
+  task_clean
+
   echo "${start_fg}Building app for static release${normal_fg}"
   npm run build
 }
@@ -63,6 +66,10 @@ function task_clean {
   rm -rf node_modules
   echo -e "${start_fg}\tReinstalling node modules${normal_fg}"
   npm install
+  echo -e "${start_fg}\tDeleting build${normal_fg}"
+  rm -rf build
+  echo -e "${start_fg}\tDeleting dist${normal_fg}"
+  rm -rf dist
 }
 
 function task_clear_port {
