@@ -66,7 +66,6 @@ export const getSelectedBlocks = () => {
 };
 
 export const clickBlock = (position: BlockPosition) => {
-  console.log('click', action, position);
   if (action === 'delete') {
     removeBlock(position);
     setBlockAction(null);
@@ -135,17 +134,19 @@ const enlargeBlock = (position: BlockPosition) => {
 };
 
 const removeBlock = (position: BlockPosition) => {
-  let indexToRemove: number | null = null;
+  let indexToRemove: Array<number> = [];
   for (let i = 0; i < selectedBlocks.length; i++) {
     const b = selectedBlocks[i];
     if (b.position.x === position.x && b.position.y === position.y) {
-      indexToRemove = i;
+      indexToRemove.push(i);
     }
   }
-  if (indexToRemove !== null) {
-    selectedBlocks.splice(indexToRemove, 1);
-    emitChange();
-  }
+  let aaa = 0;
+  indexToRemove.forEach(index => {
+    selectedBlocks.splice(index - aaa, 1);
+    aaa += 1;
+  });
+  emitChange();
 };
 
 const paintBlock = (position: BlockPosition, color: string) => {

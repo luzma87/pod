@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { SelectedBlock } from '../util/types';
 import BlockImage from './BlockImage';
-import { clickBlock } from '../interactions';
+import { clickBlock, setBlockAction } from '../interactions';
 
 export namespace BlockQuilt {
   export interface Props {
@@ -58,6 +58,9 @@ class BlockQuilt extends React.Component<BlockQuilt.Props, BlockQuilt.State> {
     if (block !== null) {
       x = block.position.x;
       y = block.position.y;
+    }
+    if (block.color) {
+      setBlockAction('delete');
     }
     e.stopPropagation();
     clickBlock({ x, y });
