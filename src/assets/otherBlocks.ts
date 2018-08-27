@@ -40,6 +40,46 @@ const otherBlocks: Array<Block> = [
     difficulty: 3,
     designer: 'Kristi Lehane',
     file: '005-rita'
+  },
+  {
+    name: 'Hogwarts crest', size: { width: 5, height: 5 },
+    tags: ['hogwarts','crest'],
+    type: 'others',
+    difficulty: 4,
+    designer: 'Jennifer Ofenstein ',
+    file: '006-hogwarts'
+  },
+  {
+    name: 'Gryffindor crest', size: { width: 5, height: 5 },
+    tags: ['gryffindor','crest'],
+    type: 'others',
+    difficulty: 2,
+    designer: 'Jennifer Ofenstein ',
+    file: '006-gryffindor'
+  },
+  {
+    name: 'Hufflepuff crest', size: { width: 5, height: 5 },
+    tags: ['hufflepuff','crest'],
+    type: 'others',
+    difficulty: 2,
+    designer: 'Jennifer Ofenstein ',
+    file: '006-hufflepuff'
+  },
+  {
+    name: 'Ravenclaw crest', size: { width: 5, height: 5 },
+    tags: ['ravenclaw','crest'],
+    type: 'others',
+    difficulty: 2,
+    designer: 'Jennifer Ofenstein ',
+    file: '006-ravenclaw'
+  },
+  {
+    name: 'Slytherin crest', size: { width: 5, height: 5 },
+    tags: ['slytherin','crest'],
+    type: 'others',
+    difficulty: 2,
+    designer: 'Jennifer Ofenstein ',
+    file: '006-slytherin'
   }
 ];
 
