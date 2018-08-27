@@ -44,9 +44,9 @@ export const getDescriptionForBlocksList = (block: Block): string => {
 };
 
 export const getBlockKey = (block: Block, prefix: string): string => {
-  let key = `${prefix}.${block.type}.${block.week}.${block.number}.${block.name}`;
+  let key = `${prefix}.${block.type}.${block.week}.${block.number}.${block.file}`;
   if (block.week === null) {
-    key = `${prefix}.${block.name}`;
+    key = `${prefix}.${block.file}`;
   }
   return key;
 };

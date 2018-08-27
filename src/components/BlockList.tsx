@@ -127,9 +127,10 @@ class BlockList extends React.Component<BlockList.Props, BlockList.State> {
   };
 
   handleAddChip(chip) {
+    const { tags } = this.state;
     const newChips = _.cloneDeep(this.state.chips);
     newChips.push(chip);
-    this.setState({ chips: newChips }, () => this.filterBlocks());
+    this.setState({ chips: newChips, suggestions: tags }, () => this.filterBlocks());
   }
 
   handleDeleteChip(chip, index) {
