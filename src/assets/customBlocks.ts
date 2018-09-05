@@ -18,6 +18,14 @@ const customBlocks: Array<Block> = [
     file: '002-molly'
   },
   {
+    name: 'Molly’s Knitting with yarn ball', size: { width: 10, height: 10 },
+    tags: ['molly', 'weasley', 'knitting', 'knit', 'yarn', 'ball'],
+    type: 'custom',
+    difficulty: 2,
+    designer: 'Michelle Thompson (modified)',
+    file: '002-molly2'
+  },
+  {
     name: 'Pixie with books', size: { width: 10, height: 10 },
     tags: ['cornish', 'pixie', 'book', 'books'],
     type: 'custom',
@@ -42,6 +50,14 @@ const customBlocks: Array<Block> = [
     file: '003-pixie3'
   },
   {
+    name: 'Pixie with books', size: { width: 10, height: 10 },
+    tags: ['cornish', 'pixie', 'book', 'books'],
+    type: 'custom',
+    difficulty: 5,
+    designer: 'Michelle Thompson / Jennifer Ofenstein (modified)',
+    file: '003-pixie4'
+  },
+  {
     name: 'Pixie with remembrall', size: { width: 10, height: 10 },
     tags: ['cornish', 'pixie', 'book', 'books', 'remembrall'],
     type: 'custom',
@@ -58,6 +74,14 @@ const customBlocks: Array<Block> = [
     file: '004-pixie2'
   },
   {
+    name: 'Pixie with remembrall', size: { width: 10, height: 10 },
+    tags: ['cornish', 'pixie', 'book', 'books', 'remembrall'],
+    type: 'custom',
+    difficulty: 5,
+    designer: 'Michelle Thompson / Jennifer Ofenstein (modified)',
+    file: '004-pixie3'
+  },
+  {
     name: 'Pixie with lantern', size: { width: 10, height: 20 },
     tags: ['cornish', 'pixie', 'lantern'],
     type: 'custom',
@@ -72,6 +96,22 @@ const customBlocks: Array<Block> = [
     difficulty: 5,
     designer: 'Vanda Chittenden (modified)',
     file: '006-pygmy'
+  },
+  {
+    name: 'Ripped books', size: { width: 10, height: 10 },
+    tags: ['ripped', 'book', 'books'],
+    type: 'custom',
+    difficulty: 2,
+    designer: 'Tereza Kulovaná (modified)',
+    file: '007-ripped'
+  },
+  {
+    name: 'Modified butterbeer', size: { width: 10, height: 10 },
+    tags: ['pygmy', 'puff', 'book', 'books'],
+    type: 'custom',
+    difficulty: 3,
+    designer: 'From Facebook group',
+    file: '008-butterbeer'
   }
 ];
 
