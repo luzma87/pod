@@ -46,7 +46,7 @@ const quiltSizes = {
   twin: { name: 'Twin', size: { w: 55, h: 90 } },
   double: { name: 'Double', size: { w: 72.5, h: 90 } },
   queen: { name: 'Queen', size: { w: 90, h: 110 } },
-  queen2: { name: 'queen (top only)', size: { w: 62, h: 78 } },
+  // queen2: { name: 'queen (top only)', size: { w: 62, h: 78 } },
   king: { name: 'King', size: { w: 110, h: 110 } }
 };
 

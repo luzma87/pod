@@ -3,7 +3,7 @@ import { Block } from '../util/types';
 const customBlocks: Array<Block> = [
   {
     name: 'Herbology', size: { width: 10, height: 10 },
-    tags: ['mimbulus', 'mimbletonia', 'mandrake', 'pot', 'potted', 'plant', 'plants', 'book', 'books'],
+    tags: ['herbology', 'mimbulus', 'mimbletonia', 'mandrake', 'pot', 'potted', 'plant', 'plants', 'book', 'books'],
     type: 'custom',
     difficulty: 4,
     designer: 'Schenley Pilgram / Cat Magraith (modified)',
@@ -106,12 +106,12 @@ const customBlocks: Array<Block> = [
     file: '007-ripped'
   },
   {
-    name: 'Modified butterbeer', size: { width: 10, height: 10 },
-    tags: ['pygmy', 'puff', 'book', 'books'],
+    name: 'Tentacled book', size: { width: 10, height: 10 },
+    tags: ['tentacle', 'tentacles', 'book', 'books'],
     type: 'custom',
-    difficulty: 3,
-    designer: 'From Facebook group',
-    file: '008-butterbeer'
+    difficulty: 2,
+    designer: 'Kathy Borrelli (modified)',
+    file: '008-tentacles'
   }
 ];
 

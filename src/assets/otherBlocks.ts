@@ -35,7 +35,7 @@ const otherBlocks: Array<Block> = [
   },
   {
     name: 'Rita’s Scroll', size: { width: 10, height: 10 },
-    tags: ['rita','scroll'],
+    tags: ['rita', 'scroll'],
     type: 'others',
     difficulty: 3,
     designer: 'Kristi Lehane',
@@ -43,43 +43,83 @@ const otherBlocks: Array<Block> = [
   },
   {
     name: 'Hogwarts crest', size: { width: 5, height: 5 },
-    tags: ['hogwarts','crest'],
+    tags: ['hogwarts', 'crest'],
     type: 'others',
     difficulty: 4,
     designer: 'Jennifer Ofenstein ',
     file: '006-hogwarts'
   },
   {
+    name: 'Hogwarts crest', size: { width: 6, height: 6 },
+    tags: ['hogwarts', 'crest'],
+    type: 'others',
+    difficulty: 4,
+    designer: 'Jennifer Ofenstein ',
+    file: '006-hogwarts2'
+  },
+  {
     name: 'Gryffindor crest', size: { width: 5, height: 5 },
-    tags: ['gryffindor','crest'],
+    tags: ['gryffindor', 'crest'],
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
     file: '006-gryffindor'
   },
   {
+    name: 'Gryffindor crest', size: { width: 6, height: 6 },
+    tags: ['gryffindor', 'crest'],
+    type: 'others',
+    difficulty: 2,
+    designer: 'Jennifer Ofenstein ',
+    file: '006-gryffindor2'
+  },
+  {
     name: 'Hufflepuff crest', size: { width: 5, height: 5 },
-    tags: ['hufflepuff','crest'],
+    tags: ['hufflepuff', 'crest'],
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
     file: '006-hufflepuff'
   },
   {
+    name: 'Hufflepuff crest', size: { width: 6, height: 6 },
+    tags: ['hufflepuff', 'crest'],
+    type: 'others',
+    difficulty: 2,
+    designer: 'Jennifer Ofenstein ',
+    file: '006-hufflepuff2'
+  },
+  {
     name: 'Ravenclaw crest', size: { width: 5, height: 5 },
-    tags: ['ravenclaw','crest'],
+    tags: ['ravenclaw', 'crest'],
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
     file: '006-ravenclaw'
   },
   {
+    name: 'Ravenclaw crest', size: { width: 6, height: 6 },
+    tags: ['ravenclaw', 'crest'],
+    type: 'others',
+    difficulty: 2,
+    designer: 'Jennifer Ofenstein ',
+    file: '006-ravenclaw2'
+  },
+  {
     name: 'Slytherin crest', size: { width: 5, height: 5 },
-    tags: ['slytherin','crest'],
+    tags: ['slytherin', 'crest'],
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
     file: '006-slytherin'
+  },
+  {
+    name: 'Slytherin crest', size: { width: 6, height: 6 },
+    tags: ['slytherin', 'crest'],
+    type: 'others',
+    difficulty: 2,
+    designer: 'Jennifer Ofenstein ',
+    file: '006-slytherin2'
   }
 ];
 

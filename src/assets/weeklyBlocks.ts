@@ -201,7 +201,7 @@ const weeklyBlocks: Array<Block> = [
   {
     week: 9, number: 1,
     name: 'Golden Snitch', size: { width: 10, height: 10 },
-    tags: ['books', 'book'],
+    tags: ['books', 'book', 'golden', 'snitch'],
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein'
