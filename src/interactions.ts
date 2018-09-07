@@ -36,6 +36,10 @@ export const setBlockAction = (newAction: spellType) => {
   }
 };
 
+export const getShareableLink = () => {
+  console.log('Sharing');
+};
+
 export const beginDraggingBlock = (block: Block, position: BlockPosition, clones: boolean) => {
   draggingBlock = { block, position };
   shouldClone = clones;

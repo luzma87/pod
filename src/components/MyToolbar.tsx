@@ -7,8 +7,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 import Email from '@material-ui/icons/Email';
 import Info from '@material-ui/icons/Info';
+import Link from '@material-ui/icons/Link';
 
-import { setBlockAction } from '../interactions';
+import { getShareableLink, setBlockAction } from '../interactions';
 import spells from '../spells';
 import { Spell } from '../util/types';
 
@@ -30,13 +31,6 @@ class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
     return (
       <AppBar position="sticky">
         <Toolbar>
-          {/*<IconButton*/}
-          {/*color="inherit"*/}
-          {/*aria-label="Menu"*/}
-          {/*onClick={() => onMenuClick()}*/}
-          {/*>*/}
-          {/*<MenuIcon />*/}
-          {/*</IconButton>*/}
           <Typography
             variant="title"
             color="inherit"
@@ -44,6 +38,11 @@ class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
           >
             Design helper
           </Typography>
+          <Tooltip title="Shareable link">
+            <IconButton onClick={() => getShareableLink()}>
+              <Link />
+            </IconButton>
+          </Tooltip>
           {spells.map(spell => (
               <Tooltip
                 title={spell.name}

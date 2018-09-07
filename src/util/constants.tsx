@@ -26,6 +26,7 @@ const materialPalette = [
   makeColor('#FF5722', 'Deep Orange'),
   makeColor('#795548', 'Brown'),
   makeColor('#9E9E9E', 'Gray'),
+  makeColor('#7E7E7E', 'Dark Gray'),
   makeColor('#607D8B', 'Blue Gray'),
   makeColor('#000000', 'Black'),
   makeColor('#FFFFFF', 'White')
