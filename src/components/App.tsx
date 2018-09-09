@@ -23,7 +23,7 @@ export namespace App {
     showInfo: boolean
     showSnackbar: boolean
     showDrawer: boolean
-    snackbarSpell?: Spell
+    snackbarMessage?: string
   }
 }
 
@@ -36,22 +36,30 @@ class App extends React.Component<App.Props, App.State> {
       showSnackbar: false,
       showDrawer: false,
 
-      showInfo: false
+      showInfo: true
     };
   }
 
   handleSnackbar(spell: Spell) {
-    this.setState({ snackbarSpell: spell, showSnackbar: true });
+    const snackbarMessage = `${spell.name}! Click on a quilt block to ${spell.action} it`;
+    this.setState({ snackbarMessage, showSnackbar: true });
     setTimeout(() => this.setState({ showSnackbar: false }), 5000);
   }
 
+  handleShareableLink(link) {
+    const snackbarMessage = 'The address of this page has been updated! you can bookmark it, or copy it. If you visit that again, you will see your saved work';
+    this.setState({ snackbarMessage, showSnackbar: true });
+    setTimeout(() => this.setState({ showSnackbar: false }), 10000);
+  }
+
   render() {
-    const { showInfo, showSnackbar, snackbarSpell } = this.state;
+    const { showInfo, showSnackbar, snackbarMessage } = this.state;
     return (
       <div className="flex1">
         <MyToolbar
           onInfoClick={() => this.setState({ showInfo: true })}
           onMenuClick={() => this.setState({ showDrawer: true })}
+          onShareLink={(link) => this.handleShareableLink(link)}
           onSpellClick={(spell) => this.handleSnackbar(spell)}
         />
         <div className="container">
@@ -74,10 +82,7 @@ class App extends React.Component<App.Props, App.State> {
           ContentProps={{
             'aria-describedby': 'message-id'
           }}
-          message={(<div id="message-id">
-            {snackbarSpell ? `${snackbarSpell.name}!
-            Click on a quilt block to ${snackbarSpell.action} it` : ''}
-          </div>)}
+          message={(<div id="message-id">{snackbarMessage}</div>)}
         />
       </div>
     );

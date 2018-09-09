@@ -1,8 +1,7 @@
 import cursors from './assets/cursors/cursors';
+import { Block, BlockPosition, SelectedBlock, spellType } from './util/types';
 
 const _ = require('lodash');
-
-import { Block, BlockPosition, SelectedBlock, spellType } from './util/types';
 
 let selectedBlocks: SelectedBlock[] = [];
 let shouldClone: boolean = true;
@@ -14,6 +13,24 @@ let observers: Array<BlockObserver> | null = null;
 let action: spellType;
 
 document.body.style.cursor = cursors.bucket;
+
+const getUrlParam = () => {
+  const pathname = window.location.pathname;
+  return pathname.substr(1);
+};
+
+const selectedBlockFromString = (blocksB64) => {
+  try {
+    const de64 = atob(blocksB64);
+    const newBlocksString = decodeURIComponent(de64);
+    selectedBlocks = JSON.parse(newBlocksString);
+  } catch (e) {
+    return '';
+  }
+  return '';
+};
+
+selectedBlockFromString(getUrlParam());
 
 export const observe = (o: BlockObserver) => {
   if (observers === null) {
@@ -37,7 +54,16 @@ export const setBlockAction = (newAction: spellType) => {
 };
 
 export const getShareableLink = () => {
-  console.log('Sharing');
+  const protocol = window.location.protocol;
+  const host = window.location.host;
+  const url = `${protocol}//${host}`;
+  const blocks = JSON.stringify(selectedBlocks);
+  const blocks64 = btoa(encodeURIComponent(blocks));
+  const shareableUrl = `${url}/${blocks64}`;
+  window.history.pushState({
+    'html': shareableUrl
+  }, '', shareableUrl);
+  return shareableUrl;
 };
 
 export const beginDraggingBlock = (block: Block, position: BlockPosition, clones: boolean) => {

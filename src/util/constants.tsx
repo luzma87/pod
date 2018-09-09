@@ -103,7 +103,7 @@ const infoContents: InfoContent[] = [
     key: 't4', text: '', divider: true
   },
   {
-    key: 't5', text: 'Each square in the Quilt grid measures 2.5"'
+    key: 't5', text: 'Each square in the Quilt grid measures 2"'
   },
   {
     key: 't6', text: 'You can drag blocks from the left and drop them in the Quilt'
@@ -120,7 +120,17 @@ const infoContents: InfoContent[] = [
   },
   {
     key: 't10',
-    text: 'You can modify blocks by clicking the icons on the toolbar. Each one will tell you what it does'
+    text: 'You can modify blocks by clicking the gray icons on the toolbar. Each one will tell you what it does'
+  },
+  {
+    key: 't11', text: 'You can search for blocks using the bar on top of the block list'
+  },
+  {
+    key: 't12', text: 'You can save your design with the first button on the toolbar. ' +
+      'This will generate a link with the current state of the quilt, which you can save or share'
+  },
+  {
+    key: 't13', text: 'You can send me an email by clicking the envelop icon on the toolbar'
   }
 ];
 

@@ -17,7 +17,7 @@ export namespace MyToolbar {
   export interface Props {
     onInfoClick: () => void
     onMenuClick: () => void
-
+    onShareLink: (link: string) => void
     onSpellClick: (spell: Spell) => void
   }
 
@@ -27,7 +27,7 @@ export namespace MyToolbar {
 
 class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
   render() {
-    const { onInfoClick, onSpellClick } = this.props;
+    const { onInfoClick, onSpellClick, onShareLink } = this.props;
     return (
       <AppBar position="sticky">
         <Toolbar>
@@ -39,7 +39,13 @@ class MyToolbar extends React.Component<MyToolbar.Props, MyToolbar.State> {
             Design helper
           </Typography>
           <Tooltip title="Shareable link">
-            <IconButton onClick={() => getShareableLink()}>
+            <IconButton
+              onClick={() => {
+                const shareableLink = getShareableLink();
+                onShareLink(shareableLink);
+              }}
+              color="inherit"
+            >
               <Link />
             </IconButton>
           </Tooltip>

@@ -48,5 +48,7 @@ export const getBlockKey = (block: Block, prefix: string): string => {
   if (block.week === null) {
     key = `${prefix}.${block.file}`;
   }
+  key = key.replace(/undefined/g, 'x');
+  key += `-${Math.random()}`;
   return key;
 };

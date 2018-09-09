@@ -30,6 +30,7 @@ const renderInput = (inputProps) => {
   return (
     <ChipInput
       clearInputValueOnChange
+      label="Search"
       onUpdateInput={onChange}
       onAdd={onAdd}
       onDelete={onDelete}
