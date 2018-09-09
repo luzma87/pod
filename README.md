@@ -1,66 +1,33 @@
-# Frontend Boilerplate with React, Redux & TypeScript
+#Project Of Doom design helper
 
-A bare minimum react-redux-webpack-typescript boilerplate with TodoMVC example. 
+Project based on: [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-mobx-typescript-boilerplate)
 
-[Live demo](https://rokoroku.github.io/react-redux-typescript-boilerplate)
+The Project of Doom was a 2011 Harry Potter Quilt rebooted in 2015 as a Quilt Along for 
+[Fandom in Stitches](http://www.fandominstitches.com/2015/07/harry-potter-bookcase-quilt-along.html). 
 
-Note that this project does not include **Server-Side Rendering**,  **Testing Frameworks** and other stuffs that makes the package unnecessarily complicated.
+It is composed paper piecing blocks, designed by 
+[Jennifer Ofenstein](https://sewhooked.com) and the 
+[Fandom in Stitches](http://www.fandominstitches.com) quilting community.
 
-Ideal for creating React apps from the scratch.
+This project is meant to help the design of the quilt. 
+I transformed all of the weekly blocks and most of the supplemental blocks and created this web app
+to help with designing a PoD quilt. 
 
-See also: [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-mobx-typescript-boilerplate)
+This is very much a work in progress, done in my spare time.
 
-### Branches
-- [`feature-tslint`](https://github.com/rokoroku/react-redux-typescript-boilerplate/tree/feature/tslint): yarn + tslint + prettier integrated branch.
+Any suggestions or feedback are welcome.
 
-## Contains
+Here are some examples of what you can do with this.
 
-- [x] [Typescript](https://www.typescriptlang.org/) 2.8
-- [x] [React](https://facebook.github.io/react/) 16.3
-- [x] [Redux](https://github.com/reactjs/redux) 4
-- [x] [React Router](https://github.com/ReactTraining/react-router) 4.2
-- [x] [React Router Redux](https://github.com/reactjs/react-router-redux) 5
-- [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
-- [x] [TodoMVC example](http://todomvc.com)
+![alt text](readme-images/layout1.png "layout example")
+layout example
+![alt text](readme-images/layout2.png "another layout example")
+another layout example
 
-### Build tools
-
-- [x] [Webpack](https://webpack.github.io) 4
-  - [x] [Tree Shaking](https://medium.com/@Rich_Harris/tree-shaking-versus-dead-code-elimination-d3765df85c80)
-  - [x] [Webpack Dev Server](https://github.com/webpack/webpack-dev-server)
-- [x] [Typescript Loader](https://github.com/TypeStrong/ts-loader)
-- [x] [PostCSS Loader](https://github.com/postcss/postcss-loader)
-  - [x] [CSS next](https://github.com/MoOx/postcss-cssnext)
-  - [x] [CSS modules](https://github.com/css-modules/css-modules)
-- [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader)
-- [x] [ExtractText Plugin](https://github.com/webpack/extract-text-webpack-plugin)
-- [x] [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin)
-- [x] [Prettier](https://github.com/prettier/prettier)
-
-## Setup
-
+If you want to play around with the code you can clone/fork/download this repo and
 ```
 $ npm install
-```
-
-## Running
-
-```
 $ npm start
 ```
-
-## Build
-
-```
-$ npm run build
-```
-
-## Prettier
-
-```
-$ npm run prettier
-```
-
 # License
-
 MIT
