@@ -58,24 +58,24 @@ const customBlocks: Array<Block> = [
     file: '003-pixie4'
   },
   {
-    name: 'Pixie with remembrall', size: { width: 10, height: 10 },
-    tags: ['cornish', 'pixie', 'book', 'books', 'remembrall'],
+    name: 'Pixie with rememberall', size: { width: 10, height: 10 },
+    tags: ['cornish', 'pixie', 'book', 'books', 'rememberall'],
     type: 'custom',
     difficulty: 5,
     designer: 'Michelle Thompson / Jennifer Ofenstein (modified)',
     file: '004-pixie'
   },
   {
-    name: 'Pixie with remembrall', size: { width: 10, height: 10 },
-    tags: ['cornish', 'pixie', 'book', 'books', 'remembrall'],
+    name: 'Pixie with rememberall', size: { width: 10, height: 10 },
+    tags: ['cornish', 'pixie', 'book', 'books', 'rememberall'],
     type: 'custom',
     difficulty: 5,
     designer: 'Michelle Thompson / Jennifer Ofenstein (modified)',
     file: '004-pixie2'
   },
   {
-    name: 'Pixie with remembrall', size: { width: 10, height: 10 },
-    tags: ['cornish', 'pixie', 'book', 'books', 'remembrall'],
+    name: 'Pixie with rememberall', size: { width: 10, height: 10 },
+    tags: ['cornish', 'pixie', 'book', 'books', 'rememberall'],
     type: 'custom',
     difficulty: 5,
     designer: 'Michelle Thompson / Jennifer Ofenstein (modified)',

@@ -113,7 +113,7 @@ const weeklyBlocks: Array<Block> = [
   {
     week: 4, number: 3,
     name: 'Harry’s Glasses', size: { width: 10, height: 10 },
-    tags: ['books', 'book'],
+    tags: ['books', 'book', 'glasses'],
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein'
@@ -754,7 +754,7 @@ const weeklyBlocks: Array<Block> = [
   {
     week: 27, number: 3,
     name: 'Half-Moon Spectacles', size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'half', 'moon', 'spectacles', 'glasses'],
+    tags: ['books', 'book', 'half-moon', 'spectacles', 'glasses'],
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein'
@@ -770,7 +770,7 @@ const weeklyBlocks: Array<Block> = [
   {
     week: 28, number: 1,
     name: 'Trevor', size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'trevor', 'toad'],
+    tags: ['books', 'book', 'trevor', 'toad', 'neville'],
     type: 'original',
     difficulty: 4,
     designer: 'Jennifer Ofenstein'
@@ -778,7 +778,7 @@ const weeklyBlocks: Array<Block> = [
   {
     week: 28, number: 2,
     name: 'Trevor', size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'trevor', 'toad'],
+    tags: ['books', 'book', 'trevor', 'toad', 'neville'],
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein'
@@ -850,7 +850,7 @@ const weeklyBlocks: Array<Block> = [
   {
     week: 30, number: 2,
     name: 'Potion Bottles', size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'potion', 'bottles'],
+    tags: ['books', 'book', 'potion', 'bottles', 'bottle'],
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein'
