@@ -15,8 +15,10 @@ let action: spellType;
 document.body.style.cursor = cursors.bucket;
 
 const getUrlParam = () => {
-  const pathname = window.location.pathname;
-  return pathname.substr(1);
+  const href = window.location.href;
+  const parts = href.split('/');
+  const param = parts[parts.length - 1];
+  return param.substr(1);
 };
 
 const selectedBlockFromString = (blocksB64) => {
@@ -59,7 +61,7 @@ export const getShareableLink = () => {
   const url = `${protocol}//${host}`;
   const blocks = JSON.stringify(selectedBlocks);
   const blocks64 = btoa(encodeURIComponent(blocks));
-  const shareableUrl = `${url}/${blocks64}`;
+  const shareableUrl = `${url}/?${blocks64}`;
   window.history.pushState({
     'html': shareableUrl
   }, '', shareableUrl);
