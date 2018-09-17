@@ -112,6 +112,22 @@ const customBlocks: Array<Block> = [
     difficulty: 2,
     designer: 'Kathy Borrelli (modified)',
     file: '008-tentacles'
+  },
+  {
+    name: 'Tale of 3 brothers', size: { width: 10, height: 10 },
+    tags: ['tale', 'brothers', 'three', 'beedle', 'bard', 'book', 'books'],
+    type: 'custom',
+    difficulty: 4,
+    designer: 'Jennifer Ofenstein/Michelle Thompson/Melodye Wood Marks (modified)',
+    file: '009-3bros'
+  },
+  {
+    name: 'Venomous Tentacula', size: { width: 10, height: 10 },
+    tags: ['picture', 'venomous', 'tentacula'],
+    type: 'custom',
+    difficulty: 4,
+    designer: 'Jennifer Ofenstein',
+    file: '010-venomous'
   }
 ];
 

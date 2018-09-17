@@ -185,7 +185,7 @@ const weeklyBlocks: Array<Block> = [
   {
     week: 7, number: 3,
     name: 'Venomous Tentacula', size: { width: 10, height: 10 },
-    tags: ['picture', 'venomous', 'tentacula'],
+    tags: ['book', 'books', 'venomous', 'tentacula'],
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein'
